@@ -3,6 +3,7 @@
 #include <QDebug>
 #include <QSerialPort>
 #include <QAction>
+#include "define.h"
 QtControl::QtControl(QWidget *parent)
 	: QWidget(parent)
 {
@@ -16,11 +17,18 @@ QtControl::QtControl(QWidget *parent)
 	//disPlayKeyBoard();
 
 	connect(btn_get, SIGNAL(clicked()), this, SLOT(on_slot_Get()));
+	connect(btn_setting, SIGNAL(clicked()), this, SLOT(on_slot_setting()));
+
+	QPixmap midPix;
+	QPixmap qrPixmap = myHelper::MakeQRPixmap("test", midPix, 100);
+
+	label_QRImage->setPixmap(qrPixmap);
 
 }
 /****************************串口初始化*****************************/
 void QtControl::initPort()
 {
+	//LOG_WARN("initPort","");
 	//读取串口信息
 	foreach(const QSerialPortInfo &info, QSerialPortInfo::availablePorts())
 	{
@@ -94,6 +102,12 @@ void QtControl::on_slot_Get()
 {
 	m_pNumKeyWidget.reset(new NumKeyBoard);
 	m_pNumKeyWidget->showMaximized();
+	this->hide();
+}
+void QtControl::on_slot_setting()
+{
+	m_pfrmWidget.reset(new frmComTool);
+	m_pfrmWidget->showMaximized();
 	this->hide();
 }
 void QtControl::displayInputContent(QString text)

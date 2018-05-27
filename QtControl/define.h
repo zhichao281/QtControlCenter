@@ -2,7 +2,10 @@
 
 #include "../QtControl/include/develop_interface.h"
 #include "../QtControl/log/log_deffine.h"
+#include "Base/myhelper.h"
 
+class Logger;
+extern std::unique_ptr<Logger> g_logPtr;
 //¾²Ì¬¿â
 #ifdef _DEBUG
 

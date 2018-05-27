@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1044</width>
-    <height>705</height>
+    <height>781</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,7 +19,8 @@
 
 border-image: url(:/Image/Resources/Image/1.jpg);
 
-}</string>
+}
+</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <property name="spacing">
@@ -39,7 +40,7 @@ border-image: url(:/Image/Resources/Image/1.jpg);
    </property>
    <item>
     <widget class="QWidget" name="widget_main" native="true">
-     <layout class="QVBoxLayout" name="verticalLayout_4" stretch="0,0,0">
+     <layout class="QVBoxLayout" name="verticalLayout_4" stretch="0,0,0,0">
       <property name="spacing">
        <number>3</number>
       </property>
@@ -47,7 +48,7 @@ border-image: url(:/Image/Resources/Image/1.jpg);
        <number>10</number>
       </property>
       <property name="topMargin">
-       <number>10</number>
+       <number>80</number>
       </property>
       <property name="rightMargin">
        <number>10</number>
@@ -56,7 +57,7 @@ border-image: url(:/Image/Resources/Image/1.jpg);
        <number>10</number>
       </property>
       <item>
-       <widget class="QWidget" name="widget_2" native="true">
+       <widget class="QWidget" name="widget_tittle" native="true">
         <property name="maximumSize">
          <size>
           <width>16777215</width>
@@ -90,11 +91,14 @@ border-image: url(:/Image/Resources/Image/1.jpg);
            <property name="font">
             <font>
              <family>新宋体</family>
-             <pointsize>22</pointsize>
+             <pointsize>36</pointsize>
             </font>
            </property>
+           <property name="styleSheet">
+            <string notr="true">color: rgb(255, 255, 255);</string>
+           </property>
            <property name="text">
-            <string>智能快递</string>
+            <string>智慧屋</string>
            </property>
           </widget>
          </item>
@@ -120,11 +124,27 @@ border-image: url(:/Image/Resources/Image/1.jpg);
             </size>
            </property>
            <property name="text">
-            <string>TextLabel</string>
+            <string>智慧屋编号：</string>
            </property>
           </widget>
          </item>
         </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_2">
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>4</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(85, 255, 255);</string>
+        </property>
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
        </widget>
       </item>
       <item>
@@ -164,7 +184,7 @@ border-image: url(:/Image/Resources/Image/1.jpg);
            </spacer>
           </item>
           <item>
-           <widget class="QPushButton" name="btn_save">
+           <widget class="QToolButton" name="btn_save">
             <property name="minimumSize">
              <size>
               <width>500</width>
@@ -191,7 +211,7 @@ border-image: url(:/Image/Resources/Image/1.jpg);
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="btn_setting">
+           <widget class="QToolButton" name="btn_setting">
             <property name="minimumSize">
              <size>
               <width>500</width>
@@ -324,7 +344,7 @@ border-image: url(:/Image/Resources/Image/1.jpg);
         <property name="maximumSize">
          <size>
           <width>16777215</width>
-          <height>50</height>
+          <height>100</height>
          </size>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_5">
@@ -346,11 +366,17 @@ border-image: url(:/Image/Resources/Image/1.jpg);
          <item>
           <layout class="QHBoxLayout" name="horizontalLayout_3">
            <item>
-            <widget class="QLabel" name="label_2">
+            <widget class="QLabel" name="label_QRImage">
+             <property name="minimumSize">
+              <size>
+               <width>100</width>
+               <height>100</height>
+              </size>
+             </property>
              <property name="maximumSize">
               <size>
                <width>16777215</width>
-               <height>50</height>
+               <height>16777215</height>
               </size>
              </property>
              <property name="text">
@@ -375,8 +401,7 @@ border-image: url(:/Image/Resources/Image/1.jpg);
               </font>
              </property>
              <property name="text">
-              <string>扫描二维码
-包裹信息早知道</string>
+              <string>请扫描二维码</string>
              </property>
             </widget>
            </item>
