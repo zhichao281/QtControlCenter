@@ -99,6 +99,12 @@
     <ClCompile Include="Base\QR_Encode.cpp">
       <Filter>Base</Filter>
     </ClCompile>
+    <ClCompile Include="log\log_deffine.cpp">
+      <Filter>log</Filter>
+    </ClCompile>
+    <ClCompile Include="Qtxqm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="QtControl.h">
@@ -111,6 +117,9 @@
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="frmcomtool.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="Qtxqm.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>

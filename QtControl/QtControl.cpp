@@ -4,6 +4,7 @@
 #include <QSerialPort>
 #include <QAction>
 #include "define.h"
+#include "Qtxqm.h"
 QtControl::QtControl(QWidget *parent)
 	: QWidget(parent)
 {
@@ -23,6 +24,7 @@ QtControl::QtControl(QWidget *parent)
 	QPixmap qrPixmap = myHelper::MakeQRPixmap("test", midPix, 100);
 
 	label_QRImage->setPixmap(qrPixmap);
+	gblTxqm->Start_Receive();
 
 }
 /****************************´®¿Ú³õÊ¼»¯*****************************/
