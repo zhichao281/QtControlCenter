@@ -22,9 +22,14 @@ NumKeyBoard::NumKeyBoard(QWidget *parent) :
 	connect(toolButton_enter, SIGNAL(clicked()), this, SLOT(onEnter()));
 	connect(toolButton_backspace, SIGNAL(clicked()), this, SLOT(onBackspace()));
 
-	//QRegExp regx("[0-9]+$");
-	//QValidator *validator = new QRegExpValidator(regx, display);
-	//display->setValidator(validator);
+	QRegExp regx("[0-9]+$");
+	QValidator *validator = new QRegExpValidator(regx, display);
+	display->setValidator(validator);
+	display->hide();
+
+	connect(display, &QLineEdit::textChanged,this, &NumKeyBoard::on_slot_textChanged);
+
+	display->setMaxLength(6);
 }
 
 NumKeyBoard::~NumKeyBoard()
@@ -164,5 +169,33 @@ void NumKeyBoard::onInvMode()
 	else if (inputMode == iMode_Passwd)
 	{
 		display->setEchoMode(QLineEdit::Password);
+	}
+}
+
+void NumKeyBoard::on_slot_textChanged(const QString & text)
+{
+
+
+	for (int i=0;i<text.length();i++)
+	{
+		QString num = text.at(i);
+		QString lcdname = QString("lcdNumber_%1").arg(i+1);
+		QLCDNumber *db = this->findChild<QLCDNumber *>(lcdname);
+		num += " ";
+		if (db!=nullptr)
+		{
+			db->display(num);				
+		}
+	}
+	for (int i = text.length(); i < 6; i++)
+	{
+		QString lcdname = QString("lcdNumber_%1").arg(i+1);
+		QLCDNumber *db = this->findChild<QLCDNumber *>(lcdname);
+		if (db != nullptr)
+		{
+			QString num = "0";
+			num += " ";
+			db->display(num);
+		}
 	}
 }

@@ -39,6 +39,7 @@ private slots:
 	/*******¥Û–°–¥*/
 	void onInvMode();
 
+	void  on_slot_textChanged(const QString &text);
 private:
 	int inputMode;
 	bool waitingForOperand;
