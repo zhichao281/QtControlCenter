@@ -1,5 +1,8 @@
 <RCC>
   <qresource prefix="Image">
+    <file>Resources/Image/hourglass.gif</file>
+    <file>Resources/Image/progree.gif</file>
+    <file>Resources/Image/QR.gif</file>
     <file>Resources/Image/backgroundImage.jpg</file>
     <file>Resources/Image/1.jpg</file>
   </qresource>

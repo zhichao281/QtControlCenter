@@ -105,6 +105,18 @@
     <ClCompile Include="Qtxqm.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="QGetWidget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CMessage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CQRWidget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CProgressWidget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="QtControl.h">
@@ -122,6 +134,18 @@
     <QtMoc Include="Qtxqm.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="QGetWidget.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="CMessage.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="CQRWidget.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="CProgressWidget.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="QtControl.ui">
@@ -137,6 +161,18 @@
       <Filter>Form Files</Filter>
     </QtUic>
     <QtUic Include="NumKeyBoard.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="QGetWidget.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="CMessage.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="CQRWidget.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="CProgressWidget.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>

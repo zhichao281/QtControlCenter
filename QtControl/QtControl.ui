@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1044</width>
-    <height>781</height>
+    <height>783</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -40,28 +40,34 @@ border-image: url(:/Image/Resources/Image/1.jpg);
    </property>
    <item>
     <widget class="QWidget" name="widget_main" native="true">
-     <layout class="QVBoxLayout" name="verticalLayout_4" stretch="0,0,0,0">
+     <layout class="QVBoxLayout" name="verticalLayout_4" stretch="0,0,0,0,0">
       <property name="spacing">
-       <number>3</number>
+       <number>0</number>
       </property>
       <property name="leftMargin">
-       <number>10</number>
+       <number>0</number>
       </property>
       <property name="topMargin">
-       <number>80</number>
+       <number>50</number>
       </property>
       <property name="rightMargin">
-       <number>10</number>
+       <number>0</number>
       </property>
       <property name="bottomMargin">
-       <number>10</number>
+       <number>0</number>
       </property>
       <item>
        <widget class="QWidget" name="widget_tittle" native="true">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>0</height>
+         </size>
+        </property>
         <property name="maximumSize">
          <size>
           <width>16777215</width>
-          <height>50</height>
+          <height>16777215</height>
          </size>
         </property>
         <layout class="QHBoxLayout" name="horizontalLayout_4">
@@ -69,13 +75,13 @@ border-image: url(:/Image/Resources/Image/1.jpg);
           <number>0</number>
          </property>
          <property name="leftMargin">
-          <number>30</number>
+          <number>50</number>
          </property>
          <property name="topMargin">
           <number>0</number>
          </property>
          <property name="rightMargin">
-          <number>30</number>
+          <number>50</number>
          </property>
          <property name="bottomMargin">
           <number>0</number>
@@ -123,6 +129,17 @@ border-image: url(:/Image/Resources/Image/1.jpg);
              <height>16777215</height>
             </size>
            </property>
+           <property name="font">
+            <font>
+             <family>Agency FB</family>
+             <pointsize>20</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: rgb(255, 255, 255);</string>
+           </property>
            <property name="text">
             <string>智慧屋编号：</string>
            </property>
@@ -136,35 +153,28 @@ border-image: url(:/Image/Resources/Image/1.jpg);
         <property name="maximumSize">
          <size>
           <width>16777215</width>
-          <height>4</height>
+          <height>6</height>
          </size>
         </property>
         <property name="styleSheet">
          <string notr="true">background-color: rgb(85, 255, 255);</string>
         </property>
         <property name="text">
-         <string>TextLabel</string>
+         <string/>
         </property>
        </widget>
       </item>
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="1,8,8,1">
+       <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="8,8">
         <property name="spacing">
-         <number>6</number>
+         <number>80</number>
         </property>
-        <item>
-         <spacer name="horizontalSpacer_2">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>40</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
+        <property name="leftMargin">
+         <number>80</number>
+        </property>
+        <property name="rightMargin">
+         <number>80</number>
+        </property>
         <item>
          <layout class="QVBoxLayout" name="verticalLayout_2">
           <property name="spacing">
@@ -187,14 +197,14 @@ border-image: url(:/Image/Resources/Image/1.jpg);
            <widget class="QToolButton" name="btn_save">
             <property name="minimumSize">
              <size>
-              <width>500</width>
-              <height>250</height>
+              <width>350</width>
+              <height>350</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
-              <width>500</width>
-              <height>250</height>
+              <width>16777215</width>
+              <height>16777215</height>
              </size>
             </property>
             <property name="font">
@@ -204,36 +214,13 @@ border-image: url(:/Image/Resources/Image/1.jpg);
               <weight>75</weight>
               <bold>true</bold>
              </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(0, 140, 204);
+color: rgb(255, 255, 255);</string>
             </property>
             <property name="text">
              <string>存放</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QToolButton" name="btn_setting">
-            <property name="minimumSize">
-             <size>
-              <width>500</width>
-              <height>250</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>500</width>
-              <height>250</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <family>微软雅黑</family>
-              <pointsize>36</pointsize>
-              <weight>75</weight>
-              <bold>true</bold>
-             </font>
-            </property>
-            <property name="text">
-             <string>设置</string>
             </property>
            </widget>
           </item>
@@ -271,14 +258,14 @@ border-image: url(:/Image/Resources/Image/1.jpg);
            <widget class="QToolButton" name="btn_get">
             <property name="minimumSize">
              <size>
-              <width>500</width>
-              <height>500</height>
+              <width>350</width>
+              <height>350</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
-              <width>500</width>
-              <height>500</height>
+              <width>16777215</width>
+              <height>16777215</height>
              </size>
             </property>
             <property name="font">
@@ -288,6 +275,10 @@ border-image: url(:/Image/Resources/Image/1.jpg);
               <weight>75</weight>
               <bold>true</bold>
              </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(0, 140, 204);
+color: rgb(255, 255, 255);</string>
             </property>
             <property name="text">
              <string>取件</string>
@@ -318,34 +309,40 @@ border-image: url(:/Image/Resources/Image/1.jpg);
           </item>
          </layout>
         </item>
-        <item>
-         <spacer name="horizontalSpacer_3">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>40</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
        </layout>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_6">
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>4</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(85, 255, 255);</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
       </item>
       <item>
        <widget class="QWidget" name="widget" native="true">
         <property name="minimumSize">
          <size>
           <width>0</width>
-          <height>0</height>
+          <height>200</height>
          </size>
         </property>
         <property name="maximumSize">
          <size>
           <width>16777215</width>
-          <height>100</height>
+          <height>16777215</height>
          </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(5, 164, 238);</string>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_5">
          <property name="spacing">
@@ -400,6 +397,9 @@ border-image: url(:/Image/Resources/Image/1.jpg);
                <bold>true</bold>
               </font>
              </property>
+             <property name="styleSheet">
+              <string notr="true">color: rgb(255, 255, 255);</string>
+             </property>
              <property name="text">
               <string>请扫描二维码</string>
              </property>
@@ -419,6 +419,33 @@ border-image: url(:/Image/Resources/Image/1.jpg);
             </spacer>
            </item>
            <item>
+            <widget class="QToolButton" name="btn_setting">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>25</width>
+               <height>25</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <family>微软雅黑</family>
+               <pointsize>8</pointsize>
+               <weight>50</weight>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="text">
+              <string>设置</string>
+             </property>
+            </widget>
+           </item>
+           <item>
             <layout class="QVBoxLayout" name="verticalLayout_6">
              <item>
               <widget class="QLabel" name="label_4">
@@ -433,6 +460,9 @@ border-image: url(:/Image/Resources/Image/1.jpg);
                  <family>新宋体</family>
                  <pointsize>14</pointsize>
                 </font>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">color: rgb(255, 255, 255);</string>
                </property>
                <property name="text">
                 <string>客服热线：</string>
@@ -453,8 +483,11 @@ border-image: url(:/Image/Resources/Image/1.jpg);
                  <pointsize>14</pointsize>
                 </font>
                </property>
+               <property name="styleSheet">
+                <string notr="true">color: rgb(255, 255, 255);</string>
+               </property>
                <property name="text">
-                <string>4000000</string>
+                <string>1390605001</string>
                </property>
               </widget>
              </item>

@@ -57,6 +57,7 @@ public:
 
     QString Mode;                //转换模式
     QString ServerIP;            //服务器IP
+	QString strComputerUrl;     //公司的网址
     int ServerPort;              //服务器端口
     int ListenPort;              //监听端口
     int SleepTime;               //延时时间

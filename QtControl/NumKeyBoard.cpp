@@ -4,9 +4,11 @@
 
 
 NumKeyBoard::NumKeyBoard(QWidget *parent) :
-	QWidget(parent)
+	QDialog(parent)
 {
 	this->setupUi(this);
+	setWindowFlags(Qt::FramelessWindowHint | Qt::WindowMinimizeButtonHint );
+
 	display->setFocus();
 	button_init();
 
@@ -30,6 +32,10 @@ NumKeyBoard::NumKeyBoard(QWidget *parent) :
 	connect(display, &QLineEdit::textChanged,this, &NumKeyBoard::on_slot_textChanged);
 
 	display->setMaxLength(6);
+
+	connect(btn_back, SIGNAL(clicked()), this, SLOT(on_btnBack_clicked()));
+
+	display->setText("000000");
 }
 
 NumKeyBoard::~NumKeyBoard()
@@ -39,34 +45,47 @@ NumKeyBoard::~NumKeyBoard()
 void NumKeyBoard::button_init()
 {
 	display->setStyleSheet("QLineEdit{font-size:25px;color:rgb(0,0,0);"
-		"height:50px;border:2px solid rgb(155,200,33);"
+		"height:50px;border:2px solid rgb(4,167,240);"
 		"border-radius:10px;}");
 	toolButton_0->setStyleSheet("QToolButton{border:2px groove white;border-radius:10px;"
-		"background-color:gray;color:white;font-size:25px}");
+		"background-color:rgb(4,167,240);color:white;font-size:25px}");
 	toolButton_1->setStyleSheet("QToolButton{border:2px groove white;border-radius:10px;"
-		"background-color:gray;color:white;font-size:25px}");
+		"background-color:rgb(4,167,240);color:white;font-size:25px}");
 	toolButton_2->setStyleSheet("QToolButton{border:2px groove white;border-radius:10px;"
-		"background-color:gray;color:white;font-size:25px}");
+		"background-color:rgb(4,167,240);color:white;font-size:25px}");
 	toolButton_3->setStyleSheet("QToolButton{border:2px groove white;border-radius:10px;"
-		"background-color:gray;color:white;font-size:25px}");
+		"background-color:rgb(4,167,240);color:white;font-size:25px}");
 	toolButton_4->setStyleSheet("border:2px groove gray;border-radius:10px;"
-		" background-color:gray;color:white;font-size:25px");
+		" background-color:rgb(4,167,240);color:white;font-size:25px");
 	toolButton_5->setStyleSheet("QToolButton{border:2px groove white;border-radius:10px;"
-		"background-color:gray;color:white;font-size:25px}");
+		"background-color:rgb(4,167,240);color:white;font-size:25px}");
 	toolButton_6->setStyleSheet("QToolButton{border:2px groove white;border-radius:10px;"
-		"background-color:gray;color:white;font-size:25px}");
+		"background-color:rgb(4,167,240);color:white;font-size:25px}");
 	toolButton_7->setStyleSheet("QToolButton{border:2px groove white;border-radius:10px;"
-		"background-color:gray;color:white;font-size:25px}");
+		"background-color:rgb(4,167,240);color:white;font-size:25px}");
 	toolButton_8->setStyleSheet("border:2px groove gray;border-radius:10px;"
-		" background-color:gray;color:white;font-size:25px");
+		" background-color:rgb(4,167,240);color:white;font-size:25px");
 	toolButton_9->setStyleSheet("QToolButton{border:2px groove white;border-radius:10px;"
-		"background-color:gray;color:white;font-size:25px}");
+		"background-color:rgb(4,167,240);color:white;font-size:25px}");
 	toolButton_backspace->setStyleSheet("border:2px groove gray;border-radius:10px;"
-		" background-color:gray;color:white;font-size:25px");
+		" background-color:rgb(4,167,240);color:white;font-size:25px");
 	toolButton_enter->setStyleSheet("QToolButton{border:2px groove white;border-radius:10px;"
-		"background-color:gray;color:white;font-size:25px}");
+		"background-color:rgb(4,167,240);color:white;font-size:25px}");
 
 
+}
+
+void NumKeyBoard::Init(WIDGET_TYPE types)
+{
+	m_type = types;
+	if (types & MSGBOX_GET)
+	{
+		label_title->setText("请输入取件码");
+	}
+	if (types & MSGBOX_SAVE)
+	{
+		label_title->setText("请输入存件码");
+	}
 }
 
 void NumKeyBoard::setMapper()
@@ -116,12 +135,8 @@ void NumKeyBoard::onEnter()
 {
 	waitingForOperand = true;
 	text = display->text();
-	qDebug() << "input" << text;
-	emit setvalue(text);
 	display->clear();
-	this->close();
-	//qDebug() << text << endl;
-
+	done(text.toInt());
 }
 
 void NumKeyBoard::onBackspace()
@@ -198,4 +213,9 @@ void NumKeyBoard::on_slot_textChanged(const QString & text)
 			db->display(num);
 		}
 	}
+}
+
+void NumKeyBoard::on_btnBack_clicked()
+{
+	done(WIDGET_TYPE::MSGBOX_BACK);
 }

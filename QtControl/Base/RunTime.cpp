@@ -53,6 +53,8 @@ void CRunTime::Clear()
 	ListenPort = 6000;
 	SleepTime = 100;
 	AutoConnect = true;
+
+	strComputerUrl = "www.baidu.com";
 }
 
 
@@ -96,6 +98,11 @@ void CRunTime::ReadConfig()
     SleepTime = set.value("SleepTime").toInt();
     AutoConnect = set.value("AutoConnect").toBool();
     set.endGroup();
+
+
+	set.beginGroup("AppConfig");
+	strComputerUrl = set.value("ComputerUrl").toString();
+	set.endGroup();
 }
 
 void CRunTime::WriteConfig()
@@ -131,6 +138,10 @@ void CRunTime::WriteConfig()
     set.setValue("ListenPort", ListenPort);
     set.setValue("SleepTime", SleepTime);
     set.setValue("AutoConnect", AutoConnect);
+	set.endGroup();
+	set.beginGroup("AppConfig");
+	set.setValue("ComputerUrl", strComputerUrl);
+	
     set.endGroup();
 }
 

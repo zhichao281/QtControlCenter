@@ -1,15 +1,17 @@
 #pragma once
-
-#include <QWidget>
-#include <QWidget>
+#if _MSC_VER >= 1600
+#pragma execution_character_set("utf-8")
+#endif
+#include <QDialog>
 #include <QSignalMapper>
 #include <QMouseEvent>
 #include "ui_NumKeyBoard.h"
+#include "define.h"
 
-class NumKeyBoard : public QWidget,public Ui::NumKeyBoard
+class NumKeyBoard : public QDialog,public Ui::NumKeyBoard
 {
 	Q_OBJECT
-
+public:
 public:
 	NumKeyBoard(QWidget *parent = Q_NULLPTR);
 	~NumKeyBoard();
@@ -28,9 +30,9 @@ private:
 	void button_init();
 
 public:
-	QString text;
-signals:
-	void setvalue(QString text);
+	void Init(WIDGET_TYPE types);
+
+
 private slots:
 	void setDispText(const QString& text);
 	void onEnter();
@@ -40,10 +42,20 @@ private slots:
 	void onInvMode();
 
 	void  on_slot_textChanged(const QString &text);
+
+	void on_btnBack_clicked();
+public:
+	QString text;
+
 private:
 	int inputMode;
 	bool waitingForOperand;
 	QSignalMapper *signalMapper;
 	QPoint dragPosition;
 	bool caps_Lock;
+	WIDGET_TYPE  m_type;
+
+
+
+
 };
