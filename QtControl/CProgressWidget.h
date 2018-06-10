@@ -14,6 +14,8 @@ public:
 	CProgressWidget(QWidget *parent = Q_NULLPTR);
 	~CProgressWidget();
 
+
+	void setValue(QString strWeight, QString strHeight);
 private slots:
 
 	void on_slot_timeout();

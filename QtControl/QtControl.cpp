@@ -12,10 +12,12 @@ QtControl::QtControl(QWidget *parent)
 
 	this->setupUi(this);
 	setWindowFlags(Qt::FramelessWindowHint | Qt::WindowMinimizeButtonHint );
+	this->setWindowIcon(QIcon(":/Image/Resources/Image/zhihuiwu.ico"));
 	//this->setFixedSize(1024, 768);
 	parentWidget = parent;
 
-	show();
+
+	this->setWindowIcon(QIcon(":/Image/Resources/Image/zhihuiwu.ico"));
 
 
 	connect(btn_get, SIGNAL(clicked()), this, SLOT(on_slot_Get()));
@@ -28,6 +30,8 @@ QtControl::QtControl(QWidget *parent)
 	QPixmap qrPixmap = myHelper::MakeQRPixmap(gblRuntimeData->strComputerUrl, midPix, 218);
 	label_QRImage->setPixmap(qrPixmap);
 	gblTxqm->Start_Receive();
+
+	show();
 }
 
 

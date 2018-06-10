@@ -5,6 +5,7 @@ QGetWidget::QGetWidget(QWidget *parent, WIDGET_TYPE types)
 {
 	this->setupUi(this);
 	setWindowFlags(Qt::FramelessWindowHint | Qt::WindowMinimizeButtonHint );
+	this->setWindowIcon(QIcon(":/Image/Resources/Image/zhihuiwu.ico"));
 	Init(types);
 
 	connect(btn_back, SIGNAL(clicked()), this, SLOT(on_btnBack_clicked()));
@@ -28,6 +29,7 @@ void QGetWidget::Init(WIDGET_TYPE types)
 {
 	widget_Save->hide();
 	widget_get->hide();
+	label_title->hide();
 	if (types & MSGBOX_GET)
 	{
 		widget_get->show();

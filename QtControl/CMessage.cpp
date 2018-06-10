@@ -5,6 +5,7 @@ CMessage::CMessage(QWidget *parent)
 {
 	this->setupUi(this);
 	setWindowFlags(Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint | Qt::WindowMinimizeButtonHint);
+	this->setWindowIcon(QIcon(":/Image/Resources/Image/zhihuiwu.ico"));
 	connect(btn_back, SIGNAL(clicked()), this, SLOT(on_btnBack_clicked()));
 	connect(btn_home, SIGNAL(clicked()), this, SLOT(on_btnHome_clicked()));
 	connect(btn_OK, SIGNAL(clicked()), this, SLOT(on_btnOk_clicked()));

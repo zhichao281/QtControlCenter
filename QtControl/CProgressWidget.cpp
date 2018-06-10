@@ -6,6 +6,7 @@ CProgressWidget::CProgressWidget(QWidget *parent)
 {
 	this->setupUi(this);
 	setWindowFlags(Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint | Qt::WindowMinimizeButtonHint);
+	this->setWindowIcon(QIcon(":/Image/Resources/Image/zhihuiwu.ico"));
 	pMove = new QMovie(":/Image/Resources/Image/loading.gif");
 	pMove->setScaledSize(label_gif->size());
 	label_gif->setMovie(pMove);
@@ -19,6 +20,12 @@ CProgressWidget::CProgressWidget(QWidget *parent)
 
 CProgressWidget::~CProgressWidget()
 {
+}
+
+void CProgressWidget::setValue(QString strWeight, QString strHeight)
+{
+	label_weight->setText(strWeight);
+	label_weight->setText(strHeight);
 }
 
 

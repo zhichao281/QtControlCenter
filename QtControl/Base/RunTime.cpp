@@ -85,7 +85,7 @@ void CRunTime::ReadConfig()
 
     QString fileName = QString("%1/%2_Config.ini").arg(AppPath).arg(AppName);
     QSettings set(fileName, QSettings::IniFormat);
-
+	set.setIniCodec(QTextCodec::codecForName("UTF-8"));
     set.beginGroup("ComConfig");
 	PortName = set.value("PortName").toString();
     BaudRate = set.value("BaudRate").toInt();
@@ -148,7 +148,7 @@ void CRunTime::WriteConfig()
 {
     QString fileName = QString("%1/%2_Config.ini").arg(AppPath).arg(AppName);
     QSettings set(fileName, QSettings::IniFormat);
-
+	set.setIniCodec(QTextCodec::codecForName("UTF-8"));
     set.beginGroup("ComConfig");
     set.setValue("PortName", PortName);
     set.setValue("BaudRate", BaudRate);

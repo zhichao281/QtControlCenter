@@ -8,7 +8,7 @@ NumKeyBoard::NumKeyBoard(QWidget *parent) :
 {
 	this->setupUi(this);
 	setWindowFlags(Qt::FramelessWindowHint | Qt::WindowMinimizeButtonHint );
-
+	this->setWindowIcon(QIcon(":/Image/Resources/Image/zhihuiwu.ico"));
 	display->setFocus();
 	//button_init();
 

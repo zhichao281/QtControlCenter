@@ -152,7 +152,7 @@ min-width:504px;
 max-width:504px;
 min-height:71px;
 max-height:71px;
-border-image: url(:/Image/Resources/Image/请扫描二维码存件.png);</string>
+</string>
            </property>
            <property name="text">
             <string/>

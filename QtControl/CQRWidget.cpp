@@ -7,6 +7,7 @@ CQRWidget::CQRWidget(QWidget *parent)
 	this->setupUi(this);
 
 	setWindowFlags(Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint | Qt::WindowMinimizeButtonHint);
+	this->setWindowIcon(QIcon(":/Image/Resources/Image/zhihuiwu.ico"));
 	pMove = new QMovie(":/Image/Resources/Image/saoma.gif");
 	pMove->setScaledSize(label_gif->size());
 	label_gif->setMovie(pMove);
