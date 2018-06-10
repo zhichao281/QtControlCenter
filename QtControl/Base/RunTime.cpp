@@ -55,6 +55,23 @@ void CRunTime::Clear()
 	AutoConnect = true;
 
 	strComputerUrl = "www.baidu.com";
+
+	com232_PortName = "COM2";
+	com232_BaudRate = 9600;
+	com232_DataBit = 8;
+	com232_Parity = "奇";
+	com232_StopBit = 1;
+	com232_HexSend = false;
+	com232_HexReceive = false;
+
+	com485_PortName = "COM3";
+	com485_BaudRate = 9600;
+	com485_DataBit = 8;
+	com485_Parity = "奇";
+	com485_StopBit = 1;
+	com485_HexSend = false;
+	com485_HexReceive = false;
+
 }
 
 
@@ -89,6 +106,28 @@ void CRunTime::ReadConfig()
     SendFileName = set.value("SendFileName").toString();
     DeviceFileName = set.value("DeviceFileName").toString();
     set.endGroup();
+
+	set.beginGroup("COM232Config");
+	com232_PortName = set.value("PortName").toString();
+	com232_BaudRate = set.value("BaudRate").toInt();
+	com232_DataBit = set.value("DataBit").toInt();
+	com232_Parity = set.value("Parity").toString();
+	com232_StopBit = set.value("StopBit").toInt();
+	com232_HexSend = set.value("HexSend").toBool();
+	com232_HexReceive = set.value("HexReceive").toBool();
+	set.endGroup();
+
+
+	set.beginGroup("COM485Config");
+	com485_PortName = set.value("PortName").toString();
+	com485_BaudRate = set.value("BaudRate").toInt();
+	com485_DataBit = set.value("DataBit").toInt();
+	com485_Parity = set.value("Parity").toString();
+	com485_StopBit = set.value("StopBit").toInt();
+	com485_HexSend = set.value("HexSend").toBool();
+	com485_HexReceive = set.value("HexReceive").toBool();
+	set.endGroup();
+
 
     set.beginGroup("NetConfig");
     Mode = set.value("Mode").toString();
@@ -130,6 +169,28 @@ void CRunTime::WriteConfig()
     set.setValue("SendFileName", SendFileName);
     set.setValue("DeviceFileName", DeviceFileName);
     set.endGroup();
+
+	set.beginGroup("COM485Config");
+	set.setValue("PortName", com485_PortName);
+	set.setValue("BaudRate", com485_BaudRate);
+	set.setValue("DataBit", com485_DataBit);
+	set.setValue("Parity", com485_Parity);
+	set.setValue("StopBit", com485_StopBit);
+	set.setValue("HexSend", com485_HexSend);
+	set.setValue("HexReceive", com485_HexReceive);
+	set.endGroup();
+
+	set.beginGroup("COM232Config");
+	set.setValue("PortName", com232_PortName);
+	set.setValue("BaudRate", com232_BaudRate);
+	set.setValue("DataBit", com232_DataBit);
+	set.setValue("Parity", com232_Parity);
+	set.setValue("StopBit", com232_StopBit);
+	set.setValue("HexSend", com232_HexSend);
+	set.setValue("HexReceive", com232_HexReceive);
+	set.endGroup();
+
+
 
     set.beginGroup("NetConfig");
     set.setValue("Mode", Mode);

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1406</width>
-    <height>702</height>
+    <width>1436</width>
+    <height>768</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,9 +16,7 @@
   <property name="styleSheet">
    <string notr="true">QWidget#widget_main
 {
-
-border-image: url(:/Image/Resources/Image/1.jpg);
-
+border-image: url(:/Image/Resources/Image/img_bg.png);
 }
 </string>
   </property>
@@ -43,7 +41,7 @@ border-image: url(:/Image/Resources/Image/1.jpg);
      <property name="styleSheet">
       <string notr="true"/>
      </property>
-     <layout class="QVBoxLayout" name="verticalLayout_4" stretch="0,0,0">
+     <layout class="QVBoxLayout" name="verticalLayout_4" stretch="0,0">
       <property name="spacing">
        <number>0</number>
       </property>
@@ -51,7 +49,7 @@ border-image: url(:/Image/Resources/Image/1.jpg);
        <number>0</number>
       </property>
       <property name="topMargin">
-       <number>50</number>
+       <number>0</number>
       </property>
       <property name="rightMargin">
        <number>0</number>
@@ -59,6 +57,150 @@ border-image: url(:/Image/Resources/Image/1.jpg);
       <property name="bottomMargin">
        <number>0</number>
       </property>
+      <item>
+       <widget class="QWidget" name="widget_title" native="true">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>95</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>95</height>
+         </size>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_5">
+         <property name="spacing">
+          <number>0</number>
+         </property>
+         <property name="leftMargin">
+          <number>25</number>
+         </property>
+         <property name="topMargin">
+          <number>10</number>
+         </property>
+         <property name="rightMargin">
+          <number>25</number>
+         </property>
+         <property name="bottomMargin">
+          <number>0</number>
+         </property>
+         <item>
+          <widget class="QPushButton" name="btn_back">
+           <property name="font">
+            <font>
+             <family>微软雅黑</family>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">#btn_back
+{
+min-width:55px;
+max-width:55px;
+min-height:50px;
+max-height:50px;
+border-radius: 10px;
+}
+#btn_back{border-image: url(:/Image/Resources/Image/btn_Return_nor.png);}
+#btn_back:hover{border-image:url(:/Image/Resources/Image/btn_Return_sele.png);}
+#btn_back:pressed{border-image:url(:/Image/Resources/Image/btn_Return_press.png);}</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_7">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_title">
+           <property name="minimumSize">
+            <size>
+             <width>504</width>
+             <height>71</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>504</width>
+             <height>71</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>微软雅黑</family>
+             <pointsize>20</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">
+min-width:504px;
+max-width:504px;
+min-height:71px;
+max-height:71px;
+border-image: url(:/Image/Resources/Image/请扫描二维码存件.png);</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_6">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btn_home">
+           <property name="font">
+            <font>
+             <family>微软雅黑</family>
+             <pointsize>18</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">#btn_home
+{
+min-width:55px;
+max-width:55px;
+min-height:50px;
+max-height:50px;
+border-radius: 10px;
+}
+#btn_home{border-image: url(:/Image/Resources/Image/btn_home_nor.png);}
+#btn_home:hover{border-image:url(:/Image/Resources/Image/btn_home_sele.png);}
+#btn_home:pressed{border-image:url(:/Image/Resources/Image/btn_home_press.png);}</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="1,0,0,0,1">
         <property name="spacing">
@@ -105,14 +247,14 @@ border-image: url(:/Image/Resources/Image/1.jpg);
             <widget class="QToolButton" name="btn_QRGet">
              <property name="minimumSize">
               <size>
-               <width>300</width>
-               <height>300</height>
+               <width>312</width>
+               <height>143</height>
               </size>
              </property>
              <property name="maximumSize">
               <size>
-               <width>16777215</width>
-               <height>16777215</height>
+               <width>312</width>
+               <height>143</height>
               </size>
              </property>
              <property name="font">
@@ -124,11 +266,20 @@ border-image: url(:/Image/Resources/Image/1.jpg);
               </font>
              </property>
              <property name="styleSheet">
-              <string notr="true">background-color: rgb(0, 140, 204);
-color: rgb(255, 255, 255);</string>
+              <string notr="true">#btn_QRGet
+{
+min-width:312;
+max-width:312;
+min-height:143;
+max-height:143px;
+border-radius: 10px;
+}
+#btn_QRGet{border-image: url(:/Image/Resources/Image/btn_qujian1_nor.png);}
+#btn_QRGet:hover{border-image:url(:/Image/Resources/Image/btn_qujian1_sele.png);}
+#btn_QRGet:pressed{border-image:url(:/Image/Resources/Image/btn_qujian1_press.png);}</string>
              </property>
              <property name="text">
-              <string>扫码取件</string>
+              <string/>
              </property>
             </widget>
            </item>
@@ -136,14 +287,14 @@ color: rgb(255, 255, 255);</string>
             <widget class="QToolButton" name="btn_NumGet">
              <property name="minimumSize">
               <size>
-               <width>300</width>
-               <height>300</height>
+               <width>312</width>
+               <height>143</height>
               </size>
              </property>
              <property name="maximumSize">
               <size>
-               <width>16777215</width>
-               <height>16777215</height>
+               <width>312</width>
+               <height>143</height>
               </size>
              </property>
              <property name="font">
@@ -155,11 +306,20 @@ color: rgb(255, 255, 255);</string>
               </font>
              </property>
              <property name="styleSheet">
-              <string notr="true">background-color: rgb(0, 140, 204);
-color: rgb(255, 255, 255);</string>
+              <string notr="true">#btn_NumGet
+{
+min-width:312;
+max-width:312;
+min-height:143;
+max-height:143px;
+border-radius: 10px;
+}
+#btn_NumGet{border-image: url(:/Image/Resources/Image/btn_qujian2_nor.png);}
+#btn_NumGet:hover{border-image:url(:/Image/Resources/Image/btn_qujian2_sele.png);}
+#btn_NumGet:pressed{border-image:url(:/Image/Resources/Image/btn_qujian2_press.png);}</string>
              </property>
              <property name="text">
-              <string>输入取件码</string>
+              <string/>
              </property>
              <property name="popupMode">
               <enum>QToolButton::DelayedPopup</enum>
@@ -216,14 +376,14 @@ color: rgb(255, 255, 255);</string>
             <widget class="QToolButton" name="btn_QRSave">
              <property name="minimumSize">
               <size>
-               <width>300</width>
-               <height>300</height>
+               <width>312</width>
+               <height>143</height>
               </size>
              </property>
              <property name="maximumSize">
               <size>
-               <width>11111111</width>
-               <height>16777215</height>
+               <width>312</width>
+               <height>143</height>
               </size>
              </property>
              <property name="font">
@@ -235,11 +395,20 @@ color: rgb(255, 255, 255);</string>
               </font>
              </property>
              <property name="styleSheet">
-              <string notr="true">background-color: rgb(0, 140, 204);
-color: rgb(255, 255, 255);</string>
+              <string notr="true">#btn_QRSave
+{
+min-width:312;
+max-width:312;
+min-height:143;
+max-height:143px;
+border-radius: 10px;
+}
+#btn_QRSave{border-image: url(:/Image/Resources/Image/btn_cunjian1_nor.png);}
+#btn_QRSave:hover{border-image:url(:/Image/Resources/Image/btn_cunjian1_sele.png);}
+#btn_QRSave:pressed{border-image:url(:/Image/Resources/Image/btn_cunjian1_press.png);}</string>
              </property>
              <property name="text">
-              <string>扫码存件</string>
+              <string/>
              </property>
             </widget>
            </item>
@@ -247,14 +416,14 @@ color: rgb(255, 255, 255);</string>
             <widget class="QToolButton" name="btn_NumSave">
              <property name="minimumSize">
               <size>
-               <width>300</width>
-               <height>300</height>
+               <width>312</width>
+               <height>143</height>
               </size>
              </property>
              <property name="maximumSize">
               <size>
-               <width>16777215</width>
-               <height>16777215</height>
+               <width>312</width>
+               <height>143</height>
               </size>
              </property>
              <property name="font">
@@ -266,11 +435,20 @@ color: rgb(255, 255, 255);</string>
               </font>
              </property>
              <property name="styleSheet">
-              <string notr="true">background-color: rgb(0, 140, 204);
-color: rgb(255, 255, 255);</string>
+              <string notr="true">#btn_NumSave
+{
+min-width:312;
+max-width:312;
+min-height:143;
+max-height:143px;
+border-radius: 10px;
+}
+#btn_NumSave{border-image: url(:/Image/Resources/Image/btn_cunjian2_nor.png);}
+#btn_NumSave:hover{border-image:url(:/Image/Resources/Image/btn_cunjian2_sele.png);}
+#btn_NumSave:pressed{border-image:url(:/Image/Resources/Image/btn_cunjian2_press.png);}</string>
              </property>
              <property name="text">
-              <string>输入存件码</string>
+              <string/>
              </property>
              <property name="popupMode">
               <enum>QToolButton::DelayedPopup</enum>
@@ -300,123 +478,6 @@ color: rgb(255, 255, 255);</string>
          </spacer>
         </item>
        </layout>
-      </item>
-      <item>
-       <widget class="QLabel" name="label_6">
-        <property name="maximumSize">
-         <size>
-          <width>16777215</width>
-          <height>4</height>
-         </size>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: rgb(85, 255, 255);</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QWidget" name="widget" native="true">
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>200</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>16777215</width>
-          <height>200</height>
-         </size>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: rgb(5, 164, 238);</string>
-        </property>
-        <layout class="QVBoxLayout" name="verticalLayout_5">
-         <property name="spacing">
-          <number>0</number>
-         </property>
-         <property name="leftMargin">
-          <number>50</number>
-         </property>
-         <property name="topMargin">
-          <number>0</number>
-         </property>
-         <property name="rightMargin">
-          <number>50</number>
-         </property>
-         <property name="bottomMargin">
-          <number>0</number>
-         </property>
-         <item>
-          <layout class="QHBoxLayout" name="horizontalLayout_3">
-           <item>
-            <widget class="QPushButton" name="btn_back">
-             <property name="font">
-              <font>
-               <family>微软雅黑</family>
-               <pointsize>16</pointsize>
-               <weight>50</weight>
-               <bold>false</bold>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">color: rgb(255, 255, 255);</string>
-             </property>
-             <property name="text">
-              <string>返回</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <spacer name="horizontalSpacer_4">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>40</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item>
-            <widget class="QToolButton" name="btn_home">
-             <property name="minimumSize">
-              <size>
-               <width>50</width>
-               <height>50</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>50</width>
-               <height>50</height>
-              </size>
-             </property>
-             <property name="font">
-              <font>
-               <family>微软雅黑</family>
-               <pointsize>12</pointsize>
-               <weight>50</weight>
-               <bold>false</bold>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">color: rgb(255, 255, 255);</string>
-             </property>
-             <property name="text">
-              <string>主页</string>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </item>
-        </layout>
-       </widget>
       </item>
      </layout>
     </widget>

@@ -10,7 +10,7 @@ NumKeyBoard::NumKeyBoard(QWidget *parent) :
 	setWindowFlags(Qt::FramelessWindowHint | Qt::WindowMinimizeButtonHint );
 
 	display->setFocus();
-	button_init();
+	//button_init();
 
 	waitingForOperand = true;
 	inputMode = iMode_Normal;
@@ -35,7 +35,7 @@ NumKeyBoard::NumKeyBoard(QWidget *parent) :
 
 	connect(btn_back, SIGNAL(clicked()), this, SLOT(on_btnBack_clicked()));
 
-	display->setText("000000");
+	display->setText("------");
 }
 
 NumKeyBoard::~NumKeyBoard()
@@ -80,11 +80,19 @@ void NumKeyBoard::Init(WIDGET_TYPE types)
 	m_type = types;
 	if (types & MSGBOX_GET)
 	{
-		label_title->setText("请输入取件码");
+		label_title->setStyleSheet("min-width:379px;"
+								   "max-width:379px;"
+		                           "min-height:71px;"
+								   "max-height:71px;"
+								   "border-image: url(:/Image/Resources/Image/请输入取件码.png);");
 	}
 	if (types & MSGBOX_SAVE)
 	{
-		label_title->setText("请输入存件码");
+		label_title->setStyleSheet("min-width:379px;"
+								   "max-width:379px;"
+								   "min-height:71px;"
+			                       "max-height:71px;"
+			                       "border-image: url(:/Image/Resources/Image/请输入存件码.png);");
 	}
 }
 
@@ -136,6 +144,7 @@ void NumKeyBoard::onEnter()
 	waitingForOperand = true;
 	text = display->text();
 	display->clear();
+	text.replace("-", "");
 	done(text.toInt());
 }
 
@@ -146,6 +155,7 @@ void NumKeyBoard::onBackspace()
 /*支持鼠标拖拽键盘*/
 void NumKeyBoard::mouseMoveEvent(QMouseEvent *event)
 {
+	return QDialog::mouseMoveEvent(event);
 	if (event->buttons() == Qt::LeftButton)
 	{
 		move(event->globalPos() - dragPosition);
@@ -155,6 +165,7 @@ void NumKeyBoard::mouseMoveEvent(QMouseEvent *event)
 
 void NumKeyBoard::mousePressEvent(QMouseEvent *event)
 {
+	return QDialog::mousePressEvent(event);
 	if (event->button() == Qt::LeftButton)
 	{
 		dragPosition = event->globalPos() - frameGeometry().topLeft();
@@ -208,7 +219,7 @@ void NumKeyBoard::on_slot_textChanged(const QString & text)
 		QLCDNumber *db = this->findChild<QLCDNumber *>(lcdname);
 		if (db != nullptr)
 		{
-			QString num = "0";
+			QString num = "-";
 			num += " ";
 			db->display(num);
 		}

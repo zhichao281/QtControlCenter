@@ -1,5 +1,7 @@
 #pragma once
-
+#if _MSC_VER >= 1600
+#pragma execution_character_set("utf-8")
+#endif
 #include <QObject>
 #include <string>
 using namespace  std;
@@ -23,6 +25,9 @@ public:
 
 public:
 	bool Start_Receive();
+
+signals:
+	void sig_SendResult(QString strResult);
 
 public slots:
 	void on_slot_getResultStr();

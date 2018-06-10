@@ -1,5 +1,7 @@
 #pragma once
-
+#if _MSC_VER >= 1600
+#pragma execution_character_set("utf-8")
+#endif
 #include <QDialog>
 #include <QMovie> 
 #include "ui_CMessage.h"
@@ -50,6 +52,8 @@ private slots:
 	void on_btnHome_clicked();
 
 	void on_btnOk_clicked();
+
+	void on_btnReturn_clicked();
 
 	void on_slot_timeout();
 private:

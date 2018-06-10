@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>695</width>
-    <height>831</height>
+    <width>1024</width>
+    <height>768</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,9 +16,7 @@
   <property name="styleSheet">
    <string notr="true">QWidget#widget_main
 {
-
-border-image: url(:/Image/Resources/Image/1.jpg);
-
+border-image: url(:/Image/Resources/Image/img_bg.png);
 }
 </string>
   </property>
@@ -48,7 +46,7 @@ border-image: url(:/Image/Resources/Image/1.jpg);
        <number>0</number>
       </property>
       <property name="topMargin">
-       <number>50</number>
+       <number>0</number>
       </property>
       <property name="rightMargin">
        <number>0</number>
@@ -57,44 +55,63 @@ border-image: url(:/Image/Resources/Image/1.jpg);
        <number>0</number>
       </property>
       <item>
-       <widget class="QWidget" name="widget_3" native="true">
-        <layout class="QHBoxLayout" name="horizontalLayout_4">
+       <widget class="QWidget" name="widget_title" native="true">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>95</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>95</height>
+         </size>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_5">
+         <property name="spacing">
+          <number>0</number>
+         </property>
+         <property name="leftMargin">
+          <number>25</number>
+         </property>
+         <property name="topMargin">
+          <number>10</number>
+         </property>
+         <property name="rightMargin">
+          <number>25</number>
+         </property>
+         <property name="bottomMargin">
+          <number>0</number>
+         </property>
          <item>
-          <spacer name="horizontalSpacer_2">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>40</width>
-             <height>20</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-         <item>
-          <widget class="QLabel" name="label_title">
+          <widget class="QPushButton" name="btn_back">
            <property name="font">
             <font>
              <family>微软雅黑</family>
-             <pointsize>26</pointsize>
-             <weight>50</weight>
-             <bold>false</bold>
+             <pointsize>12</pointsize>
             </font>
            </property>
            <property name="styleSheet">
-            <string notr="true">color: rgb(255, 255, 255);</string>
+            <string notr="true">#btn_back
+{
+min-width:55px;
+max-width:55px;
+min-height:50px;
+max-height:50px;
+border-radius: 10px;
+}
+#btn_back{border-image: url(:/Image/Resources/Image/btn_Return_nor.png);}
+#btn_back:hover{border-image:url(:/Image/Resources/Image/btn_Return_sele.png);}
+#btn_back:pressed{border-image:url(:/Image/Resources/Image/btn_Return_press.png);}</string>
            </property>
            <property name="text">
-            <string>设备运行中，请耐心等待...</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
+            <string/>
            </property>
           </widget>
          </item>
          <item>
-          <spacer name="horizontalSpacer_3">
+          <spacer name="horizontalSpacer_7">
            <property name="orientation">
             <enum>Qt::Horizontal</enum>
            </property>
@@ -105,13 +122,115 @@ border-image: url(:/Image/Resources/Image/1.jpg);
             </size>
            </property>
           </spacer>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_title_2">
+           <property name="minimumSize">
+            <size>
+             <width>689</width>
+             <height>72</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>689</width>
+             <height>72</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>微软雅黑</family>
+             <pointsize>20</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">
+min-width:689px;
+max-width:689px;
+min-height:72px;
+max-height:72px;
+border-image: url(:/Image/Resources/Image/设备运行中，请耐心等待.png);</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_6">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btn_home">
+           <property name="font">
+            <font>
+             <family>微软雅黑</family>
+             <pointsize>18</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">#btn_home
+{
+min-width:55px;
+max-width:55px;
+min-height:50px;
+max-height:50px;
+border-radius: 10px;
+}
+#btn_home{border-image: url(:/Image/Resources/Image/btn_home_nor.png);}
+#btn_home:hover{border-image:url(:/Image/Resources/Image/btn_home_sele.png);}
+#btn_home:pressed{border-image:url(:/Image/Resources/Image/btn_home_press.png);}</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
          </item>
         </layout>
        </widget>
       </item>
       <item>
        <widget class="QWidget" name="widget_4" native="true">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
         <layout class="QHBoxLayout" name="horizontalLayout">
+         <property name="spacing">
+          <number>0</number>
+         </property>
+         <property name="leftMargin">
+          <number>0</number>
+         </property>
+         <property name="topMargin">
+          <number>80</number>
+         </property>
+         <property name="rightMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
+          <number>0</number>
+         </property>
          <item>
           <spacer name="horizontalSpacer_5">
            <property name="orientation">
@@ -129,18 +248,25 @@ border-image: url(:/Image/Resources/Image/1.jpg);
           <widget class="QLabel" name="label_gif">
            <property name="minimumSize">
             <size>
-             <width>250</width>
-             <height>250</height>
+             <width>160</width>
+             <height>20</height>
             </size>
            </property>
            <property name="maximumSize">
             <size>
-             <width>250</width>
-             <height>250</height>
+             <width>160</width>
+             <height>20</height>
             </size>
            </property>
            <property name="styleSheet">
-            <string notr="true">border-image:url(:/Image/Resources/Image/progree.gif)</string>
+            <string notr="true">QLabel#label_gif
+{
+min-width:160px;
+max-width:160px;
+min-height:20px;
+max-height:20px;
+border-image:url(:/Image/Resources/Image/loading.gif);
+}</string>
            </property>
            <property name="text">
             <string/>
@@ -165,115 +291,266 @@ border-image: url(:/Image/Resources/Image/1.jpg);
       </item>
       <item>
        <widget class="QWidget" name="widget_2" native="true">
-        <layout class="QHBoxLayout" name="horizontalLayout_3">
+        <layout class="QVBoxLayout" name="verticalLayout_4">
          <property name="spacing">
           <number>0</number>
          </property>
          <property name="leftMargin">
-          <number>80</number>
+          <number>0</number>
          </property>
          <property name="topMargin">
           <number>0</number>
          </property>
          <property name="rightMargin">
-          <number>80</number>
-         </property>
-         <property name="bottomMargin">
           <number>0</number>
          </property>
+         <property name="bottomMargin">
+          <number>50</number>
+         </property>
+         <item>
+          <spacer name="verticalSpacer">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
          <item>
           <widget class="QWidget" name="widget" native="true">
            <property name="minimumSize">
             <size>
              <width>0</width>
-             <height>500</height>
+             <height>0</height>
             </size>
            </property>
-           <layout class="QVBoxLayout" name="verticalLayout_3">
+           <layout class="QHBoxLayout" name="horizontalLayout_2">
             <property name="spacing">
-             <number>40</number>
+             <number>50</number>
             </property>
             <property name="leftMargin">
-             <number>0</number>
+             <number>50</number>
             </property>
             <property name="topMargin">
              <number>0</number>
             </property>
             <property name="rightMargin">
-             <number>0</number>
+             <number>10</number>
             </property>
             <property name="bottomMargin">
              <number>0</number>
             </property>
             <item>
-             <spacer name="verticalSpacer">
+             <spacer name="horizontalSpacer">
               <property name="orientation">
-               <enum>Qt::Vertical</enum>
+               <enum>Qt::Horizontal</enum>
               </property>
               <property name="sizeHint" stdset="0">
                <size>
-                <width>20</width>
-                <height>40</height>
+                <width>40</width>
+                <height>20</height>
                </size>
               </property>
              </spacer>
             </item>
             <item>
-             <widget class="QLabel" name="label">
-              <property name="font">
-               <font>
-                <family>微软雅黑</family>
-                <pointsize>24</pointsize>
-               </font>
-              </property>
-              <property name="layoutDirection">
-               <enum>Qt::RightToLeft</enum>
+             <widget class="QWidget" name="widget_3" native="true">
+              <property name="minimumSize">
+               <size>
+                <width>658</width>
+                <height>278</height>
+               </size>
               </property>
               <property name="styleSheet">
-               <string notr="true">color: rgb(255, 255, 255);</string>
+               <string notr="true">
+#widget_3
+{
+min-width:658px;
+max-width:658px;
+min-height:278px;
+max-height:278px;
+border-radius: 10px;
+}
+#widget_3{border-image: url(:/Image/Resources/Image/label.png);}
+</string>
               </property>
-              <property name="text">
-               <string>货物重量：15kg</string>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignCenter</set>
-              </property>
+              <layout class="QVBoxLayout" name="verticalLayout_5">
+               <property name="spacing">
+                <number>30</number>
+               </property>
+               <property name="leftMargin">
+                <number>0</number>
+               </property>
+               <property name="topMargin">
+                <number>20</number>
+               </property>
+               <property name="rightMargin">
+                <number>0</number>
+               </property>
+               <property name="bottomMargin">
+                <number>20</number>
+               </property>
+               <item>
+                <spacer name="verticalSpacer_3">
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>20</width>
+                   <height>40</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_3">
+                 <property name="spacing">
+                  <number>0</number>
+                 </property>
+                 <property name="leftMargin">
+                  <number>50</number>
+                 </property>
+                 <item>
+                  <widget class="QLabel" name="label_3">
+                   <property name="styleSheet">
+                    <string notr="true">color: rgb(122, 118, 117);
+font: 30pt &quot;黑体&quot;;</string>
+                   </property>
+                   <property name="text">
+                    <string>货物重量：</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="label_weight">
+                   <property name="maximumSize">
+                    <size>
+                     <width>16777215</width>
+                     <height>50</height>
+                    </size>
+                   </property>
+                   <property name="font">
+                    <font>
+                     <family>黑体</family>
+                     <pointsize>30</pointsize>
+                     <weight>50</weight>
+                     <italic>false</italic>
+                     <bold>false</bold>
+                    </font>
+                   </property>
+                   <property name="layoutDirection">
+                    <enum>Qt::RightToLeft</enum>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">color: rgb(122, 118, 117);
+font: 30pt &quot;黑体&quot;;</string>
+                   </property>
+                   <property name="text">
+                    <string>12.5kg</string>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignCenter</set>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_4">
+                 <property name="leftMargin">
+                  <number>50</number>
+                 </property>
+                 <item>
+                  <widget class="QLabel" name="label_4">
+                   <property name="styleSheet">
+                    <string notr="true">color: rgb(122, 118, 117);
+font: 30pt &quot;黑体&quot;;</string>
+                   </property>
+                   <property name="text">
+                    <string>货物高度：</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="label_height">
+                   <property name="maximumSize">
+                    <size>
+                     <width>16777215</width>
+                     <height>50</height>
+                    </size>
+                   </property>
+                   <property name="font">
+                    <font>
+                     <family>黑体</family>
+                     <pointsize>30</pointsize>
+                     <weight>50</weight>
+                     <italic>false</italic>
+                     <bold>false</bold>
+                    </font>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">color: rgb(122, 118, 117);
+font: 30pt &quot;黑体&quot;;</string>
+                   </property>
+                   <property name="text">
+                    <string>400mm</string>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignCenter</set>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <spacer name="verticalSpacer_4">
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>20</width>
+                   <height>40</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+              </layout>
              </widget>
             </item>
             <item>
-             <widget class="QLabel" name="label_2">
-              <property name="font">
-               <font>
-                <family>微软雅黑</family>
-                <pointsize>24</pointsize>
-               </font>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">color: rgb(255, 255, 255);</string>
-              </property>
-              <property name="text">
-               <string>货物高度：400mm</string>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignCenter</set>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <spacer name="verticalSpacer_2">
+             <spacer name="horizontalSpacer_2">
               <property name="orientation">
-               <enum>Qt::Vertical</enum>
+               <enum>Qt::Horizontal</enum>
               </property>
               <property name="sizeHint" stdset="0">
                <size>
-                <width>20</width>
-                <height>40</height>
+                <width>40</width>
+                <height>20</height>
                </size>
               </property>
              </spacer>
             </item>
            </layout>
           </widget>
+         </item>
+         <item>
+          <spacer name="verticalSpacer_2">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
          </item>
         </layout>
        </widget>

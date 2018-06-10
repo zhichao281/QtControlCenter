@@ -117,6 +117,18 @@
     <ClCompile Include="CProgressWidget.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="CSerialPort.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Base\SQLBase.cpp">
+      <Filter>Base</Filter>
+    </ClCompile>
+    <ClCompile Include="Base\Lock_Tool.cpp">
+      <Filter>Base</Filter>
+    </ClCompile>
+    <ClCompile Include="ControlSql.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="QtControl.h">
@@ -144,6 +156,15 @@
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="CProgressWidget.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="CSerialPort.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="Base\SQLBase.h">
+      <Filter>Base</Filter>
+    </QtMoc>
+    <QtMoc Include="ControlSql.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>
@@ -225,6 +246,9 @@
       <Filter>Generated Files</Filter>
     </ClInclude>
     <ClInclude Include="Base\QR_Encode.h">
+      <Filter>Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Base\Lock_Tool.h">
       <Filter>Base</Filter>
     </ClInclude>
   </ItemGroup>

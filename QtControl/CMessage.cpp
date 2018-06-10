@@ -4,12 +4,15 @@ CMessage::CMessage(QWidget *parent)
 	: QDialog(parent)
 {
 	this->setupUi(this);
-	setWindowFlags(Qt::FramelessWindowHint);
+	setWindowFlags(Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint | Qt::WindowMinimizeButtonHint);
 	connect(btn_back, SIGNAL(clicked()), this, SLOT(on_btnBack_clicked()));
 	connect(btn_home, SIGNAL(clicked()), this, SLOT(on_btnHome_clicked()));
 	connect(btn_OK, SIGNAL(clicked()), this, SLOT(on_btnOk_clicked()));
+	connect(btn_return, SIGNAL(clicked()), this, SLOT(on_btnReturn_clicked()));
+
 	
-	pMove = new QMovie(":/Image/Resources/Image/hourglass.gif");
+
+	pMove = new QMovie(":/Image/Resources/Image/time.gif");
 	pMove->setScaledSize(label_gif->size());
 	label_gif->setMovie(pMove);
 	pMove->start();
@@ -25,29 +28,55 @@ void CMessage::Init(MSGBOX_TYPE types)
 	widget_timer->hide();
 	btn_back->hide();
 	btn_home->hide();
+	widget_return->hide();
+	widget_hide->hide();
+	widget_hide_2->hide();
 	if (types & MSGBOX_WAITSAVE)
 	{
-		label_title->setText("箱门已打开，\n请放置物品后，按确认键进行存件");
+		label_title->setStyleSheet("min-width:834px;"
+			"max-width:834px;"
+			"min-height:72px;"
+			"max-height:72px;"
+			"border-image: url(:/Image/Resources/Image/箱门已打开，请及时放置物件！.png);");
 		btn_back->show();
 		btn_home->show();
+		widget_timer->show();
+
 	}
 	if (types & MSGBOX_WAITGET)
 	{
-		label_title->setText("箱门已打开，请取出快件");
+		label_title->setStyleSheet("min-width:710px;"
+			"max-width:710px;"
+			"min-height:72px;"
+			"max-height:72px;"
+			"border-image: url(:/Image/Resources/Image/箱门已打开，请及时取件！.png);");
 		btn_back->show();
 		btn_home->show();
+		widget_timer->show();
 	}
 	if (types & MSGBOX_SAVEEND)
 	{
-		label_title->setText("存件已完成");
+		label_title->setStyleSheet("min-width:341px;"
+									"max-width:341px;"
+									"min-height:71px;"
+									"max-height:71px;"
+									"border-image: url(:/Image/Resources/Image/存件已完成！.png);");
 		QTimer::singleShot(1000, this, SLOT(on_slot_timeout()));
 		widget_timer->show();
+
 	}
 	if (types & MSGBOX_GETEND)
 	{
-		label_title->setText("取件已完成");
+		label_title->setStyleSheet("min-width:339px;"
+			"max-width:339;"
+			"min-height:71px;"
+			"max-height:71px;"
+			"border-image: url(:/Image/Resources/Image/取件已完成！.png);");
 		QTimer::singleShot(1000 , this, SLOT(on_slot_timeout()));
-		widget_timer->show();	
+		//widget_timer->show();	
+		widget_return->show();
+		widget_hide->show();
+		widget_hide_2->show();
 	}
 
 
@@ -120,4 +149,9 @@ void CMessage::on_slot_timeout()
 		done(0);
 	}
 
+}
+void CMessage::on_btnReturn_clicked() {
+
+	done(MSGBOX_RETURN);
+	
 }

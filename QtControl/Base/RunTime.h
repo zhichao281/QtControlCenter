@@ -44,6 +44,24 @@ public:
 
     bool HexSend;                //16进制发送
     bool HexReceive;             //16进制接收
+
+	QString com232_PortName;            //串口号
+	int com232_BaudRate;                //波特率
+	int com232_DataBit;                 //数据位
+	QString com232_Parity;				 //校验位
+	double com232_StopBit;              //停止位
+	bool com232_HexSend;                //16进制发送
+	bool com232_HexReceive;             //16进制接收
+
+	QString com485_PortName;            //串口号
+	int com485_BaudRate;                //波特率
+	int com485_DataBit;                 //数据位
+	QString com485_Parity;				 //校验位
+	double com485_StopBit;              //停止位
+	bool com485_HexSend;                //16进制发送
+	bool com485_HexReceive;             //16进制接收
+
+
     bool Debug;                  //模拟设备
     bool AutoClear;              //自动清空
 

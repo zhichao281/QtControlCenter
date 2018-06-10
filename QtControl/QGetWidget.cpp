@@ -88,10 +88,12 @@ void QGetWidget::NumClick(WIDGET_TYPE types)
 	if (res == WIDGET_TYPE::MSGBOX_BACK)
 	{
 		this->show();
+		return;
 	}
 	else if (res == WIDGET_TYPE::MSGBOX_HOME)
 	{
 		done(MSGBOX_HOME);
+		return;
 	}
 	else
 	{
@@ -106,34 +108,63 @@ void  QGetWidget::MessageBoxShow(int nInputNum, WIDGET_TYPE types)
 	if (types == WIDGET_TYPE::MSGBOX_SAVE)
 	{
 		nRes = CMessage::WaitSave();
-	}
-	else
-	{
-		nRes = CMessage::WaitGet();
-	}
-	if (nRes == WIDGET_TYPE::MSGBOX_BACK)
-	{
-		this->show();
-	}
-	else if (nRes == WIDGET_TYPE::MSGBOX_HOME)
-	{
-		done(WIDGET_TYPE::MSGBOX_HOME);
+		if (nRes == WIDGET_TYPE::MSGBOX_BACK)
+		{
+			this->show();
+			return;
+		}
+		else if (nRes == WIDGET_TYPE::MSGBOX_HOME)
+		{
+			done(WIDGET_TYPE::MSGBOX_HOME);
+			return;
+		}
+		m_pProgressWidget.reset(new CProgressWidget);
+		m_pProgressWidget->showMaximized();
+		int nResult = m_pProgressWidget->exec();
+		if (nResult > 0)
+		{
+
+		}
+
 	}
 	else
 	{
 		m_pProgressWidget.reset(new CProgressWidget);
 		m_pProgressWidget->showMaximized();
-		m_pProgressWidget->exec();
-		if (types == WIDGET_TYPE::MSGBOX_SAVE)
+		int nResult= m_pProgressWidget->exec();
+		if (nResult>0)
 		{
-			nRes = CMessage::SaveEnd();
+
 		}
-		else
+
+
+	next:
+		nRes = CMessage::WaitGet();
+		if (nRes == WIDGET_TYPE::MSGBOX_BACK)
 		{
-			nRes = CMessage::GetEnd();
+			this->show();
+			return;
 		}
-		done(WIDGET_TYPE::MSGBOX_HOME);
+		else if (nRes == WIDGET_TYPE::MSGBOX_HOME)
+		{
+			done(WIDGET_TYPE::MSGBOX_HOME);
+			return;
+		}
 	}
+	if (types == WIDGET_TYPE::MSGBOX_SAVE)
+	{
+		nRes = CMessage::SaveEnd();
+	}
+	else
+	{
+		nRes = CMessage::GetEnd();
+		if (nRes == WIDGET_TYPE::MSGBOX_RETURN)
+		{
+			goto next;
+		}
+	}
+	done(WIDGET_TYPE::MSGBOX_HOME);
+	
 
 
 }

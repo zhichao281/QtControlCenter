@@ -41,6 +41,7 @@ void Qtxqm::on_slot_getResultStr()
 			result_buffer[datalen] = '\0';
 			m_strResult = (char*)result_buffer;
 			qDebug() << QString::fromStdString(m_strResult.c_str());
+			emit sig_SendResult(QString::fromStdString(m_strResult.c_str()));
 		}
 	}
 

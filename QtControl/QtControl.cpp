@@ -11,8 +11,8 @@ QtControl::QtControl(QWidget *parent)
 {
 
 	this->setupUi(this);
-	//setWindowFlags(Qt::FramelessWindowHint | Qt::WindowMinimizeButtonHint | Qt::WindowStaysOnTopHint);
-
+	setWindowFlags(Qt::FramelessWindowHint | Qt::WindowMinimizeButtonHint );
+	//this->setFixedSize(1024, 768);
 	parentWidget = parent;
 
 	show();
@@ -20,10 +20,12 @@ QtControl::QtControl(QWidget *parent)
 
 	connect(btn_get, SIGNAL(clicked()), this, SLOT(on_slot_Get()));
 	connect(btn_save, SIGNAL(clicked()), this, SLOT(on_slot_Save()));
-	connect(btn_setting, SIGNAL(clicked()), this, SLOT(on_slot_setting()));
+	//connect(btn_setting, SIGNAL(clicked()), this, SLOT(on_slot_setting()));
 
 	QPixmap midPix;
-	QPixmap qrPixmap = myHelper::MakeQRPixmap(gblRuntimeData->strComputerUrl, midPix, 100);
+	midPix.load(":/Image/Resources/Image/logo.jpg");
+	midPix=midPix.scaled(QSize(40, 40), Qt::KeepAspectRatio);
+	QPixmap qrPixmap = myHelper::MakeQRPixmap(gblRuntimeData->strComputerUrl, midPix, 218);
 	label_QRImage->setPixmap(qrPixmap);
 	gblTxqm->Start_Receive();
 }
