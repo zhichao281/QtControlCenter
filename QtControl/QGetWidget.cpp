@@ -121,7 +121,13 @@ void  QGetWidget::MessageBoxShow(int nInputNum, WIDGET_TYPE types)
 			return;
 		}
 		m_pProgressWidget.reset(new CProgressWidget);
-		m_pProgressWidget->showMaximized();
+		bool bres=m_pProgressWidget->setInputNum(nInputNum, types);
+		if (bres == false)
+		{
+			done(WIDGET_TYPE::MSGBOX_HOME);
+			return;
+		}
+		m_pProgressWidget->showMaximized();	
 		int nResult = m_pProgressWidget->exec();
 		if (nResult > 0)
 		{
@@ -133,6 +139,7 @@ void  QGetWidget::MessageBoxShow(int nInputNum, WIDGET_TYPE types)
 	{
 		m_pProgressWidget.reset(new CProgressWidget);
 		m_pProgressWidget->showMaximized();
+		m_pProgressWidget->setInputNum(nInputNum,types);
 		int nResult= m_pProgressWidget->exec();
 		if (nResult>0)
 		{

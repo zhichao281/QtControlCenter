@@ -44,6 +44,8 @@ private slots:
 	void  on_slot_textChanged(const QString &text);
 
 	void on_btnBack_clicked();
+
+	void on_btnHome_clicked();
 public:
 	QString text;
 

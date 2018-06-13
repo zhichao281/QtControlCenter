@@ -5,7 +5,7 @@
 #include <QDialog>
 #include <QMovie> 
 #include "ui_CProgressWidget.h"
-
+#include "define.h"
 class CProgressWidget : public QDialog,public Ui::CProgressWidget
 {
 	Q_OBJECT
@@ -16,6 +16,9 @@ public:
 
 
 	void setValue(QString strWeight, QString strHeight);
+
+	bool setInputNum(int nInputNum, WIDGET_TYPE types);
+
 private slots:
 
 	void on_slot_timeout();

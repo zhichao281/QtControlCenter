@@ -34,6 +34,7 @@ NumKeyBoard::NumKeyBoard(QWidget *parent) :
 	display->setMaxLength(6);
 
 	connect(btn_back, SIGNAL(clicked()), this, SLOT(on_btnBack_clicked()));
+	connect(btn_home, SIGNAL(clicked()), this, SLOT(on_btnHome_clicked()));
 
 	display->setText("------");
 }
@@ -44,6 +45,8 @@ NumKeyBoard::~NumKeyBoard()
 }
 void NumKeyBoard::button_init()
 {
+	//Êý×ÖÉ«Öµ£º#7a7675¡£ ×ÖºÅ64px
+
 	display->setStyleSheet("QLineEdit{font-size:25px;color:rgb(0,0,0);"
 		"height:50px;border:2px solid rgb(4,167,240);"
 		"border-radius:10px;}");
@@ -200,28 +203,24 @@ void NumKeyBoard::onInvMode()
 
 void NumKeyBoard::on_slot_textChanged(const QString & text)
 {
-
-
 	for (int i=0;i<text.length();i++)
 	{
 		QString num = text.at(i);
-		QString lcdname = QString("lcdNumber_%1").arg(i+1);
-		QLCDNumber *db = this->findChild<QLCDNumber *>(lcdname);
-		num += " ";
+		QString lcdname = QString("label_%1").arg(i+1);
+		QLabel *db = this->findChild<QLabel *>(lcdname);
 		if (db!=nullptr)
 		{
-			db->display(num);				
+			db->setText(num);
 		}
 	}
 	for (int i = text.length(); i < 6; i++)
 	{
-		QString lcdname = QString("lcdNumber_%1").arg(i+1);
-		QLCDNumber *db = this->findChild<QLCDNumber *>(lcdname);
+		QString lcdname = QString("label_%1").arg(i+1);
+		QLabel *db = this->findChild<QLabel *>(lcdname);
 		if (db != nullptr)
 		{
-			QString num = "-";
-			num += " ";
-			db->display(num);
+			QString num = "-";		
+			db->setText(num);
 		}
 	}
 }
@@ -229,4 +228,9 @@ void NumKeyBoard::on_slot_textChanged(const QString & text)
 void NumKeyBoard::on_btnBack_clicked()
 {
 	done(WIDGET_TYPE::MSGBOX_BACK);
+}
+
+void NumKeyBoard::on_btnHome_clicked()
+{
+	done(MSGBOX_HOME);
 }

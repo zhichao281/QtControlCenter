@@ -10,6 +10,7 @@
 #include "CMessage.h"
 #include "CProgressWidget.h"
 
+
 class QGetWidget : public QDialog, private Ui::QGetWidget
 {
 	Q_OBJECT

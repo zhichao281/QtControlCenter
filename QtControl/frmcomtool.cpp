@@ -310,9 +310,9 @@ void frmComTool::InitSerial()
 
 void frmComTool::readData()
 {
-	QByteArray data;
+	
 	QString buffer;
-	data = m_serial->readAll();
+	QByteArray data = m_serial->readAll();
 	if (ckHexReceive->isChecked()) 
 	{
 		buffer = myHelper::byteArrayToHexStr(data);
@@ -367,13 +367,11 @@ void frmComTool::sendData(QString data)
 	{
 		buffer = myHelper::asciiStrToByteArray(data);
 	}
-
-	m_serial->write(buffer);
 	append(0, data);
 	sendCount = sendCount + buffer.size();
 	btnSendCount->setText(QString("发送 : %1 字节").arg(sendCount));
 
-	m_serial->write(data.toLatin1());
+	m_serial->write(buffer);
 }
 
 void frmComTool::saveData()

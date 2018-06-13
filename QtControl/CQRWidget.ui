@@ -244,8 +244,7 @@ border-radius: 10px;
            </size>
           </property>
           <property name="styleSheet">
-           <string notr="true">
-border-image: url(:/Image/Resources/Image/saoma.gif);</string>
+           <string notr="true"/>
           </property>
           <property name="text">
            <string/>
