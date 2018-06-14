@@ -1,0 +1,10 @@
+﻿main.obj : error LNK2019: 无法解析的外部符号 vbar_connectDevice，该符号在函数 main 中被引用
+main.obj : error LNK2019: 无法解析的外部符号 vbar_get_devnum，该符号在函数 main 中被引用
+main.obj : error LNK2019: 无法解析的外部符号 vbar_backlight，该符号在函数 main 中被引用
+main.obj : error LNK2019: 无法解析的外部符号 vbar_interval，该符号在函数 main 中被引用
+main.obj : error LNK2019: 无法解析的外部符号 vbar_addCodeFormat，该符号在函数 main 中被引用
+main.obj : error LNK2019: 无法解析的外部符号 vbar_beepControl，该符号在函数 main 中被引用
+main.obj : error LNK2019: 无法解析的外部符号 vbar_getVersion，该符号在函数 main 中被引用
+main.obj : error LNK2019: 无法解析的外部符号 vbar_getResultStr，该符号在函数 main 中被引用
+..\QtControl\lib\vbar.lib : warning LNK4272: 库计算机类型“x86”与目标计算机类型“x64”冲突
+E:\QtControl\QtControl\x64\Release\\QtControl.exe : fatal error LNK1120: 8 个无法解析的外部命令

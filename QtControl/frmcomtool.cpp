@@ -10,8 +10,7 @@ frmComTool::frmComTool(QWidget *parent) :
 	this->setupUi(this);
 	this->initForm();
 	this->initConfig();
-	QTimer::singleShot(0, this, SLOT(readSendData()));
-	QTimer::singleShot(0, this, SLOT(readDeviceData()));
+
 	myHelper::formInCenter(this);
 }
 
@@ -30,7 +29,6 @@ void frmComTool::initForm()
 	receiveCount = 0;
 	sendCount = 0;
 	isShow = true;
-
 	
 	connect(this->btnSend, SIGNAL(clicked()), this, SLOT(sendData()));
 
@@ -40,9 +38,6 @@ void frmComTool::initForm()
 	connect(this->btnSave, SIGNAL(clicked()), this, SLOT(saveData()));
 
 	changeEnable(false);
-
-	tcpOk = false;
-
 
 }
 
@@ -99,11 +94,11 @@ void frmComTool::initConfig()
 	connect(this->cboxParity, SIGNAL(currentIndexChanged(int)), this, SLOT(saveConfig()));
 
 	QStringList stopBitsList;
-	stopBitsList << "10";
+	stopBitsList << "1";
 #ifdef Q_OS_WIN
-	stopBitsList << "15";
+	stopBitsList << "1.5";
 #endif
-	stopBitsList << "20";
+	stopBitsList << "2";
 
 	this->cboxStopBit->addItems(stopBitsList);
 	this->cboxStopBit->setCurrentIndex(this->cboxStopBit->findText(QString::number(gblRuntimeData->StopBit)));
@@ -239,100 +234,96 @@ void frmComTool::append(quint8 type, QString msg)
 	currentCount++;
 }
 
-void frmComTool::InitSerial()
-{
-	//设置串口名  
-	m_serial = new QSerialPort;
-	//设置串口名  
-	m_serial->setPortName(cboxPortName->currentText());
-	//打开串口  
-	bool bOpen=m_serial->open(QIODevice::ReadWrite);
-	if (!bOpen)
-	{
-		return;
-	}
-	//设置波特率  
-	m_serial->setBaudRate(cboxBaudRate->currentText().toInt());
-	//设置数据位数  
-	switch (cboxDataBit->currentText().toInt())
-	{
-		case 5:
-			m_serial->setDataBits(QSerialPort::Data5);
-			break;
-		case 6:
-			m_serial->setDataBits(QSerialPort::Data6);
-			break;
-		case 7:
-			m_serial->setDataBits(QSerialPort::Data7);
-			break;
-		case 8:
-			m_serial->setDataBits(QSerialPort::Data8);
-			break;
-		default:
-			m_serial->setDataBits(QSerialPort::UnknownDataBits);
-			break;
-	}
-	//设置奇偶校验  
-	if (cboxParity->currentText() == "无")
-	{
-		m_serial->setParity(QSerialPort::NoParity); 
-	}
-	if (cboxParity->currentText() == "奇")
-	{
-		m_serial->setParity(QSerialPort::OddParity); 
-	}
-	if (cboxParity->currentText() == "偶")
-	{
-		m_serial->setParity(QSerialPort::EvenParity); 
-	}	
-	if (cboxParity->currentText() == "标志")
-	{
-		m_serial->setParity(QSerialPort::MarkParity);
-	}
-	if (cboxParity->currentText() == "空格")
-	{
-		m_serial->setParity(QSerialPort::SpaceParity);
-	}
-
-	//设置停止位  
-	switch (cboxStopBit->currentText().toInt())
-	{
-		case 10: m_serial->setStopBits(QSerialPort::OneStop); break;
-		case 15: m_serial->setStopBits(QSerialPort::OneAndHalfStop); break;
-		case 20: m_serial->setStopBits(QSerialPort::TwoStop); break;
-		default: break;
-	}
-	//设置流控制  
-	m_serial->setFlowControl(QSerialPort::NoFlowControl);
-	//连接信号槽  
-	QObject::connect(m_serial, &QSerialPort::readyRead, this, &frmComTool::readData);
-}
+//void frmComTool::InitSerial()
+//{
+//	//设置串口名  
+//	m_serial = new QSerialPort;
+//	//设置串口名  
+//	m_serial->setPortName(cboxPortName->currentText());
+//	//打开串口  
+//	bool bOpen=m_serial->open(QIODevice::ReadWrite);
+//	if (!bOpen)
+//	{
+//		return;
+//	}
+//	//设置波特率  
+//	m_serial->setBaudRate(cboxBaudRate->currentText().toInt());
+//	//设置数据位数  
+//	switch (cboxDataBit->currentText().toInt())
+//	{
+//		case 5:
+//			m_serial->setDataBits(QSerialPort::Data5);
+//			break;
+//		case 6:
+//			m_serial->setDataBits(QSerialPort::Data6);
+//			break;
+//		case 7:
+//			m_serial->setDataBits(QSerialPort::Data7);
+//			break;
+//		case 8:
+//			m_serial->setDataBits(QSerialPort::Data8);
+//			break;
+//		default:
+//			m_serial->setDataBits(QSerialPort::UnknownDataBits);
+//			break;
+//	}
+//	//设置奇偶校验  
+//	if (cboxParity->currentText() == "无")
+//	{
+//		m_serial->setParity(QSerialPort::NoParity); 
+//	}
+//	if (cboxParity->currentText() == "奇")
+//	{
+//		m_serial->setParity(QSerialPort::OddParity); 
+//	}
+//	if (cboxParity->currentText() == "偶")
+//	{
+//		m_serial->setParity(QSerialPort::EvenParity); 
+//	}	
+//	if (cboxParity->currentText() == "标志")
+//	{
+//		m_serial->setParity(QSerialPort::MarkParity);
+//	}
+//	if (cboxParity->currentText() == "空格")
+//	{
+//		m_serial->setParity(QSerialPort::SpaceParity);
+//	}
+//
+//	//设置停止位  
+//	switch (cboxStopBit->currentText().toInt())
+//	{
+//		case 10: m_serial->setStopBits(QSerialPort::OneStop); break;
+//		case 15: m_serial->setStopBits(QSerialPort::OneAndHalfStop); break;
+//		case 20: m_serial->setStopBits(QSerialPort::TwoStop); break;
+//		default: break;
+//	}
+//	//设置流控制  
+//	m_serial->setFlowControl(QSerialPort::NoFlowControl);
+//	//连接信号槽  
+//	QObject::connect(m_serial, &QSerialPort::readyRead, this, &frmComTool::readData);
+//}
 
 void frmComTool::readData()
 {
 
 	QString buffer;
-	QByteArray data = m_serial->readAll();
-	LOG_INFO("data =[%s ]", data.toStdString().c_str());
+	QByteArray data = com->readAll();
+
 	if (ckHexReceive->isChecked()) 
 	{
 		
 		buffer = myHelper::byteArrayToHexStr(data);
-		LOG_INFO("data 2 =[%s ]", buffer.toStdString().c_str());
-		buffer = data.toHex();
-		LOG_INFO("data 3 =[%s ]", buffer.toStdString().c_str());
+	
 	}
 	else 
 	{
-		buffer = myHelper::byteArrayToAsciiStr(data);
-		
-
+		buffer = myHelper::byteArrayToAsciiStr(data);	
 	}
 	if (buffer.isEmpty() == true)
 	{
 		return;
 	}
-	append(1, buffer.toLocal8Bit());
+	append(1, buffer);
 	receiveCount = receiveCount + data.size();
 	btnReceiveCount->setText(QString("接收 : %1 字节").arg(receiveCount));
 	buffer.clear();
@@ -359,8 +350,7 @@ void frmComTool::sendData()
 void frmComTool::sendData(QString data)
 {
 
-	if (m_serial->isOpen() != true)
-	{
+	if (com == 0 || !com->isOpen()) {
 		return;
 	}
 	
@@ -378,7 +368,7 @@ void frmComTool::sendData(QString data)
 	sendCount = sendCount + buffer.size();
 	btnSendCount->setText(QString("发送 : %1 字节").arg(sendCount));
 
-	m_serial->write(buffer);
+	com->write(buffer);
 }
 
 void frmComTool::saveData()
@@ -405,20 +395,39 @@ void frmComTool::saveData()
 
 void frmComTool::on_btnOpen_clicked()
 {
-	if (this->btnOpen->text() == "打开串口") 
+	
+	if (btnOpen->text() == "打开串口")
 	{
-		
-		InitSerial();
-		changeEnable(true);
-		this->btnOpen->setText("关闭串口");						
-		
-	} 
+		com = new QextSerialPort(cboxPortName->currentText(), QextSerialPort::EventDriven);
+		comOk = com->open(QIODevice::ReadWrite);
+		if (comOk)
+		{
+			//清空缓冲区
+			com->flush();
+			//设置波特率
+			com->setBaudRate((BaudRateType)cboxBaudRate->currentText().toInt());
+			//设置数据位
+			com->setDataBits((DataBitsType)cboxDataBit->currentText().toInt());
+			//设置校验位
+			com->setParity((ParityType)cboxParity->currentIndex());
+			//设置停止位
+			com->setStopBits((StopBitsType)cboxStopBit->currentIndex());
+			com->setFlowControl(FLOW_OFF);
+			com->setTimeout(10);
+			connect(com, SIGNAL(readyRead()), this, SLOT(readData()));
+			changeEnable(true);
+			btnOpen->setText("关闭串口");
+
+		}
+	}
 	else 
 	{
+
+		com->close();
 		changeEnable(false);
-		this->btnOpen->setText("打开串口");
+		btnOpen->setText("打开串口");
 		on_btnClear_clicked();
-	
+		comOk = false;
 	}
 }
 
@@ -443,67 +452,6 @@ void frmComTool::on_btnStopShow_clicked()
 		isShow = true;
 		this->btnStopShow->setText("停止显示");
 	}
-}
-
-void frmComTool::readSendData()
-{
-	QString fileName = QString("%1/%2").arg(AppPath).arg("send.txt");
-	QFile file(fileName);
-
-	if (!file.exists()) {
-		return;
-	}
-
-	this->cboxSend->clear();
-	file.open(QFile::ReadOnly | QIODevice::Text);
-	QTextStream in(&file);
-	QString line;
-
-	do {
-		line = in.readLine();
-
-		if (line != "") {
-			this->cboxSend->addItem(line);
-		}
-	} while (!line.isNull());
-
-	file.close();
-}
-
-void frmComTool::readDeviceData()
-{
-	QString fileName = QString("%1/%2").arg(AppPath).arg("device.txt");
-	QFile file(fileName);
-
-	if (!file.exists()) {
-		return;
-	}
-
-	file.open(QFile::ReadOnly | QIODevice::Text);
-	QTextStream in(&file);
-	QString line;
-
-	do {
-		line = in.readLine();
-
-		if (line != "") {
-			QStringList list = line.split(";");
-			QString key = list.at(0);
-			QString value;
-
-			for (int i = 1; i < list.count(); i++) {
-				value += QString("%1;").arg(list.at(i));
-			}
-
-			//去掉末尾分号
-			value = value.mid(0, value.length() - 1);
-
-			keys.append(key);
-			values.append(value);
-		}
-	} while (!line.isNull());
-
-	file.close();
 }
 
 void frmComTool::on_btnData_clicked()
@@ -531,7 +479,7 @@ void frmComTool::on_btnData_clicked()
 		file.close();
 		this->txtMain->clear();
 		this->btnData->setText("管理数据");
-		this->readSendData();
+	
 	}
 }
 
@@ -541,7 +489,11 @@ void frmComTool::on_btnClear_clicked()
 	currentCount = 0;
 }
 
+void frmComTool::InitQextSerial()			//初始化串口数据
+{
+	
 
+}
 
 void frmComTool::on_ckAutoSave_stateChanged(int arg1)
 {

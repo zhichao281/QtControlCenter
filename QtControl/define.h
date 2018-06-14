@@ -5,6 +5,7 @@
 #include "../QtControl/log/log_deffine.h"
 #include "Base/myhelper.h"
 #include "Base/RunTime.h"
+#include "qextserialport_win/qextserialport.h"
 
 enum WIDGET_TYPE
 {

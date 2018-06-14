@@ -1,0 +1,20 @@
+﻿  Moc'ing QtControl.h...
+  KeyBoard.cpp
+  main.cpp
+  QtControl.cpp
+  SerialPortSetting.cpp
+e:\qtcontrol\qtcontrol\qtcontrol\keyboard.cpp : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  moc_QtControl.cpp
+e:\qtcontrol\qtcontrol\qtcontrol\include\develop_interface.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 main.cpp)
+  moc_KeyBoard.cpp
+  qrc_QtControl.cpp
+main.obj : error LNK2019: 无法解析的外部符号 __imp_vbar_connectDevice，该符号在函数 main 中被引用
+main.obj : error LNK2019: 无法解析的外部符号 __imp_vbar_get_devnum，该符号在函数 main 中被引用
+main.obj : error LNK2019: 无法解析的外部符号 __imp_vbar_backlight，该符号在函数 main 中被引用
+main.obj : error LNK2019: 无法解析的外部符号 __imp_vbar_interval，该符号在函数 main 中被引用
+main.obj : error LNK2019: 无法解析的外部符号 __imp_vbar_addCodeFormat，该符号在函数 main 中被引用
+main.obj : error LNK2019: 无法解析的外部符号 __imp_vbar_beepControl，该符号在函数 main 中被引用
+main.obj : error LNK2019: 无法解析的外部符号 __imp_vbar_getVersion，该符号在函数 main 中被引用
+main.obj : error LNK2019: 无法解析的外部符号 __imp_vbar_getResultStr，该符号在函数 main 中被引用
+..\QtControl\lib\vbar.lib : warning LNK4272: 库计算机类型“x86”与目标计算机类型“x64”冲突
+E:\QtControl\QtControl\x64\Debug\\QtControl.exe : fatal error LNK1120: 8 个无法解析的外部命令

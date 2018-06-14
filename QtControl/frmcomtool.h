@@ -10,6 +10,8 @@
 #include "ui_frmcomtool.h"
 #include "define.h"
 
+
+
 class frmComTool : public QWidget,public Ui::frmComTool
 {
 	Q_OBJECT
@@ -27,13 +29,13 @@ private slots:
 	void sendData(QString data);    //发送串口数据带参数
 	void saveData();                //保存串口数据
 
-	void readSendData();            //读取发送配置文件数据
-	void readDeviceData();          //读取设备转发文件数据
-
 	void changeEnable(bool b);      //改变状态
+
 	void append(quint8 type, QString msg);
 
-	void InitSerial();			//初始化串口数据
+	//void InitSerial();			//初始化串口数据
+
+	void InitQextSerial();			//初始化串口数据
 private slots:
  
 
@@ -50,12 +52,15 @@ private slots:
  
 
 private:
-	QSerialPort * m_serial ;
+
+	//QSerialPort * m_serial ;
 
 	QSerialPortInfo* serialInfo;
+
 	QList<QSerialPortInfo>serialList;
 
 	QTimer *timerSave;          //定时保存串口数据
+	bool comOk;                 //串口是否打开
 
 	int maxCount;               //最大显示行数
 	int currentCount;           //当前显示行数
@@ -67,10 +72,8 @@ private:
 	QStringList keys;           //模拟设备回复数据key
 	QStringList values;         //模拟设备回复数据value
 
-	bool tcpOk;                 //网络是否正常
 
-	QTimer *timerConnect;       //定时器重连
-
+	QextSerialPort *com;        //串口通信对象
 };
 
 #endif // FRMCOMTOOL_H
