@@ -310,22 +310,29 @@ void frmComTool::InitSerial()
 
 void frmComTool::readData()
 {
-	
+
 	QString buffer;
 	QByteArray data = m_serial->readAll();
+	LOG_INFO("data =[%s ]", data.toStdString().c_str());
 	if (ckHexReceive->isChecked()) 
 	{
+		
 		buffer = myHelper::byteArrayToHexStr(data);
+		LOG_INFO("data 2 =[%s ]", buffer.toStdString().c_str());
+		buffer = data.toHex();
+		LOG_INFO("data 3 =[%s ]", buffer.toStdString().c_str());
 	}
 	else 
 	{
 		buffer = myHelper::byteArrayToAsciiStr(data);
+		
+
 	}
 	if (buffer.isEmpty() == true)
 	{
 		return;
 	}
-	append(1, buffer);
+	append(1, buffer.toLocal8Bit());
 	receiveCount = receiveCount + data.size();
 	btnReceiveCount->setText(QString("接收 : %1 字节").arg(receiveCount));
 	buffer.clear();

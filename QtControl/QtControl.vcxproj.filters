@@ -40,6 +40,9 @@
     <Filter Include="Generated Files\Release">
       <UniqueIdentifier>{fa4859a9-9ddb-4354-9e9f-728b0bb64777}</UniqueIdentifier>
     </Filter>
+    <Filter Include="qextserialport_win">
+      <UniqueIdentifier>{d6a07c55-8197-431f-ab83-733bdd83b812}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -129,6 +132,24 @@
     <ClCompile Include="ControlSql.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_qextserialport.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_qextserialport.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="qextserialport_win\qextserialbase.cpp">
+      <Filter>qextserialport_win</Filter>
+    </ClCompile>
+    <ClCompile Include="qextserialport_win\qextserialenumerator.cpp">
+      <Filter>qextserialport_win</Filter>
+    </ClCompile>
+    <ClCompile Include="qextserialport_win\qextserialport.cpp">
+      <Filter>qextserialport_win</Filter>
+    </ClCompile>
+    <ClCompile Include="qextserialport_win\win_qextserialport.cpp">
+      <Filter>qextserialport_win</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="QtControl.h">
@@ -166,6 +187,15 @@
     </QtMoc>
     <QtMoc Include="ControlSql.h">
       <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="qextserialport_win\qextserialbase.h">
+      <Filter>qextserialport_win</Filter>
+    </QtMoc>
+    <QtMoc Include="qextserialport_win\qextserialport.h">
+      <Filter>qextserialport_win</Filter>
+    </QtMoc>
+    <QtMoc Include="qextserialport_win\win_qextserialport.h">
+      <Filter>qextserialport_win</Filter>
     </QtMoc>
   </ItemGroup>
   <ItemGroup>
@@ -253,6 +283,9 @@
     </ClInclude>
     <ClInclude Include="resource.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="qextserialport_win\qextserialenumerator.h">
+      <Filter>qextserialport_win</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

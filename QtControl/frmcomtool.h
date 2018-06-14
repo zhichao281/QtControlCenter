@@ -8,7 +8,7 @@
 #include <QSerialPortInfo>  
 
 #include "ui_frmcomtool.h"
-
+#include "define.h"
 
 class frmComTool : public QWidget,public Ui::frmComTool
 {

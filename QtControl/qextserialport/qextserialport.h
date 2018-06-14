@@ -159,7 +159,7 @@ struct PortSettings {
 };
 
 class QextSerialPortPrivate;
-class QEXTSERIALPORT_EXPORT QextSerialPort: public QIODevice
+class  QextSerialPort: public QIODevice
 {
 	Q_OBJECT
 	Q_DECLARE_PRIVATE(QextSerialPort)
