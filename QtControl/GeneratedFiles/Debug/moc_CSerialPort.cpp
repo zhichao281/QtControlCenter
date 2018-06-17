@@ -128,8 +128,8 @@ static const uint qt_meta_data_CSerialPort_232[] = {
        1,    1,   29,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       4,    0,   32,    2, 0x08 /* Private */,
-       5,    1,   33,    2, 0x08 /* Private */,
+       4,    0,   32,    2, 0x0a /* Public */,
+       5,    1,   33,    2, 0x0a /* Public */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::QString,    3,
@@ -249,8 +249,8 @@ static const uint qt_meta_data_CSerialPort_485[] = {
        1,    1,   29,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       4,    0,   32,    2, 0x08 /* Private */,
-       5,    1,   33,    2, 0x08 /* Private */,
+       4,    0,   32,    2, 0x0a /* Public */,
+       5,    1,   33,    2, 0x0a /* Public */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::QString,    3,

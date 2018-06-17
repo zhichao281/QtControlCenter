@@ -29,7 +29,9 @@ private slots:
 	void on_slot_timeout();
 
 	void on_slot_SendResult(QString strResult);
+	void on_slot_OpendoorFinish();
 
 private:
 	QMovie * pMove;
+	int  m_nResult;
 };

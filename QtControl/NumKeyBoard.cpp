@@ -36,6 +36,8 @@ NumKeyBoard::NumKeyBoard(QWidget *parent) :
 	connect(btn_back, SIGNAL(clicked()), this, SLOT(on_btnBack_clicked()));
 	connect(btn_home, SIGNAL(clicked()), this, SLOT(on_btnHome_clicked()));
 
+	connect(gblPortControl, SIGNAL(sig_OpendoorFinish()), this, SLOT(on_slot_OpendoorFinish()));
+
 	display->setText("------");
 }
 
@@ -144,13 +146,30 @@ void NumKeyBoard::setDispText(const QString &text)
 
 void NumKeyBoard::onEnter()
 {
+
 	waitingForOperand = true;
 	text = display->text();
+	int i = text.indexOf("-");
+	if (text.length()!=6 || i!=-1)
+	{
+		QMessageBox::about(nullptr, "onEnter", "ÊäÈëµÄ×Ö·ûÓÐÎó");
+		return;
+	}
+
 	display->clear();
 	text.replace("-", "");
-	done(text.toInt());
-}
 
+
+	gblPortControl->OpenDoor();
+
+
+
+}
+void NumKeyBoard::on_slot_OpendoorFinish()
+{
+	done(text.toInt());
+	gblRuntimeData->InputNum = text.toInt();
+}
 void NumKeyBoard::onBackspace()
 {
 	display->backspace();

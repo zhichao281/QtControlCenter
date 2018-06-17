@@ -132,12 +132,6 @@
     <ClCompile Include="ControlSql.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_qextserialport.cpp">
-      <Filter>Generated Files\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_qextserialport.cpp">
-      <Filter>Generated Files\Release</Filter>
-    </ClCompile>
     <ClCompile Include="qextserialport_win\qextserialbase.cpp">
       <Filter>qextserialport_win</Filter>
     </ClCompile>
@@ -149,6 +143,9 @@
     </ClCompile>
     <ClCompile Include="qextserialport_win\win_qextserialport.cpp">
       <Filter>qextserialport_win</Filter>
+    </ClCompile>
+    <ClCompile Include="QPortControl.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -196,6 +193,9 @@
     </QtMoc>
     <QtMoc Include="qextserialport_win\win_qextserialport.h">
       <Filter>qextserialport_win</Filter>
+    </QtMoc>
+    <QtMoc Include="QPortControl.h">
+      <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>
   <ItemGroup>

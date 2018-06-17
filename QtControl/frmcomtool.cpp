@@ -10,7 +10,7 @@ frmComTool::frmComTool(QWidget *parent) :
 	this->setupUi(this);
 	this->initForm();
 	this->initConfig();
-
+	timer = new QTimer(this);
 	myHelper::formInCenter(this);
 }
 
@@ -305,6 +305,8 @@ void frmComTool::append(quint8 type, QString msg)
 
 void frmComTool::readData()
 {
+	int byteLen = com->bytesAvailable(); //返回串口缓冲区字节  
+	if (byteLen <= 0) return;  //减小内存占用  
 
 	QString buffer;
 	QByteArray data = com->readAll();
@@ -327,6 +329,7 @@ void frmComTool::readData()
 	receiveCount = receiveCount + data.size();
 	btnReceiveCount->setText(QString("接收 : %1 字节").arg(receiveCount));
 	buffer.clear();
+
 }
 
 void frmComTool::sendData()
@@ -398,31 +401,62 @@ void frmComTool::on_btnOpen_clicked()
 	
 	if (btnOpen->text() == "打开串口")
 	{
-		com = new QextSerialPort(cboxPortName->currentText(), QextSerialPort::EventDriven);
-		comOk = com->open(QIODevice::ReadWrite);
-		if (comOk)
-		{
-			//清空缓冲区
-			com->flush();
-			//设置波特率
-			com->setBaudRate((BaudRateType)cboxBaudRate->currentText().toInt());
-			//设置数据位
-			com->setDataBits((DataBitsType)cboxDataBit->currentText().toInt());
-			//设置校验位
-			com->setParity((ParityType)cboxParity->currentIndex());
-			//设置停止位
-			com->setStopBits((StopBitsType)cboxStopBit->currentIndex());
-			com->setFlowControl(FLOW_OFF);
-			com->setTimeout(10);
-			connect(com, SIGNAL(readyRead()), this, SLOT(readData()));
-			changeEnable(true);
-			btnOpen->setText("关闭串口");
+		com = new QextSerialPort(cboxPortName->currentText(), QextSerialPort::Polling);
 
+		if (cboxPortName->currentText() =="COM1")
+		{
+			comOk = com->open(QIODevice::ReadWrite);
+			if (comOk)
+			{
+				//清空缓冲区
+				com->flush();
+				//设置波特率
+				com->setBaudRate((BaudRateType)BAUD19200);
+				//设置数据位
+				com->setDataBits((DataBitsType)DATA_8);
+				//设置校验位
+				com->setParity((ParityType)PAR_NONE);
+				//设置停止位
+				com->setStopBits((StopBitsType)STOP_1);
+				com->setFlowControl(FLOW_OFF);
+				com->setTimeout(5);
+				connect(com, SIGNAL(readyRead()), this, SLOT(readData()));
+				timer->start(10);
+				QObject::connect(timer, SIGNAL(timeout()),
+					this, SLOT(readData()));
+				changeEnable(true);
+				btnOpen->setText("关闭串口");
+			}
+		}
+		if (cboxPortName->currentText() == "COM2")
+		{
+			comOk = com->open(QIODevice::ReadWrite);
+			if (comOk)
+			{
+				//清空缓冲区
+				com->flush();
+				//设置波特率
+				com->setBaudRate((BaudRateType)BAUD9600);
+				//设置数据位
+				com->setDataBits((DataBitsType)DATA_8);
+				//设置校验位
+				com->setParity((ParityType)PAR_NONE);
+				//设置停止位
+				com->setStopBits((StopBitsType)STOP_1);
+				com->setFlowControl(FLOW_OFF);
+				com->setTimeout(5);
+				connect(com, SIGNAL(readyRead()), this, SLOT(readData()));
+				timer->start(10);
+				QObject::connect(timer, SIGNAL(timeout()),
+					this, SLOT(readData()));
+				changeEnable(true);
+				btnOpen->setText("关闭串口");
+			}
 		}
 	}
 	else 
 	{
-
+		timer->stop();
 		com->close();
 		changeEnable(false);
 		btnOpen->setText("打开串口");

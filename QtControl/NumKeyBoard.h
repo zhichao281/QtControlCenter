@@ -46,6 +46,9 @@ private slots:
 	void on_btnBack_clicked();
 
 	void on_btnHome_clicked();
+
+
+	void on_slot_OpendoorFinish();
 public:
 	QString text;
 

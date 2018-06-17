@@ -19,6 +19,18 @@
 #pragma execution_character_set("utf-8")
 #endif
 
+
+enum WIDGET_TYPE
+{
+	MSGBOX_GET = 0x0001,
+	MSGBOX_SAVE = 0x0002,
+	MSGBOX_CLOSE = 0x0004,
+	MSGBOX_BACK = 0x0008,
+	MSGBOX_HOME = 0x00010,
+	MSGBOX_OK = 0x00020,
+	MSGBOX_RETURN = 0x00040
+};
+
 class QString;
 /** 单例模式类 CRunTime */
 class CRunTime
@@ -87,6 +99,13 @@ public:
     bool CheckConfig();          //校验配置文件
     void WriteError(QString str);//写入错误信息
     void NewDir(QString dirName);//新建目录
+
+
+	QString  Recevice_485;
+	QString  Recevice_232;
+
+	int  InputNum;
+	WIDGET_TYPE  m_type;
 
 };
 

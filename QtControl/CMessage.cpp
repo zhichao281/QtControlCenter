@@ -11,7 +11,7 @@ CMessage::CMessage(QWidget *parent)
 	connect(btn_OK, SIGNAL(clicked()), this, SLOT(on_btnOk_clicked()));
 	connect(btn_return, SIGNAL(clicked()), this, SLOT(on_btnReturn_clicked()));
 
-	
+
 
 	pMove = new QMovie(":/Image/Resources/Image/time.gif");
 	pMove->setScaledSize(label_gif->size());
@@ -79,17 +79,15 @@ void CMessage::Init(MSGBOX_TYPE types)
 		widget_hide->show();
 		widget_hide_2->show();
 	}
-
-
-
+	
 }
 
 int CMessage::WaitSave(QWidget * parent)
-{
-	CMessage      pMsg;
-	pMsg.Init(MSGBOX_TYPE::MSGBOX_WAITSAVE);
-	pMsg.showMaximized();
-	return pMsg.exec();
+{	
+		CMessage      pMsg;
+		pMsg.Init(MSGBOX_TYPE::MSGBOX_WAITSAVE);
+		pMsg.showMaximized();
+		return pMsg.exec();	
 }
 
 int CMessage::WaitGet(QWidget * parent)

@@ -11,11 +11,14 @@ CProgressWidget::CProgressWidget(QWidget *parent)
 	pMove->setScaledSize(label_gif->size());
 	label_gif->setMovie(pMove);
 	pMove->start();
-	QTimer::singleShot(1000 * 10, this, SLOT(on_slot_timeout()));
+	//QTimer::singleShot(1000 * 10, this, SLOT(on_slot_timeout()));
 
 	btn_back->hide();
 	btn_home->hide();
 	
+	connect(gblPortControl, SIGNAL(sig_ClosedoorFinish()), this, SLOT(on_slot_ClosedoorFinish()));
+	connect(gblPortControl, SIGNAL(sig_SuckTrauFinish()), this, SLOT(slot_SuckTrauFinish()));
+
 }
 
 CProgressWidget::~CProgressWidget()
@@ -35,8 +38,23 @@ bool CProgressWidget::setInputNum(int nInputNum, WIDGET_TYPE types)
 			return false;
 		}
 		app.saveQRNum = nInputNum;
-
-
+		for (int nRow = MAXNULLTRAY; nRow< MAXROW;)
+		{
+			for (int nColumn = 0; nColumn < MAXCOLUMN; nColumn++)
+			{
+				AppInfo Info;
+				bool bresult = gblControlSql->Get_App_By_Point(nRow, nColumn, Info);
+				if (bresult == false)
+				{
+					app.savePoint.setX(nRow);
+					app.savePoint.setY(nColumn);
+					gblControlSql->Add_AppInfo(app);
+					gblPortControl->CloseDoor();
+					return true;
+				}
+			}
+			nRow += ADDROW;
+		}
 	}
 	else
 	{
@@ -64,8 +82,14 @@ void CProgressWidget::setValue(QString strWeight, QString strHeight)
 	label_height->setText(strHeight);
 }
 
+void CProgressWidget::on_slot_ClosedoorFinish()
+{
+	gblPortControl->SuckTray();
+}
+void CProgressWidget::slot_SuckTrauFinish()
+{
 
-
+}
 void CProgressWidget::on_slot_timeout()
 {
 	done(0);

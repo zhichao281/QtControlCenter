@@ -338,7 +338,7 @@ public:
         gridLayout->setContentsMargins(11, 11, 11, 11);
         gridLayout->setObjectName(QStringLiteral("gridLayout"));
         gridLayout->setHorizontalSpacing(60);
-        gridLayout->setVerticalSpacing(10);
+        gridLayout->setVerticalSpacing(8);
         gridLayout->setContentsMargins(0, 0, 0, 0);
         toolButton_1 = new QToolButton(widget);
         toolButton_1->setObjectName(QStringLiteral("toolButton_1"));

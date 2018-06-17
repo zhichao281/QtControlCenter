@@ -16,9 +16,9 @@ QtControl::QtControl(QWidget *parent)
 	//this->setFixedSize(1024, 768);
 	parentWidget = parent;
 	//connect(btn_get, SIGNAL(clicked()), this, SLOT(on_slot_Get()));
-	//connect(btn_save, SIGNAL(clicked()), this, SLOT(on_slot_Save()));
+	connect(btn_save, SIGNAL(clicked()), this, SLOT(on_slot_Save()));
 	connect(btn_get, SIGNAL(clicked()), this, SLOT(on_slot_setting()));
-	connect(btn_save, SIGNAL(clicked()), this, SLOT(on_slot_setting()));
+	//connect(btn_save, SIGNAL(clicked()), this, SLOT(on_slot_setting()));
 	//connect(btn_setting, SIGNAL(clicked()), this, SLOT(on_slot_setting()));
 
 	QPixmap midPix;

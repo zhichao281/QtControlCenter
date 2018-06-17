@@ -16,7 +16,8 @@ QGetWidget::QGetWidget(QWidget *parent, WIDGET_TYPE types)
 	connect(btn_NumSave, SIGNAL(clicked()), this, SLOT(on_btnNumSave_clicked()));
 	connect(btn_QRSave, SIGNAL(clicked()), this, SLOT(on_btnQRSave_clicked()));
 
-
+	connect(gblPortControl, SIGNAL(sig_OpendoorFinish()), this, SLOT(on_slot_OpendoorFinish()));
+	
 
 }
 
@@ -61,6 +62,8 @@ void QGetWidget::on_btnQRSave_clicked()
 
 void QGetWidget::QRClick(WIDGET_TYPE types)
 {
+	gblRuntimeData->m_type = types;
+
 	m_pQRWidget.reset(new CQRWidget);
 	m_pQRWidget->Init(types);
 	m_pQRWidget->showMaximized();
@@ -83,6 +86,7 @@ void QGetWidget::QRClick(WIDGET_TYPE types)
 
 void QGetWidget::NumClick(WIDGET_TYPE types)
 {
+	gblRuntimeData->m_type = types;
 	m_pNumKeyWidget.reset(new NumKeyBoard);
 	m_pNumKeyWidget->Init(types);
 	m_pNumKeyWidget->showMaximized();
@@ -104,12 +108,12 @@ void QGetWidget::NumClick(WIDGET_TYPE types)
 	}
 
 }
-void  QGetWidget::MessageBoxShow(int nInputNum, WIDGET_TYPE types)
+void  QGetWidget::MessageBoxShow(int InputNum, WIDGET_TYPE types)
 {
 	int nRes;
 	if (types == WIDGET_TYPE::MSGBOX_SAVE)
 	{
-		nRes = CMessage::WaitSave();
+		int nRes = CMessage::WaitSave();
 		if (nRes == WIDGET_TYPE::MSGBOX_BACK)
 		{
 			this->show();
@@ -120,26 +124,31 @@ void  QGetWidget::MessageBoxShow(int nInputNum, WIDGET_TYPE types)
 			done(WIDGET_TYPE::MSGBOX_HOME);
 			return;
 		}
+
+
 		m_pProgressWidget.reset(new CProgressWidget);
-		bool bres=m_pProgressWidget->setInputNum(nInputNum, types);
+		bool bres = m_pProgressWidget->setInputNum(gblRuntimeData->InputNum, gblRuntimeData->m_type);
 		if (bres == false)
 		{
 			done(WIDGET_TYPE::MSGBOX_HOME);
 			return;
 		}
-		m_pProgressWidget->showMaximized();	
+		m_pProgressWidget->showMaximized();
 		int nResult = m_pProgressWidget->exec();
 		if (nResult > 0)
 		{
 
 		}
+		return;
+		
+		
 
 	}
 	else
 	{
 		m_pProgressWidget.reset(new CProgressWidget);
 		m_pProgressWidget->showMaximized();
-		m_pProgressWidget->setInputNum(nInputNum,types);
+		m_pProgressWidget->setInputNum(InputNum,types);
 		int nResult= m_pProgressWidget->exec();
 		if (nResult>0)
 		{
@@ -175,6 +184,14 @@ void  QGetWidget::MessageBoxShow(int nInputNum, WIDGET_TYPE types)
 	done(WIDGET_TYPE::MSGBOX_HOME);
 	
 
+
+}
+
+
+void QGetWidget::on_slot_OpendoorFinish()
+{
+
+	
 
 }
 void QGetWidget::on_btnBack_clicked()

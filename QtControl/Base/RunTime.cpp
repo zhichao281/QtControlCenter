@@ -61,16 +61,16 @@ void CRunTime::Clear()
 	com232_DataBit = 8;
 	com232_Parity = "奇";
 	com232_StopBit = 1;
-	com232_HexSend = false;
-	com232_HexReceive = false;
+	com232_HexSend = true;
+	com232_HexReceive = true;
 
-	com485_PortName = "COM3";
+	com485_PortName = "COM2";
 	com485_BaudRate = 9600;
 	com485_DataBit = 8;
 	com485_Parity = "奇";
 	com485_StopBit = 1;
-	com485_HexSend = false;
-	com485_HexReceive = false;
+	com485_HexSend = true;
+	com485_HexReceive = true;
 
 }
 

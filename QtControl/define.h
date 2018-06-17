@@ -6,18 +6,61 @@
 #include "Base/myhelper.h"
 #include "Base/RunTime.h"
 #include "qextserialport_win/qextserialport.h"
+#include "QPortControl.h"
 
-enum WIDGET_TYPE
-{
-	MSGBOX_GET = 0x0001,
-	MSGBOX_SAVE = 0x0002,
-	MSGBOX_CLOSE = 0x0004,
-	MSGBOX_BACK = 0x0008,
-	MSGBOX_HOME = 0x00010,
-	MSGBOX_OK = 0x00020,
-	MSGBOX_RETURN = 0x00040
-};
+//开门
+#define  WantDoorOpen      "3A 02 06 12 03 00 01 E2 0D0A"
+#define  StartOpenDoor     "3A 02 06 12 04 00 01 E1 0D0A"
+#define  AskOpenDoor       "3A 02 03 12 04 00 01 E4 0D0A"
+#define  OpenDoorSucess    "3A 02 03 12 04 00 00 E5 0D0A"
 
+//关门
+#define  WantDoorClose     "3A 02 06 12 03 00 00 E3 ODOA"
+#define  StartCloseDoor    "3A 02 06 12 04 00 01 E1 0D0A"
+#define  AskCloseDoor      "3A 02 03 12 04 00 01 E4 0D0A"
+#define  CloseDoorSucess   "3A 02 03 12 04 00 00 E5 0D0A"
+
+//吸住托盘
+#define WantSuckTray    "3A 02 06 12 07 00 01"
+#define StartSuckTray   "3A 02 06 12 08 00 01"
+#define AskSuckTray    "3A 02 03 12 08 00 01"
+#define SuckTraySucess   "3A 02 03 12 08 00 00"
+
+//放开托盘
+#define WantDropTray    "3A 02 06 12 07 00 00 DF 0D0A"
+#define StartDropTray   "3A 02 06 12 08 00 01 DD 0D0A"
+#define AskDropTray     "3A 02 03 12 08 00 01 E0 0D0A"
+#define DropTraySucess  "3A 02 03 12 08 00 00 E1 0D0A"
+
+//拉取货物
+#define WantGetGoods    "3A 02 06 12 05 00 01"
+#define StartGetGoods   "3A 02 06 12 06 00 01"
+#define AskGetGoods     "3A 02 03 12 06 00 01"
+#define GetGoodsSucess   "3A 02 03 12 06 00 00"
+
+
+//运动到行列动作
+#define WantMoveToX    "3A 01 06 12 00 00"
+#define WantMoveToY    "3A 01 06 12 01 00"
+
+#define StartMove   "3A 02 06 12 02 00 01 E3 0D0A"
+#define AskMove     "3A 02 03 12 02 00 01 E6 0D0A"
+#define MoveSucess  "3A 02 03 12 02 00 00 E7 0D0A"
+
+
+//推送到位
+#define WantPushGoods    "3A 02 06 12 05 00 00 E1 0D0A"
+#define StartPushGoods   "3A 02 06 12 06 00 01 DF 0D0A"
+#define AsktPushGoods    "3A 02 03 12 06 00 01 E2 0DOA"
+#define PushGoodsSucess  "3A 02 03 12 06 00 00 E3 0a0a"
+
+
+
+#define   MAXCOLUMN  8
+#define   MAXROW     15
+
+#define   ADDROW       5
+#define   MAXNULLTRAY  0
 
 class AppInfo
 {

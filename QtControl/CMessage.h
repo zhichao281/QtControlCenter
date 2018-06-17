@@ -6,6 +6,7 @@
 #include <QMovie> 
 #include "ui_CMessage.h"
 #include "define.h"
+#include "QPortControl.h"
 class CMessage : public QDialog,public Ui::CMessage
 {
 	Q_OBJECT

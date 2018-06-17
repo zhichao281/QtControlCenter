@@ -57,6 +57,8 @@ private slots:
 
 	void on_btnQRSave_clicked();
 
+
+	void on_slot_OpendoorFinish();
 private:
 	std::shared_ptr<NumKeyBoard>		 m_pNumKeyWidget;
 	std::shared_ptr<CQRWidget>			 m_pQRWidget;

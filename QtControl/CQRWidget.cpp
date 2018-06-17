@@ -18,6 +18,9 @@ CQRWidget::CQRWidget(QWidget *parent)
 	QTimer::singleShot(1000 * 10, this, SLOT(on_slot_timeout()));
 
 	connect(gblTxqm, SIGNAL(sig_SendResult(QString)), this, SLOT(on_slot_SendResult(QString)));
+	
+	connect(gblPortControl, SIGNAL(sig_OpendoorFinish()), this, SLOT(on_slot_OpendoorFinish()));
+
 }
 
 CQRWidget::~CQRWidget()
@@ -63,7 +66,20 @@ void CQRWidget::on_slot_timeout()
 
 void CQRWidget::on_slot_SendResult(QString strResult)
 {
-	int nResult = strResult.toInt();
-	done(nResult);
+	if (strResult.length() != 6)
+	{
+		QMessageBox::about(nullptr, "onEnter", "¶þÎ¬ÂëÓÐÎó");
+		return;
+	}
+	m_nResult = strResult.toInt();
+	
+	gblPortControl->OpenDoor();
+
+	
 }
 
+void CQRWidget::on_slot_OpendoorFinish()
+{
+	gblRuntimeData->InputNum = m_nResult;
+	done(m_nResult);
+}

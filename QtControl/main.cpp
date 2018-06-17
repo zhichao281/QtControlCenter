@@ -6,11 +6,43 @@
 #include "define.h"
 #include <stdio.h>
 using namespace std;
+
+
+//求两个字符串异或
+QString getXORresult(QString str1, QString str2)
+{
+	QString result;
+	//字符串转QByteArray
+	QByteArray bs1 = str1.toLatin1();
+	QByteArray bs2 = str2.toLatin1();
+	int size = bs1.size();
+	int size2 = bs2.size();
+	if (size != size2)
+	{
+		return 0;
+	}
+	else
+	{
+		for (int i = 0; i < size; i++)
+		{
+			bs1[i] = bs1[i] ^ bs2[i];
+		}
+	}
+	//QByteArray转字符串
+	return result.prepend(bs1);
+}
+
 int main(int argc, char *argv[])
 {
 	QApplication a(argc, argv);
 	gblRuntimeData->ReadConfig();
-	
+
+
+
+
+
+
+
 	QtControl w;
 	w.showMaximized();
 	return a.exec();

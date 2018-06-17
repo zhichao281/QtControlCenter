@@ -74,6 +74,7 @@ private:
 
 
 	QextSerialPort *com;        //串口通信对象
+	QTimer *timer;  //用于声明定时器  
 };
 
 #endif // FRMCOMTOOL_H
