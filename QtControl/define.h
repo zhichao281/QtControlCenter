@@ -38,18 +38,18 @@
 #define DropTraySucess    "3A 30 32 30 33 30 32 30 30 30 30 46 39 0D 0A"
 
 //拉取货物
-#define  WantPushGoods    "3A 30 32 30 36 31 32 30 35 30 30 30 31 45 30 0D 0A"
+#define  WantPushGoods     "3A 30 32 30 36 31 32 30 35 30 30 30 31 45 30 0D 0A"
 #define  StartPushGoods    "3A 30 32 30 36 31 32 30 36 30 30 30 31 44 46 0D 0A"
-#define  AskPushGoods     "3A 30 32 30 33 31 32 30 36 30 30 30 31 45 32 0D 0A"
-#define  PushGoodsFail   "3A 30 32 30 33 30 32 30 30 30 31 46 38 0D 0A"
-#define  PushGoodsSucess "3A 30 32 30 33 30 32 30 30 30 30 46 39 0D 0A"
+#define  AskPushGoods      "3A 30 32 30 33 31 32 30 36 30 30 30 31 45 32 0D0A"
+#define  PushGoodsFail     "3A 30 32 30 33 30 32 30 30 30 31 46 38 0D 0A"
+#define  PushGoodsSucess   "3A 30 32 30 33 30 32 30 30 30 30 46 39 0D 0A"
 
 //推送到位
-#define  WantGetGoods   "3A 30 32 30 36 31 32 30 35 30 30 30 30 45 31 0D 0A"
-#define  StartGetGoods  "3A 30 32 30 36 31 32 30 36 30 30 30 31 44 46 0D 0A"
-#define  AskGetGoods  "3A 30 32 30 33 31 32 30 36 30 30 30 31 45 32 0D OA"
-#define  GetGoodsFail   "3A 30 32 30 33 30 32 30 30 30 31 46 38 0D 0A"
-#define  GetGoodsSucess "3A 30 32 30 33 30 32 30 30 30 30 46 39 0D 0A"
+#define  WantGetGoods      "3A 30 32 30 36 31 32 30 35 30 30 30 30 45 31 0D 0A"
+#define  StartGetGoods     "3A 30 32 30 36 31 32 30 36 30 30 30 31 44 46 0D 0A"
+#define  AskGetGoods       "3A 30 32 30 33 31 32 30 36 30 30 30 31 45 32 0D0A"
+#define  GetGoodsFail      "3A 30 32 30 33 30 32 30 30 30 31 46 38 0D 0A"
+#define  GetGoodsSucess    "3A 30 32 30 33 30 32 30 30 30 30 46 39 0D 0A"
 
 
 
@@ -68,6 +68,7 @@
 #define MOVEZEROROW      "3A 30 32 30 36 31 32 30 30 30 30 30 30 45 36 0D 0A"
 #define MOVEZEROCOLUMN   "3A 30 32 30 36 31 32 30 31 30 30 30 30 45 35 0D 0A"
 
+#define  MOVEEND         "0D 0A"
 
 #define   MAXCOLUMN  8
 #define   MAXROW     20

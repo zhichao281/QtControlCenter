@@ -51,17 +51,7 @@ private slots:
 
 	void on_slot_ClosedoorFinish();
 
-	void on_slot_MoveFinish();
-
-	void on_slot_PushGoodsFinish();
-
-	void on_slot_SuckTrayFinish();
-
-	void on_slot_DropTrayFinish();
-
-	void on_slot_GetGoodsFinish();
-
-	
+	void on_slot_finish();
 public:
 	QString text;
 

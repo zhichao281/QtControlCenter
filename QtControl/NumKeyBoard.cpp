@@ -1,7 +1,7 @@
 #include "NumKeyBoard.h"
 
 #include <QDebug>
-
+#include "QMoveControl.h"
 
 NumKeyBoard::NumKeyBoard(QWidget *parent) :
 	QDialog(parent)
@@ -38,18 +38,9 @@ NumKeyBoard::NumKeyBoard(QWidget *parent) :
 
 	connect(gblPortControl, SIGNAL(sig_OpendoorFinish()), this, SLOT(on_slot_OpendoorFinish()));
 
-	connect(gblPortControl, SIGNAL(sig_MoveFinish()), this, SLOT(on_slot_MoveFinish()));
-
-	connect(gblPortControl, SIGNAL(sig_PushGoodsFinish()), this, SLOT(on_slot_PushGoodsFinish()));
-
-	connect(gblPortControl, SIGNAL(sig_SuckTrayFinish()), this, SLOT(on_slot_SuckTrayFinish()));
-	
-	connect(gblPortControl, SIGNAL(sig_GetGoodsFinish()), this, SLOT(on_slot_GetGoodsFinish()));
-	
-	connect(gblPortControl, SIGNAL(sig_DropTrayFinish()), this, SLOT(on_slot_DropTrayFinish()));
-
 	connect(gblPortControl, SIGNAL(sig_ClosedoorFinish()), this, SLOT(on_slot_ClosedoorFinish()));
 
+	connect(gblMoveControl, SIGNAL(sig_finish()), this, SLOT(on_slot_finish())); 
 
 	display->setText("------");
 	m_bSecond = false;
@@ -236,97 +227,24 @@ void NumKeyBoard::onEnter()
 				{
 					app.savePoint.setX(nRow);
 					app.savePoint.setY(nColumn);
-					gblControlSql->Add_AppInfo(app);				
-					gblPortControl->MovePoint(nRow, nColumn);
+					gblControlSql->Add_AppInfo(app);	
+					
+					gblMoveControl->SetMove(QPoint(nRow, nColumn), QPoint(0, 0));
+					gblMoveControl->StartWork();
 					m_bSecond = false;
 					return ;
 				}
 			}
 		}
 	}
-
-
-
-
-
 }
-void NumKeyBoard::on_slot_MoveFinish()
+
+
+
+void NumKeyBoard::on_slot_finish()
 {
-	if (m_type & MSGBOX_GET)
-	{
-	
-	}
-	if (m_type & MSGBOX_SAVE)
-	{
-		if (m_bSecond == false)
-		{
-			gblPortControl->PushGoods();
-		}
-		else
-		{
-			gblPortControl->PushGoods();
-		}
-	
-	}
+	gblPortControl->OpenDoor();
 }
-void NumKeyBoard::on_slot_PushGoodsFinish()
-{
-	if (m_type & MSGBOX_GET)
-	{
-		
-	}
-	if (m_type & MSGBOX_SAVE)
-	{
-		if (m_bSecond == false)
-		{
-			gblPortControl->SuckTray();
-		}
-		else
-		{
-			gblPortControl->DropTray();
-		}
-	}
-}
-void NumKeyBoard::on_slot_SuckTrayFinish()
-{
-	if (m_type & MSGBOX_GET)
-	{
-	}
-	if (m_type & MSGBOX_SAVE)
-	{
-		if (m_bSecond == false)
-		{
-			gblPortControl->GetGoods();
-		}
-	}
-}
-void NumKeyBoard::on_slot_DropTrayFinish()
-{
-	if (m_type & MSGBOX_GET)
-	{
-	}
-	if (m_type & MSGBOX_SAVE)
-	{
-		gblPortControl->OpenDoor();
-	}
-}
-
-void NumKeyBoard::on_slot_GetGoodsFinish()
-{
-	if (m_type & MSGBOX_GET)
-	{
-	
-	}
-	if (m_type & MSGBOX_SAVE)
-	{
-		if (m_bSecond == false)
-		{
-			gblPortControl->MovePoint(0, 0);
-			m_bSecond = true;
-		}
-	}
-}
-
 
 void NumKeyBoard::on_slot_OpendoorFinish()
 {
