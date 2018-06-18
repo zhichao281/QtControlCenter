@@ -28,7 +28,7 @@ QtControl::QtControl(QWidget *parent)
 	label_QRImage->setPixmap(qrPixmap);
 	gblTxqm->Start_Receive();
 
-	show();
+
 }
 
 

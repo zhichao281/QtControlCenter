@@ -194,10 +194,42 @@ void NumKeyBoard::onEnter()
 			return ;
 		}
 		app.saveQRNum = m_nInputNum;
-		for (int nRow = MAXNULLTRAY; nRow < MAXROW;)
+
+		for (int i = 0; i < 3; i++)
 		{
-			for (int nColumn = 0; nColumn < MAXCOLUMN; nColumn++)
+			int nRow = 0;
+			switch (i)
 			{
+			case 0:
+				nRow = 15;
+				break;
+			case 1:
+				nRow = 25;
+				break;
+			case 2:
+				nRow = 35;
+				break;
+			case 3:
+				nRow = 40;
+				break;
+			default:
+				break;
+			}
+			for (int j = 0; j < 3; j++)
+			{
+				int nColumn = 0;
+				switch (j)
+				{
+				case 0:
+					nColumn = 2;
+					break;
+				case 1:
+					nColumn = 6;
+					break;
+				case 2:
+					nColumn = 7;
+					break;
+				}
 				AppInfo Info;
 				bool bresult = gblControlSql->Get_App_By_Point(nRow, nColumn, Info);
 				if (bresult == false)
@@ -210,7 +242,6 @@ void NumKeyBoard::onEnter()
 					return ;
 				}
 			}
-			nRow += ADDROW;
 		}
 	}
 

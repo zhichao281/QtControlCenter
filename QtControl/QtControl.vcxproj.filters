@@ -150,6 +150,12 @@
     <ClCompile Include="QMoveControl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="QtGuiClass.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ConfigWidget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="QtControl.h">
@@ -203,6 +209,12 @@
     <QtMoc Include="QMoveControl.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="QtGuiClass.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ConfigWidget.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="QtControl.ui">
@@ -230,6 +242,12 @@
       <Filter>Form Files</Filter>
     </QtUic>
     <QtUic Include="CProgressWidget.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="QtGuiClass.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ConfigWidget.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>

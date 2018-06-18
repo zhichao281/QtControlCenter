@@ -169,26 +169,27 @@ void CSerialPort_485::readData()
 	gblRuntimeData->Recevice_485 = buffer;
 	buffer.clear();
 	com->flush();
+	LOG_INFO("readData =[%s]", buffer.toStdString().c_str());
 }
 
 
 
-void CSerialPort_485::sendData(QString data)
+void CSerialPort_485::sendData(QString strSendData)
 {
 	if (com == 0 || !com->isOpen()) {
 		return;
 	}
-
+	LOG_INFO("sendData =[%s]", strSendData.toStdString().c_str());
 	QByteArray buffer;
 
 	if (gblRuntimeData->com485_HexSend)
 	{
-		buffer = myHelper::hexStrToByteArray(data);
+		buffer = myHelper::hexStrToByteArray(strSendData);
 	}
 	else
 	{
-		buffer = myHelper::asciiStrToByteArray(data);
+		buffer = myHelper::asciiStrToByteArray(strSendData);
 	}
 	com->write(buffer);
-	
+	com->flush();
 }

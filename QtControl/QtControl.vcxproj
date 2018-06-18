@@ -212,6 +212,7 @@
     <ClCompile Include="Base\RunTime.cpp" />
     <ClCompile Include="Base\SQLBase.cpp" />
     <ClCompile Include="CMessage.cpp" />
+    <ClCompile Include="ConfigWidget.cpp" />
     <ClCompile Include="ControlSql.cpp" />
     <ClCompile Include="CProgressWidget.cpp" />
     <ClCompile Include="CQRWidget.cpp" />
@@ -269,6 +270,7 @@
     <ClCompile Include="QMoveControl.cpp" />
     <ClCompile Include="QPortControl.cpp" />
     <ClCompile Include="QtControl.cpp" />
+    <ClCompile Include="QtGuiClass.cpp" />
     <ClCompile Include="Qtxqm.cpp" />
     <ClCompile Include="SerialPortSetting.cpp" />
   </ItemGroup>
@@ -277,6 +279,7 @@
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="CMessage.ui" />
+    <QtUic Include="ConfigWidget.ui" />
     <QtUic Include="CProgressWidget.ui" />
     <QtUic Include="CQRWidget.ui" />
     <QtUic Include="frmcomtool.ui">
@@ -286,6 +289,7 @@
     <QtUic Include="NumKeyBoard.ui" />
     <QtUic Include="QGetWidget.ui" />
     <QtUic Include="QtControl.ui" />
+    <QtUic Include="QtGuiClass.ui" />
     <QtUic Include="SerialPortSetting.ui" />
   </ItemGroup>
   <ItemGroup>
@@ -347,6 +351,16 @@
       <Define Condition="'$(Configuration)|$(Platform)'=='Release|x64'">UNICODE;_UNICODE;WIN32;WIN64;QT_NO_DEBUG;NDEBUG;QT_GUI_LIB;QT_WIDGETS_LIB;QT_CORE_LIB;QT_SERIALPORT_LIB</Define>
     </QtMoc>
     <QtMoc Include="ControlSql.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName)\.;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtSerialPort;$(QTDIR)\include\QtSql</IncludePath>
+      <Define Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">VBAR_BUILD_AS_DLL;UNICODE;_UNICODE;WIN32;WIN64;QT_GUI_LIB;QT_WIDGETS_LIB;QT_CORE_LIB;QT_SERIALPORT_LIB;QT_SQL_LIB</Define>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName)\.;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtSerialPort;$(QTDIR)\include\QtSql</IncludePath>
+      <Define Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">VBAR_BUILD_AS_DLL;UNICODE;_UNICODE;WIN32;WIN64;QT_GUI_LIB;QT_WIDGETS_LIB;QT_CORE_LIB;QT_SERIALPORT_LIB;QT_SQL_LIB</Define>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName)\.;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtSerialPort;$(QTDIR)\include\QtSql</IncludePath>
+      <Define Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">UNICODE;_UNICODE;WIN32;WIN64;QT_NO_DEBUG;NDEBUG;QT_GUI_LIB;QT_WIDGETS_LIB;QT_CORE_LIB;QT_SERIALPORT_LIB;QT_SQL_LIB</Define>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName)\.;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtSerialPort;$(QTDIR)\include\QtSql</IncludePath>
+      <Define Condition="'$(Configuration)|$(Platform)'=='Release|x64'">UNICODE;_UNICODE;WIN32;WIN64;QT_NO_DEBUG;NDEBUG;QT_GUI_LIB;QT_WIDGETS_LIB;QT_CORE_LIB;QT_SERIALPORT_LIB;QT_SQL_LIB</Define>
+    </QtMoc>
+    <QtMoc Include="ConfigWidget.h">
       <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName)\.;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtSerialPort;$(QTDIR)\include\QtSql</IncludePath>
       <Define Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">VBAR_BUILD_AS_DLL;UNICODE;_UNICODE;WIN32;WIN64;QT_GUI_LIB;QT_WIDGETS_LIB;QT_CORE_LIB;QT_SERIALPORT_LIB;QT_SQL_LIB</Define>
       <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName)\.;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtSerialPort;$(QTDIR)\include\QtSql</IncludePath>
@@ -449,6 +463,16 @@
       <Define Condition="'$(Configuration)|$(Platform)'=='Release|x64'">UNICODE;_UNICODE;WIN32;WIN64;QT_NO_DEBUG;NDEBUG;QT_GUI_LIB;QT_WIDGETS_LIB;QT_CORE_LIB;QT_SERIALPORT_LIB;QT_SQL_LIB</Define>
     </QtMoc>
     <QtMoc Include="QMoveControl.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName)\.;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtSerialPort;$(QTDIR)\include\QtSql</IncludePath>
+      <Define Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">VBAR_BUILD_AS_DLL;UNICODE;_UNICODE;WIN32;WIN64;QT_GUI_LIB;QT_WIDGETS_LIB;QT_CORE_LIB;QT_SERIALPORT_LIB;QT_SQL_LIB</Define>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName)\.;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtSerialPort;$(QTDIR)\include\QtSql</IncludePath>
+      <Define Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">VBAR_BUILD_AS_DLL;UNICODE;_UNICODE;WIN32;WIN64;QT_GUI_LIB;QT_WIDGETS_LIB;QT_CORE_LIB;QT_SERIALPORT_LIB;QT_SQL_LIB</Define>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName)\.;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtSerialPort;$(QTDIR)\include\QtSql</IncludePath>
+      <Define Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">UNICODE;_UNICODE;WIN32;WIN64;QT_NO_DEBUG;NDEBUG;QT_GUI_LIB;QT_WIDGETS_LIB;QT_CORE_LIB;QT_SERIALPORT_LIB;QT_SQL_LIB</Define>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName)\.;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtSerialPort;$(QTDIR)\include\QtSql</IncludePath>
+      <Define Condition="'$(Configuration)|$(Platform)'=='Release|x64'">UNICODE;_UNICODE;WIN32;WIN64;QT_NO_DEBUG;NDEBUG;QT_GUI_LIB;QT_WIDGETS_LIB;QT_CORE_LIB;QT_SERIALPORT_LIB;QT_SQL_LIB</Define>
+    </QtMoc>
+    <QtMoc Include="QtGuiClass.h">
       <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName)\.;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtSerialPort;$(QTDIR)\include\QtSql</IncludePath>
       <Define Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">VBAR_BUILD_AS_DLL;UNICODE;_UNICODE;WIN32;WIN64;QT_GUI_LIB;QT_WIDGETS_LIB;QT_CORE_LIB;QT_SERIALPORT_LIB;QT_SQL_LIB</Define>
       <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName)\.;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtSerialPort;$(QTDIR)\include\QtSql</IncludePath>

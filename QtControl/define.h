@@ -10,51 +10,63 @@
 
 
 //开门
-#define  WantDoorOpen      "3A 02 06 12 03 00 01 E2 0D 0A"
-#define  StartOpenDoor     "3A 02 06 12 04 00 01 E1 0D 0A"
-#define  AskOpenDoor       "3A 02 03 12 04 00 01 E4 0D 0A"
-#define  OpenDoorSucess    "3A 02 03 12 04 00 00 E5 0D 0A"
+#define  WantOpenDoor      "3A 30 32 30 36 31 32 30 33 30 30 30 31 45 32 0D 0A"
+#define  StartOpenDoor     "3A 30 32 30 36 31 32 30 34 30 30 30 31 45 31 0D 0A"
+#define  AskOpenDoor       "3A 30 32 30 33 31 32 30 34 30 30 30 31 45 34 0D 0A"
+#define OpenDoorFail       "3A 30 32 30 33 30 32 30 30 30 31 46 38 0D 0A"
+#define OpenDoorSucess     "3A 30 32 30 33 30 32 30 30 30 30 46 39 0D 0A"
 
 //关门
-#define  WantDoorClose     "3A 02 06 12 03 00 00 E3 OD OA"
-#define  StartCloseDoor    "3A 02 06 12 04 00 01 E1 0D 0A"
-#define  AskCloseDoor      "3A 02 03 12 04 00 01 E4 0D 0A"
-#define  CloseDoorSucess   "3A 02 03 12 04 00 00 E5 0D 0A"
+#define  WantDoorClose     "3A 30 32 30 36 31 32 30 33 30 30 30 30 45 33 0D 0A"
+#define  StartCloseDoor    "3A 30 32 30 36 31 32 30 34 30 30 30 31 45 31 0D 0A"
+#define  AskCloseDoor      "3A 30 32 30 33 31 32 30 34 30 30 30 31 45 34 0D 0A"
+#define  CloseDoorFail     "3A 30 32 30 33 30 32 30 30 30 31 46 38 0D 0A"
+#define  CloseDoorSucess   "3A 30 32 30 33 30 32 30 30 30 30 46 39 0D 0A"
 
 //吸住托盘
-#define WantSuckTray       "3A 02 06 12 07 00 01 DE 0D 0A"
-#define StartSuckTray      "3A 02 06 12 08 00 01 DD 0D 0A"
-#define AskSuckTray        "3A 02 03 12 08 00 01 E0 0D 0A"
-#define SuckTraySucess     "3A 02 03 12 08 00 00 E1 0D 0A"
+#define WantSuckTray       "3A 30 32 30 36 31 32 30 37 30 30 30 31 44 45 0D 0A"
+#define StartSuckTray      "3A 30 32 30 36 31 32 30 38 30 30 30 31 44 44 0D 0A"
+#define AskSuckTray        "3A 30 32 30 33 31 32 30 38 30 30 30 31 45 30 0D 0A"
+#define SuckTrayFail       "3A 30 32 30 33 30 32 30 30 30 31 46 38 0D 0A"
+#define SuckTraySucess     "3A 30 32 30 33 30 32 30 30 30 30 46 39 0D 0A"
 
 //放开托盘
-#define WantDropTray      "3A 02 06 12 07 00 00 DF 0D 0A"
-#define StartDropTray     "3A 02 06 12 08 00 01 DD 0D 0A"
-#define AskDropTray       "3A 02 03 12 08 00 01 E0 0D 0A"
-#define DropTraySucess    "3A 02 03 12 08 00 00 E1 0D 0A"
+#define WantDropTray      "3A 30 32 30 36 31 32 30 37 30 30 30 30 44 46 0D 0A"
+#define StartDropTray     "3A 30 32 30 36 31 32 30 38 30 30 30 31 44 44 0D 0A"
+#define AskDropTray       "3A 30 32 30 33 31 32 30 38 30 30 30 31 45 30 0D 0A"
+#define DropTrayFail      "3A 30 32 30 33 30 32 30 30 30 31 46 38 0D 0A"
+#define DropTraySucess    "3A 30 32 30 33 30 32 30 30 30 30 46 39 0D 0A"
 
 //拉取货物
-#define WantGetGoods      "3A 02 06 12 05 00 01 E0 0D 0A"
-#define StartGetGoods     "3A 02 06 12 06 00 01 DF 0D 0A"
-#define AskGetGoods       "3A 02 03 12 06 00 01 E2 0D 0A"
-#define GetGoodsSucess    "3A 02 03 12 06 00 00 E3 0D 0A"
+#define  WantPushGoods    "3A 30 32 30 36 31 32 30 35 30 30 30 31 45 30 0D 0A"
+#define  StartPushGoods    "3A 30 32 30 36 31 32 30 36 30 30 30 31 44 46 0D 0A"
+#define  AskPushGoods     "3A 30 32 30 33 31 32 30 36 30 30 30 31 45 32 0D 0A"
+#define  PushGoodsFail   "3A 30 32 30 33 30 32 30 30 30 31 46 38 0D 0A"
+#define  PushGoodsSucess "3A 30 32 30 33 30 32 30 30 30 30 46 39 0D 0A"
+
+//推送到位
+#define  WantGetGoods   "3A 30 32 30 36 31 32 30 35 30 30 30 30 45 31 0D 0A"
+#define  StartGetGoods  "3A 30 32 30 36 31 32 30 36 30 30 30 31 44 46 0D 0A"
+#define  AskGetGoods  "3A 30 32 30 33 31 32 30 36 30 30 30 31 45 32 0D OA"
+#define  GetGoodsFail   "3A 30 32 30 33 30 32 30 30 30 31 46 38 0D 0A"
+#define  GetGoodsSucess "3A 30 32 30 33 30 32 30 30 30 30 46 39 0D 0A"
+
 
 
 //运动到行列动作
-#define WantMoveToX       "3A 02 06 12 00 00"
-#define WantMoveToY       "3A 02 06 12 01 00"
+#define WantMoveToX      "3A 30 32 30 36 31 32 30 30 30 30"
+#define WantMoveToY      "3A 30 32 30 36 31 32 30 31 30 30"
 
-#define StartMove   "3A 02 06 12 02 00 01 E3 0D 0A"
-#define AskMove     "3A 02 03 12 02 00 01 E6 0D 0A"
-#define MoveSucess  "3A 02 03 12 02 00 00 E7 0D 0A"
+#define CountX           "02 06 12 00 00"
+#define CountY           "02 06 12 01 00"
 
+#define StartMove        "3A 30 32 30 36 31 32 30 32 30 30 30 31 45 33 0D 0A"
+#define AskMove          "3A 30 32 30 33 31 32 30 32 30 30 30 31 45 36 0D 0A"
+#define MoveFail         "3A 30 32 30 33 30 32 30 30 30 31 46 38 0D 0A"
+#define MoveSucess       "3A 30 32 30 33 30 32 30 30 30 30 46 39 0D 0A"
 
-//推送到位
-#define WantPushGoods    "3A 02 06 12 05 00 00 E1 0D 0A"
-#define StartPushGoods   "3A 02 06 12 06 00 01 DF 0D 0A"
-#define AsktPushGoods    "3A 02 03 12 06 00 01 E2 0D OA"
-#define PushGoodsSucess  "3A 02 03 12 06 00 00 E3 0D 0A"
-
+#define MOVEZEROROW      "3A 30 32 30 36 31 32 30 30 30 30 30 30 45 36 0D 0A"
+#define MOVEZEROCOLUMN   "3A 30 32 30 36 31 32 30 31 30 30 30 30 45 35 0D 0A"
 
 
 #define   MAXCOLUMN  8
