@@ -62,7 +62,7 @@ void CMessage::Init(MSGBOX_TYPE types)
 									"min-height:71px;"
 									"max-height:71px;"
 									"border-image: url(:/Image/Resources/Image/存件已完成！.png);");
-		QTimer::singleShot(1000, this, SLOT(on_slot_timeout()));
+		QTimer::singleShot(1000*30, this, SLOT(on_slot_timeout()));
 		widget_timer->show();
 
 	}
@@ -73,11 +73,14 @@ void CMessage::Init(MSGBOX_TYPE types)
 			"min-height:71px;"
 			"max-height:71px;"
 			"border-image: url(:/Image/Resources/Image/取件已完成！.png);");
-		QTimer::singleShot(1000 , this, SLOT(on_slot_timeout()));
+		QTimer::singleShot(1000 *30, this, SLOT(on_slot_timeout()));
 		//widget_timer->show();	
 		widget_return->show();
 		widget_hide->show();
 		widget_hide_2->show();
+
+		//取完东西  送回去托盘
+		gblPortControl->SuckTray();
 	}
 	
 }

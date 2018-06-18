@@ -147,6 +147,9 @@
     <ClCompile Include="QPortControl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="QMoveControl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="QtControl.h">
@@ -195,6 +198,9 @@
       <Filter>qextserialport_win</Filter>
     </QtMoc>
     <QtMoc Include="QPortControl.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="QMoveControl.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>

@@ -7,7 +7,7 @@
 #include <QMouseEvent>
 #include "ui_NumKeyBoard.h"
 #include "define.h"
-
+#include "ControlSql.h"
 class NumKeyBoard : public QDialog,public Ui::NumKeyBoard
 {
 	Q_OBJECT
@@ -47,8 +47,21 @@ private slots:
 
 	void on_btnHome_clicked();
 
-
 	void on_slot_OpendoorFinish();
+
+	void on_slot_ClosedoorFinish();
+
+	void on_slot_MoveFinish();
+
+	void on_slot_PushGoodsFinish();
+
+	void on_slot_SuckTrayFinish();
+
+	void on_slot_DropTrayFinish();
+
+	void on_slot_GetGoodsFinish();
+
+	
 public:
 	QString text;
 
@@ -58,9 +71,12 @@ private:
 	QSignalMapper *signalMapper;
 	QPoint dragPosition;
 	bool caps_Lock;
+
 	WIDGET_TYPE  m_type;
 
+	int  m_nInputNum;
 
+	bool  m_bSecond;
 
 
 };

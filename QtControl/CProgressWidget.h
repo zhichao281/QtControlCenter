@@ -20,13 +20,28 @@ public:
 
 	bool setInputNum(int nInputNum, WIDGET_TYPE types);
 
-private slots:
+public slots :
 
-	void on_slot_timeout();
+	void on_slot_OpendoorFinish();
 
 	void on_slot_ClosedoorFinish();
 
-	void slot_SuckTrauFinish();
+	void on_slot_MoveFinish();
+
+	void on_slot_PushGoodsFinish();
+
+	void on_slot_SuckTrayFinish();
+
+	void on_slot_DropTrayFinish();
+
+	void on_slot_GetGoodsFinish();
+
 private:
 	QMovie * pMove;
+
+	WIDGET_TYPE  m_type;
+
+	int  m_nInputNum;
+
+	bool  m_bSecond;
 };

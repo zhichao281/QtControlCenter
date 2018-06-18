@@ -116,7 +116,8 @@ CSerialPort_485::~CSerialPort_485()
 
 void CSerialPort_485::InitSerial()
 {
-	com = new QextSerialPort(gblRuntimeData->com485_PortName, QextSerialPort::Polling);
+	//com = new QextSerialPort(gblRuntimeData->com485_PortName, QextSerialPort::Polling);
+	com = new QextSerialPort("COM3", QextSerialPort::Polling);
 	comOk = com->open(QIODevice::ReadWrite);
 	if (comOk)
 	{
@@ -144,7 +145,7 @@ void CSerialPort_485::InitSerial()
 
 void CSerialPort_485::readData()
 {
-	int byteLen = com->bytesAvailable(); //返回串口缓冲区字节  
+ 	int byteLen = com->bytesAvailable(); //返回串口缓冲区字节  
 	if (byteLen <= 0) return;  //减小内存占用  
 
 	QString buffer;
@@ -167,6 +168,7 @@ void CSerialPort_485::readData()
 	emit sig_ReadData(buffer);
 	gblRuntimeData->Recevice_485 = buffer;
 	buffer.clear();
+	com->flush();
 }
 
 
@@ -188,4 +190,5 @@ void CSerialPort_485::sendData(QString data)
 		buffer = myHelper::asciiStrToByteArray(data);
 	}
 	com->write(buffer);
+	
 }

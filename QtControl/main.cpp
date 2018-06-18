@@ -5,44 +5,21 @@
 #include <iostream>
 #include "define.h"
 #include <stdio.h>
+#include "QMoveControl.h"
 using namespace std;
-
-
-//ÇóÁ½¸ö×Ö·û´®Òì»ò
-QString getXORresult(QString str1, QString str2)
-{
-	QString result;
-	//×Ö·û´®×ªQByteArray
-	QByteArray bs1 = str1.toLatin1();
-	QByteArray bs2 = str2.toLatin1();
-	int size = bs1.size();
-	int size2 = bs2.size();
-	if (size != size2)
-	{
-		return 0;
-	}
-	else
-	{
-		for (int i = 0; i < size; i++)
-		{
-			bs1[i] = bs1[i] ^ bs2[i];
-		}
-	}
-	//QByteArray×ª×Ö·û´®
-	return result.prepend(bs1);
-}
 
 int main(int argc, char *argv[])
 {
 	QApplication a(argc, argv);
+	
+	//gblMoveControl->SetMove(QPoint(0, 0), QPoint(5, 5));
+	//gblMoveControl->StartWork();
+	//while (1)
+	//{
+	//	Sleep(1000);
+	//}
+
 	gblRuntimeData->ReadConfig();
-
-
-
-
-
-
-
 	QtControl w;
 	w.showMaximized();
 	return a.exec();

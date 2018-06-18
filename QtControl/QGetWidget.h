@@ -59,10 +59,16 @@ private slots:
 
 
 	void on_slot_OpendoorFinish();
+
+
 private:
 	std::shared_ptr<NumKeyBoard>		 m_pNumKeyWidget;
 	std::shared_ptr<CQRWidget>			 m_pQRWidget;
 	std::shared_ptr<CProgressWidget>     m_pProgressWidget;
 	
+	WIDGET_TYPE  m_type;
 
+	int  m_nInputNum;
+
+	bool  m_bSecond;
 };

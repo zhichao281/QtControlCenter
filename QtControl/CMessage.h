@@ -57,6 +57,9 @@ private slots:
 	void on_btnReturn_clicked();
 
 	void on_slot_timeout();
+
+
+
 private:
 	QMovie * pMove;
 

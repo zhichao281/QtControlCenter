@@ -476,7 +476,7 @@ void CSQLBase::GetValues(QStringList &strReturnValues)
 /* 查找函数.构造SQL查询语句.*/
 void CSQLBase::GetValues(QStringList &strReturnValues,QString &strExpreesion,int nValues)
 {
-	_READ_LOCK_;
+	
 	if (!m_db.open())
 	{
 		m_db.close();

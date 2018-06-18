@@ -110,6 +110,8 @@ void QGetWidget::NumClick(WIDGET_TYPE types)
 }
 void  QGetWidget::MessageBoxShow(int InputNum, WIDGET_TYPE types)
 {
+	m_nInputNum = InputNum;
+	m_type = types;
 	int nRes;
 	if (types == WIDGET_TYPE::MSGBOX_SAVE)
 	{
@@ -124,8 +126,6 @@ void  QGetWidget::MessageBoxShow(int InputNum, WIDGET_TYPE types)
 			done(WIDGET_TYPE::MSGBOX_HOME);
 			return;
 		}
-
-
 		m_pProgressWidget.reset(new CProgressWidget);
 		bool bres = m_pProgressWidget->setInputNum(gblRuntimeData->InputNum, gblRuntimeData->m_type);
 		if (bres == false)
@@ -135,13 +135,7 @@ void  QGetWidget::MessageBoxShow(int InputNum, WIDGET_TYPE types)
 		}
 		m_pProgressWidget->showMaximized();
 		int nResult = m_pProgressWidget->exec();
-		if (nResult > 0)
-		{
-
-		}
-		return;
-		
-		
+		nRes = CMessage::SaveEnd();
 
 	}
 	else
@@ -149,13 +143,19 @@ void  QGetWidget::MessageBoxShow(int InputNum, WIDGET_TYPE types)
 		m_pProgressWidget.reset(new CProgressWidget);
 		m_pProgressWidget->showMaximized();
 		m_pProgressWidget->setInputNum(InputNum,types);
-		int nResult= m_pProgressWidget->exec();
-		if (nResult>0)
+		int nResult = m_pProgressWidget->exec();
+		nRes = CMessage::GetEnd();
+		if (nRes == WIDGET_TYPE::MSGBOX_RETURN)
 		{
-
+			goto next;
 		}
+		else
+		{		
 
-
+			done(WIDGET_TYPE::MSGBOX_HOME);
+			return;
+		}
+		
 	next:
 		nRes = CMessage::WaitGet();
 		if (nRes == WIDGET_TYPE::MSGBOX_BACK)
@@ -169,31 +169,18 @@ void  QGetWidget::MessageBoxShow(int InputNum, WIDGET_TYPE types)
 			return;
 		}
 	}
-	if (types == WIDGET_TYPE::MSGBOX_SAVE)
-	{
-		nRes = CMessage::SaveEnd();
-	}
-	else
-	{
-		nRes = CMessage::GetEnd();
-		if (nRes == WIDGET_TYPE::MSGBOX_RETURN)
-		{
-			goto next;
-		}
-	}
 	done(WIDGET_TYPE::MSGBOX_HOME);
-	
-
-
 }
 
 
 void QGetWidget::on_slot_OpendoorFinish()
 {
-
 	
-
 }
+
+
+
+
 void QGetWidget::on_btnBack_clicked()
 {
 	done(MSGBOX_BACK);
