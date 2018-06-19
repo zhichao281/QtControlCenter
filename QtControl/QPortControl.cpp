@@ -21,25 +21,26 @@ void QPortControl::slot_ReadData(QString strRecevice)
 	{
 		//上位机发送开始执行开门动作
 		m_Action = Action_OpenDoor;
-		gbl485SerialPort->sendData(StartOpenDoor);
+		gbl485SerialPort->AddTask(StartOpenDoor);
 		return;
 	}
 	//上位机发送开始执行开门动作
 	if (strRecevice.toUpper() == StartOpenDoor && m_Action == Action_OpenDoor)
 	{		
-		gbl485SerialPort->sendData(AskOpenDoor);
+		gbl485SerialPort->AddTask(AskOpenDoor);
 		return;
 	}
 	//上位机发送开始执行开门动作
 	if (strRecevice.toUpper() == OpenDoorFail && m_Action == Action_OpenDoor)
 	{
-		gbl485SerialPort->sendData(AskOpenDoor);
+		gbl485SerialPort->AddTask(AskOpenDoor);
 		return;
 	}
 	//上位机收到开门成功的信号
 	if (strRecevice.toUpper() == OpenDoorSucess&& m_Action == Action_OpenDoor)
 	{
-		emit sig_OpendoorFinish();
+		m_Action = Action_Null;
+		emit sig_OpendoorFinish();	
 		return;
 	}
 
@@ -49,25 +50,26 @@ void QPortControl::slot_ReadData(QString strRecevice)
 	{
 		//上位机发送开始执行关门动作
 		m_Action = Action_CloseDoor;
-		gbl485SerialPort->sendData(StartCloseDoor);
+		gbl485SerialPort->AddTask(StartCloseDoor);
 		return;
 	}
 	//上位机询问是否完成关门门动作？
 	if (strRecevice.toUpper() == StartCloseDoor && m_Action == Action_CloseDoor)
 	{
-		gbl485SerialPort->sendData(AskCloseDoor);
+		gbl485SerialPort->AddTask(AskCloseDoor);
 		return;
 	}
 	//上位机发送开始执行关门动作
 	if (strRecevice.toUpper() == CloseDoorFail && m_Action == Action_CloseDoor)
 	{
-		gbl485SerialPort->sendData(AskCloseDoor);
+		gbl485SerialPort->AddTask(AskCloseDoor);
 		return;
 	}
 	//上位机收到关门成功的信号
 	if (strRecevice.toUpper() == CloseDoorSucess && m_Action == Action_CloseDoor)
 	{
-		emit sig_ClosedoorFinish();
+		m_Action = Action_Null;
+		emit sig_ClosedoorFinish();	
 		return;
 	}
 
@@ -77,25 +79,26 @@ void QPortControl::slot_ReadData(QString strRecevice)
 	{
 		m_Action = Action_SuckTray;
 		//上位机发送执行电磁体吸住托盘开始命令
-		gbl485SerialPort->sendData(StartSuckTray);
+		gbl485SerialPort->AddTask(StartSuckTray);
 		return;
 	}	
 	if (strRecevice.toUpper() == StartSuckTray && m_Action == Action_SuckTray)
 	{
 		//上位机读取电磁吸盘动作是否执行完成？
-		gbl485SerialPort->sendData(AskSuckTray);
+		gbl485SerialPort->AddTask(AskSuckTray);
 		return;
 	}
 	//上位机读取电磁吸盘动作是否执行完成
 	if (strRecevice.toUpper() == SuckTrayFail && m_Action == Action_SuckTray)
 	{
-		//gbl485SerialPort->sendData(AskSuckTray);
-		emit sig_SuckTrayFinish();
+		m_Action = Action_Null;
+		gbl485SerialPort->AddTask(AskSuckTray);	
 		return;
 	}
 	//完成吸住托盘
 	if (strRecevice.toUpper() == SuckTraySucess && m_Action == Action_SuckTray)
 	{
+		m_Action = Action_Null;
 		emit sig_SuckTrayFinish();
 		return;
 	}
@@ -106,25 +109,25 @@ void QPortControl::slot_ReadData(QString strRecevice)
 	{
 		//上位机发送执行电磁体放开托盘开始命令
 		m_Action = Action_DropTray;
-		gbl485SerialPort->sendData(StartDropTray);
+		gbl485SerialPort->AddTask(StartDropTray);
 		return;
 	}
 	if (strRecevice.toUpper() == StartDropTray && m_Action == Action_DropTray)
 	{
 		//上位机读取电磁放盘动作是否执行完成？
-		gbl485SerialPort->sendData(AskDropTray );
+		gbl485SerialPort->AddTask(AskDropTray );
 		return;
 	}
 	//上位机读取电磁放开盘动作是否执行完成
 	if (strRecevice.toUpper() == DropTrayFail && m_Action == Action_DropTray)
 	{
-		//gbl485SerialPort->sendData(AskDropTray);
-		emit sig_DropTrayFinish();
+		gbl485SerialPort->AddTask(AskDropTray);
 		return;
 	}
 	//完成放下托盘
 	if (strRecevice.toUpper() == DropTraySucess && m_Action == Action_DropTray)
 	{
+		m_Action = Action_Null;
 		emit sig_DropTrayFinish();
 		return;
 	}
@@ -135,21 +138,22 @@ void QPortControl::slot_ReadData(QString strRecevice)
 	{
 		//上位机发送开始执行拉取货物命令
 		m_Action = Action_GetGoods;
-		gbl485SerialPort->sendData(StartGetGoods);
+		gbl485SerialPort->AddTask(StartGetGoods);
 	}
 	if (strRecevice.toUpper() == StartGetGoods && m_Action == Action_GetGoods)
 	{
 		//上位机读取电磁吸盘动作是否执行完成？
-		gbl485SerialPort->sendData(AskGetGoods);
+		gbl485SerialPort->AddTask(AskGetGoods);
 	}
 	//上位机读取电磁吸盘动作是否执行完成
 	if (strRecevice.toUpper() == GetGoodsFail && m_Action == Action_GetGoods)
 	{
-		gbl485SerialPort->sendData(AskGetGoods);
+		gbl485SerialPort->AddTask(AskGetGoods);
 	}
 	//完成拉取货物命令
 	if (strRecevice.toUpper() == GetGoodsSucess && m_Action == Action_GetGoods)
 	{
+		m_Action = Action_Null;
 		emit sig_GetGoodsFinish();
 	}
 
@@ -160,21 +164,22 @@ void QPortControl::slot_ReadData(QString strRecevice)
 	{
 		//收到并执行推送货物
 		m_Action = Action_PushGoods;
-		gbl485SerialPort->sendData(StartPushGoods);
+		gbl485SerialPort->AddTask(StartPushGoods);
 	}
 	if (strRecevice.toUpper() == StartPushGoods && m_Action == Action_PushGoods)
 	{
 		//推送到位没有？？
-		gbl485SerialPort->sendData(AskPushGoods);
+		gbl485SerialPort->AddTask(AskPushGoods);
 	}
 	//推送到位没有？
 	if (strRecevice.toUpper() == PushGoodsFail && m_Action == Action_PushGoods)
 	{
-		gbl485SerialPort->sendData(AskPushGoods);
+		gbl485SerialPort->AddTask(AskPushGoods);
 	}
 	//已经推送到位
 	if (strRecevice.toUpper() == PushGoodsSucess && m_Action == Action_PushGoods)
 	{
+		m_Action = Action_Null;
 		emit sig_PushGoodsFinish();
 	}
 
@@ -184,29 +189,30 @@ void QPortControl::slot_ReadData(QString strRecevice)
 	{
 		//发送列数信息
 		m_Action = Action_Move;
-		gbl485SerialPort->sendData(m_strMoveToY);
+		gbl485SerialPort->AddTask(m_strMoveToY);
 	}
 	//PLC收到列数信息
 	if (strRecevice.toUpper() == m_strMoveToY && m_Action == Action_Move)
 	{
 		//开始运动到相应的行、列
-		gbl485SerialPort->sendData(StartMove);
+		gbl485SerialPort->AddTask(StartMove);
 	}
 	//PLC收到列数信息
 	if (strRecevice.toUpper() == StartMove && m_Action == Action_Move)
 	{
 		//开始运动到相应的行、列
-		gbl485SerialPort->sendData(AskMove);
+		gbl485SerialPort->AddTask(AskMove);
 	}
 
 	//上位机询问是否达到相应的行、列位置？
 	if (strRecevice.toUpper() == MoveFail && m_Action == Action_Move)
 	{
-		gbl485SerialPort->sendData(AskMove);
+		gbl485SerialPort->AddTask(AskMove);
 	}
 	//已达到指定行、列位置
 	if (strRecevice.toUpper() == MoveSucess && m_Action == Action_Move)
 	{
+		m_Action = Action_Null;
 		emit sig_MoveFinish();
 	}
 
@@ -217,8 +223,7 @@ bool QPortControl::OpenDoor()
 {
 	gbl485SerialPort->close();
 	gbl485SerialPort->InitSerial();
-
-	gbl485SerialPort->sendData(WantOpenDoor);
+	gbl485SerialPort->AddTask(WantOpenDoor);
 	return true;
 
 }
@@ -227,14 +232,14 @@ bool QPortControl::CloseDoor()
 {
 	gbl485SerialPort->close();
 	gbl485SerialPort->InitSerial();
-	gbl485SerialPort->sendData(WantDoorClose);
+	gbl485SerialPort->AddTask(WantDoorClose);
 	return true;
 }
 //吸住托盘
 bool QPortControl::SuckTray()
 {
 	gblRuntimeData->Recevice_485.clear();
-	gbl485SerialPort->sendData(WantSuckTray);
+	gbl485SerialPort->AddTask(WantSuckTray);
 	return true;
 }
 
@@ -242,14 +247,14 @@ bool QPortControl::SuckTray()
 bool QPortControl::DropTray()
 {
 	gblRuntimeData->Recevice_485.clear();
-	gbl485SerialPort->sendData(WantDropTray);
+	gbl485SerialPort->AddTask(WantDropTray);
 	return true;
 }
 
 //拉取货物
 void QPortControl::GetGoods()
 {//上位机发送拉取货物命令
-	gbl485SerialPort->sendData(WantGetGoods);
+	gbl485SerialPort->AddTask(WantGetGoods);
 }
 
 
@@ -358,7 +363,7 @@ void  QPortControl::MovePoint(int nRow, int nColumn)
 		m_strMoveToY = PointToHex(nColumn, CountY);
 	}
 	
-	gbl485SerialPort->sendData(m_strMoveToX);
+	gbl485SerialPort->AddTask(m_strMoveToX);
 }
 
 void QPortControl::restart()
@@ -369,6 +374,6 @@ void QPortControl::restart()
 
 void QPortControl::PushGoods()
 {
-	gbl485SerialPort->sendData(WantPushGoods);
+	gbl485SerialPort->AddTask(WantPushGoods);
 	return;
 }

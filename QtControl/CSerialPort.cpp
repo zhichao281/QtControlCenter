@@ -108,6 +108,7 @@ CSerialPort_485::CSerialPort_485(QObject *parent)
 	gblRuntimeData->ReadConfig();
 	timer = new QTimer(this);
 	InitSerial();
+	m_bAlive = TRUE;
 }
 
 CSerialPort_485::~CSerialPort_485()
@@ -135,11 +136,12 @@ void CSerialPort_485::InitSerial()
 
 		com->setFlowControl(FLOW_OFF);
 
-		com->setTimeout(5);
-		connect(com, SIGNAL(readyRead()), this, SLOT(readData()));
-		timer->start(10);
+		com->setTimeout(-1);
+		QObject::connect(com, SIGNAL(readyRead()), this, SLOT(readData()));
 		QObject::connect(timer, SIGNAL(timeout()),
 			this, SLOT(readData()));
+		timer->start(10);
+		Sleep(15);
 	}	
 }
 
@@ -148,7 +150,7 @@ void CSerialPort_485::close()
 	com->close();
 	delete com;
 	com = 0;
-
+	timer->stop();
 }
 
 
@@ -159,7 +161,7 @@ void CSerialPort_485::readData()
 
 	QString buffer;
 	QByteArray data = com->readAll();
-
+	com->flush();
 	if (gblRuntimeData->com485_HexReceive)
 	{
 
@@ -176,13 +178,49 @@ void CSerialPort_485::readData()
 	}
 	emit sig_ReadData(buffer);
 	gblRuntimeData->Recevice_485 = buffer;
-	buffer.clear();
-	com->flush();
 	LOG_INFO("readData =[%s]", buffer.toStdString().c_str());
+	buffer.clear();
 }
 
 
+void CSerialPort_485::AddTask(QString strSend)
+{
+	m_QueyeMutex.lock();
+	m_szSendQueue.enqueue(strSend);
+	m_QueyeMutex.unlock();
+	if (this->isRunning() == TRUE)
+	{
+		Thread_Wait.wakeAll();
+	}
+	else
+	{
+		this->start();
+	}
 
+}
+
+void CSerialPort_485::run()
+{
+	while (m_bAlive)
+	{
+		m_QueyeMutex.lock();
+		int nSize = m_szSendQueue.size();
+		if (nSize > 0)
+		{
+			QString strSend = m_szSendQueue.dequeue();
+			m_QueyeMutex.unlock();
+			sendData(strSend);
+			this->msleep(10);
+			continue;
+		}
+		else
+		{
+			Thread_Wait.wait(&m_QueyeMutex);
+			m_QueyeMutex.unlock();
+		}
+	}
+
+}
 void CSerialPort_485::sendData(QString strSendData)
 {
 	if (com == 0 || !com->isOpen()) {

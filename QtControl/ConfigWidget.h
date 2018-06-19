@@ -15,7 +15,9 @@ public:
 public slots :
 	void on_slot_Ok();
 
+
 public:
-	QtGuiClass w1;
-	QtControl w;
+	QtGuiClass AdminWidget;
+	QtControl uesrWidget;
+
 };

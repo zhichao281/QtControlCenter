@@ -4,6 +4,8 @@
 #include <QSerialPort>  
 #include <QSerialPortInfo>  
 #include "define.h"
+#include <QThread>
+#include <QWaitCondition>
 #include "include/HSingleton/HSingleton.h"
 class CSerialPort : public QObject
 {
@@ -49,7 +51,7 @@ public:
 
 
 
-class CSerialPort_485 : public QObject
+class CSerialPort_485 : public QObject, public QThread
 {
 	Q_OBJECT
 
@@ -62,17 +64,30 @@ public:
 
 
 	void close();
+public:
+	void AddTask(QString strSend);
+
+	virtual  void run();
+
+	void StopThread();
 signals:
 	void sig_ReadData(QString strData);
 
 public slots:
 	void readData();                //读取串口数据
+
+private slots:
 	void sendData(QString data);    //发送串口数据带参数
 private:
 
 	QextSerialPort *com;        //串口通信对象
 	QTimer *timer;  //用于声明定时器  
 	bool comOk;                 //串口是否打开
+	QWaitCondition Thread_Wait;
+private:
+	QMutex m_QueyeMutex;
+	QQueue<QString>	 m_szSendQueue;				//上传队列
+	volatile bool m_bAlive;
 
 };
 
