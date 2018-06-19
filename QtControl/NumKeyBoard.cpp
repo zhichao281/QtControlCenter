@@ -174,6 +174,7 @@ void NumKeyBoard::onEnter()
 			QMessageBox::about(nullptr, "警告", "此二维码不存在！");
 			return ;
 		}
+		done(gblRuntimeData->InputNum);
 	}
 	if (m_type & MSGBOX_SAVE)
 	{			
@@ -227,8 +228,7 @@ void NumKeyBoard::onEnter()
 				{
 					app.savePoint.setX(nRow);
 					app.savePoint.setY(nColumn);
-					gblControlSql->Add_AppInfo(app);	
-					
+					gblControlSql->Add_AppInfo(app);						
 					gblMoveControl->SetMove(QPoint(nRow, nColumn), QPoint(0, 0));
 					gblMoveControl->StartWork();
 					m_bSecond = false;
@@ -250,6 +250,7 @@ void NumKeyBoard::on_slot_OpendoorFinish()
 {
 	if (m_type & MSGBOX_GET)
 	{
+		done(text.toInt());
 	}
 	if (m_type & MSGBOX_SAVE)
 	{

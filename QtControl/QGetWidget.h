@@ -60,6 +60,8 @@ private slots:
 
 	void on_slot_OpendoorFinish();
 
+	void on_slot_ClosedoorFinish();
+
 
 private:
 	std::shared_ptr<NumKeyBoard>		 m_pNumKeyWidget;

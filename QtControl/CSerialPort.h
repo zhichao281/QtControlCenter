@@ -60,6 +60,8 @@ public:
 
 	void InitSerial();			//初始化串口数据
 
+
+	void close();
 signals:
 	void sig_ReadData(QString strData);
 

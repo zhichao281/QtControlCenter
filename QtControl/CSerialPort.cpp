@@ -116,8 +116,9 @@ CSerialPort_485::~CSerialPort_485()
 
 void CSerialPort_485::InitSerial()
 {
-	//com = new QextSerialPort(gblRuntimeData->com485_PortName, QextSerialPort::Polling);
-	com = new QextSerialPort("COM3", QextSerialPort::Polling);
+	QString strComName = gblRuntimeData->com485_PortName;
+	//com = new QextSerialPort(strComName, QextSerialPort::Polling);
+	com = new QextSerialPort("COM2", QextSerialPort::Polling);
 	comOk = com->open(QIODevice::ReadWrite);
 	if (comOk)
 	{
@@ -140,6 +141,14 @@ void CSerialPort_485::InitSerial()
 		QObject::connect(timer, SIGNAL(timeout()),
 			this, SLOT(readData()));
 	}	
+}
+
+void CSerialPort_485::close()
+{
+	com->close();
+	delete com;
+	com = 0;
+
 }
 
 

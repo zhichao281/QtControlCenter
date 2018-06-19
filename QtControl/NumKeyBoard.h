@@ -68,5 +68,6 @@ private:
 
 	bool  m_bSecond;
 
+	bool  m_bRun;
 
 };

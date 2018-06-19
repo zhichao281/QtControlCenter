@@ -1,9 +1,12 @@
 #include "CProgressWidget.h"
 #include "ControlSql.h"
 #include <QTimer>
+#include "QPortControl.h"
+#include "QMoveControl.h"
 CProgressWidget::CProgressWidget(QWidget *parent)
 	: QDialog(parent)
 {
+	m_bFinish = false;
 	this->setupUi(this);
 	setWindowFlags(Qt::FramelessWindowHint| Qt::WindowMinimizeButtonHint);
 	this->setWindowIcon(QIcon(":/Image/Resources/Image/zhihuiwu.ico"));
@@ -16,18 +19,9 @@ CProgressWidget::CProgressWidget(QWidget *parent)
 	
 	connect(gblPortControl, SIGNAL(sig_OpendoorFinish()), this, SLOT(on_slot_OpendoorFinish()));
 
-	connect(gblPortControl, SIGNAL(sig_MoveFinish()), this, SLOT(on_slot_MoveFinish()));
-
-	connect(gblPortControl, SIGNAL(sig_PushGoodsFinish()), this, SLOT(on_slot_PushGoodsFinish()));
-
-	connect(gblPortControl, SIGNAL(sig_SuckTrayFinish()), this, SLOT(on_slot_SuckTrayFinish()));
-
-	connect(gblPortControl, SIGNAL(sig_GetGoodsFinish()), this, SLOT(on_slot_GetGoodsFinish()));
-
-	connect(gblPortControl, SIGNAL(sig_DropTrayFinish()), this, SLOT(on_slot_DropTrayFinish()));
-
 	connect(gblPortControl, SIGNAL(sig_ClosedoorFinish()), this, SLOT(on_slot_ClosedoorFinish()));
 
+	connect(gblMoveControl, SIGNAL(sig_finish()), this, SLOT(on_slot_finish()));
 }
 
 CProgressWidget::~CProgressWidget()
@@ -54,9 +48,10 @@ bool CProgressWidget::setInputNum(int nInputNum, WIDGET_TYPE types)
 			return false;
 		}
 		m_bSecond = false;
-		gblPortControl->MovePoint(app.savePoint.x(), app.savePoint.y());
-		label_weight->setText(QString::number(app.saveWeight));
-		label_height->setText(QString::number(app.saveHeight));
+		gblMoveControl->SetMove(QPoint(app.savePoint.rx(), app.savePoint.ry()), QPoint(0, 0));
+		gblMoveControl->StartWork();
+		m_bFinish = false;
+	
 	}
 	return true;
 
@@ -74,93 +69,31 @@ void CProgressWidget::on_slot_OpendoorFinish()
 {
 	if (m_type == WIDGET_TYPE::MSGBOX_SAVE)
 	{
-		gblPortControl->SuckTray();
+		
 	}
 	else
 	{
+		m_bFinish = true;
 		done(0);
 	}
 }
+void CProgressWidget::on_slot_finish()
+{
 
+	if (m_type == WIDGET_TYPE::MSGBOX_SAVE)
+	{
+		done(0);
+	}
+	else
+	{		
+		if (m_bFinish == false)
+		{
+			gblPortControl->OpenDoor();
+		}
+	
+	}
+}
 void CProgressWidget::on_slot_ClosedoorFinish()
-{
-	if (m_type == WIDGET_TYPE::MSGBOX_SAVE)
-	{
-		gblPortControl->SuckTray();
-	}
-	else
-	{
-
-	}
-
-}
-
-void CProgressWidget::on_slot_MoveFinish()
-{
-	if (m_type == WIDGET_TYPE::MSGBOX_SAVE)
-	{
-		gblPortControl->PushGoods();
-	}
-	else
-	{
-		if (m_bSecond == false)
-		{
-			gblPortControl->PushGoods();
-		}
-		else
-		{
-			gblPortControl->PushGoods();
-		}
-	}
-
-}
-
-void CProgressWidget::on_slot_PushGoodsFinish()
-{
-	if (m_type == WIDGET_TYPE::MSGBOX_SAVE)
-	{
-		gblPortControl->DropTray();
-	}
-	else
-	{
-		if (m_bSecond == false)
-		{
-			gblPortControl->SuckTray();
-		}
-		else
-		{
-			gblPortControl->DropTray();
-		}
-	}
-}
-void CProgressWidget::on_slot_SuckTrayFinish()
-{
-	if (m_type == WIDGET_TYPE::MSGBOX_SAVE)
-	{
-		gblPortControl->GetGoods();
-	}
-	else
-	{
-		if (m_bSecond == false)
-		{
-			gblPortControl->GetGoods();
-		}
-	}
-}
-
-void CProgressWidget::on_slot_DropTrayFinish()
-{
-	if (m_type == WIDGET_TYPE::MSGBOX_SAVE)
-	{
-		done(0);
-	}
-	else
-	{
-		gblPortControl->OpenDoor();
-	}
-}
-
-void CProgressWidget::on_slot_GetGoodsFinish()
 {
 	if (m_type == WIDGET_TYPE::MSGBOX_SAVE)
 	{
@@ -168,17 +101,14 @@ void CProgressWidget::on_slot_GetGoodsFinish()
 		bool bres = gblControlSql->Get_App_By_QRnum(m_nInputNum, app);
 		if (bres)
 		{
-			gblPortControl->MovePoint(app.savePoint.x(),app.savePoint.y());
+			gblMoveControl->SetMove(QPoint(0, 0), QPoint(app.savePoint.x(), app.savePoint.y()));
+			gblMoveControl->StartWork();
 		}
-
 	}
 	else
 	{
-		if (m_bSecond == false)
-		{
-			gblPortControl->MovePoint(0, 0);
-			m_bSecond = true;
-		}
+
 	}
 
 }
+

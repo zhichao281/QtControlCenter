@@ -15,12 +15,9 @@ QtControl::QtControl(QWidget *parent)
 	this->setWindowIcon(QIcon(":/Image/Resources/Image/zhihuiwu.ico"));
 	//this->setFixedSize(1024, 768);
 	parentWidget = parent;
-	//connect(btn_get, SIGNAL(clicked()), this, SLOT(on_slot_Get()));
+	connect(btn_get, SIGNAL(clicked()), this, SLOT(on_slot_Get()));
 	connect(btn_save, SIGNAL(clicked()), this, SLOT(on_slot_Save()));
-	connect(btn_get, SIGNAL(clicked()), this, SLOT(on_slot_setting()));
-	//connect(btn_save, SIGNAL(clicked()), this, SLOT(on_slot_setting()));
-	//connect(btn_setting, SIGNAL(clicked()), this, SLOT(on_slot_setting()));
-
+	
 	QPixmap midPix;
 	midPix.load(":/Image/Resources/Image/logo.jpg");
 	midPix=midPix.scaled(QSize(40, 40), Qt::KeepAspectRatio);

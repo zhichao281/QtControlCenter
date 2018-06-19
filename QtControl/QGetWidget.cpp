@@ -1,5 +1,6 @@
 #include "QGetWidget.h"
 #include <QDebug>
+#include "QMoveControl.h"
 QGetWidget::QGetWidget(QWidget *parent, WIDGET_TYPE types)
 	: QDialog(parent)
 {
@@ -17,7 +18,8 @@ QGetWidget::QGetWidget(QWidget *parent, WIDGET_TYPE types)
 	connect(btn_QRSave, SIGNAL(clicked()), this, SLOT(on_btnQRSave_clicked()));
 
 	connect(gblPortControl, SIGNAL(sig_OpendoorFinish()), this, SLOT(on_slot_OpendoorFinish()));
-	
+	connect(gblPortControl, SIGNAL(sig_ClosedoorFinish()), this, SLOT(on_slot_ClosedoorFinish()));
+
 
 }
 
@@ -79,6 +81,7 @@ void QGetWidget::QRClick(WIDGET_TYPE types)
 	else
 	{
 		int nInputNum = res;
+		m_pQRWidget.reset();
 		MessageBoxShow(nInputNum, types);
 	}
 
@@ -87,10 +90,12 @@ void QGetWidget::QRClick(WIDGET_TYPE types)
 void QGetWidget::NumClick(WIDGET_TYPE types)
 {
 	gblRuntimeData->m_type = types;
+
 	m_pNumKeyWidget.reset(new NumKeyBoard);
 	m_pNumKeyWidget->Init(types);
 	m_pNumKeyWidget->showMaximized();
 	int res = m_pNumKeyWidget->exec();
+	m_pNumKeyWidget.reset();
 	if (res == WIDGET_TYPE::MSGBOX_BACK)
 	{
 		this->show();
@@ -126,6 +131,7 @@ void  QGetWidget::MessageBoxShow(int InputNum, WIDGET_TYPE types)
 			done(WIDGET_TYPE::MSGBOX_HOME);
 			return;
 		}
+		
 		m_pProgressWidget.reset(new CProgressWidget);
 		bool bres = m_pProgressWidget->setInputNum(gblRuntimeData->InputNum, gblRuntimeData->m_type);
 		if (bres == false)
@@ -144,6 +150,7 @@ void  QGetWidget::MessageBoxShow(int InputNum, WIDGET_TYPE types)
 		m_pProgressWidget->showMaximized();
 		m_pProgressWidget->setInputNum(InputNum,types);
 		int nResult = m_pProgressWidget->exec();
+		m_pProgressWidget.reset();
 		nRes = CMessage::GetEnd();
 		if (nRes == WIDGET_TYPE::MSGBOX_RETURN)
 		{
@@ -151,7 +158,8 @@ void  QGetWidget::MessageBoxShow(int InputNum, WIDGET_TYPE types)
 		}
 		else
 		{		
-
+			m_pProgressWidget.reset();
+			gblPortControl->CloseDoor();
 			done(WIDGET_TYPE::MSGBOX_HOME);
 			return;
 		}
@@ -169,7 +177,7 @@ void  QGetWidget::MessageBoxShow(int InputNum, WIDGET_TYPE types)
 			return;
 		}
 	}
-	done(WIDGET_TYPE::MSGBOX_HOME);
+
 }
 
 
@@ -188,4 +196,21 @@ void QGetWidget::on_btnBack_clicked()
 void QGetWidget::on_btnHome_clicked()
 {
 	done(MSGBOX_HOME);
+}
+void QGetWidget::on_slot_ClosedoorFinish()
+{
+	if (m_type == WIDGET_TYPE::MSGBOX_SAVE)
+	{
+		
+	}
+	else
+	{
+		AppInfo app;
+		bool bres = gblControlSql->Get_App_By_QRnum(m_nInputNum, app);
+		gblMoveControl->SetMove(QPoint(0, 0), QPoint( app.savePoint.rx(), app.savePoint.ry()));
+		gblMoveControl->StartWork();
+		gblControlSql->Delete_AppInfo(app);
+		done(WIDGET_TYPE::MSGBOX_HOME);
+	}
+
 }

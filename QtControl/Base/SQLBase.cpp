@@ -173,7 +173,7 @@ bool CSQLBase::CreatTableEx(QString strTableName,QStringList strExpreesion)
 bool CSQLBase::RenameTable(QString strTableName)
 {
 	// ALTER TABLE +旧表名+ RENAME TO +新表名 
-	_WRITE_LOCK_;
+	
 	if (!m_db.open())
 	{
 		m_db.close();
@@ -197,7 +197,7 @@ bool CSQLBase::RenameTable(QString strTableName)
 bool CSQLBase::DropTable(QString strTableName)
 {
 	// 删除表 - DROP TABLE +表名 
-	_WRITE_LOCK_;
+
 	if (!m_db.open())
 	{
 		m_db.close(); 
@@ -221,7 +221,7 @@ bool CSQLBase::DropTable(QString strTableName)
 /* 表格某列是否存在.*/
 bool CSQLBase::TableIsColumnExist(QString &strColumnName)
 {
-	_READ_LOCK_;
+
 	if (!m_db.open())
 	{
 		m_db.close();
@@ -246,7 +246,7 @@ bool CSQLBase::TableIsColumnExist(QString &strColumnName)
 /* 表格新增一列.*/
 bool CSQLBase::TableAddColumn(QString &strExpreesion)
 {
-	_WRITE_LOCK_;
+
 	//ALTER TABLE 表名 ADD COLUMN 列名 数据类型 限定符
 	if (!m_db.open())
 	{
@@ -271,7 +271,7 @@ bool CSQLBase::TableAddColumn(QString &strExpreesion)
 /* 插入函数. 构造SQL插入语句.*/
 bool CSQLBase::Insert(QStringList &strName, QStringList &strValues)
 {
-	_WRITE_LOCK_;
+
 	if (strName.size() != strValues.size())
 	{
 		return false;
@@ -330,7 +330,7 @@ bool CSQLBase::Insert(QStringList &strName, QStringList &strValues)
 /* 修改函数. 构造SQL修改语句.*/
 bool CSQLBase::Update(QStringList &strNames, QStringList &strValues, QString &strExpreesion)
 {
-	_WRITE_LOCK_;
+
 
 	if (strNames.size() != strValues.size())
 	{
@@ -379,8 +379,6 @@ bool CSQLBase::Update(QStringList &strNames, QStringList &strValues, QString &st
 /* 删除函数.构造SQL删除语句.*/
 bool CSQLBase::Delete(QString &strExpreesion)
 {
-
-	_WRITE_LOCK_;
 	//DELETE FROM 表名称 WHERE 列名称 = 值
 	if (!m_db.open())
 	{

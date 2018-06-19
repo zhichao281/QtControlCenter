@@ -6,6 +6,7 @@
 #include <QMovie> 
 #include "ui_CQRWidget.h"
 #include "define.h"
+#include "QMoveControl.h"
 class CQRWidget : public QDialog,public Ui::CQRWidget
 {
 	Q_OBJECT
@@ -26,12 +27,18 @@ private slots:
 
 	void on_btnHome_clicked();
 
-	void on_slot_timeout();
 
 	void on_slot_SendResult(QString strResult);
+	
 	void on_slot_OpendoorFinish();
+
+	void on_slot_ClosedoorFinish();
+
+	void on_slot_finish();
 
 private:
 	QMovie * pMove;
-	int  m_nResult;
+	WIDGET_TYPE  m_type;
+	int  m_nInputNum;
+	QMoveControl *m_pMoveControl;
 };

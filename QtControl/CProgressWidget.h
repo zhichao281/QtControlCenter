@@ -7,6 +7,8 @@
 #include "ui_CProgressWidget.h"
 #include "define.h"
 #include "QPortControl.h"
+#include "QMoveControl.h"
+#include "ControlSql.h"
 class CProgressWidget : public QDialog,public Ui::CProgressWidget
 {
 	Q_OBJECT
@@ -26,16 +28,7 @@ public slots :
 
 	void on_slot_ClosedoorFinish();
 
-	void on_slot_MoveFinish();
-
-	void on_slot_PushGoodsFinish();
-
-	void on_slot_SuckTrayFinish();
-
-	void on_slot_DropTrayFinish();
-
-	void on_slot_GetGoodsFinish();
-
+	void on_slot_finish();
 private:
 	QMovie * pMove;
 
@@ -44,4 +37,7 @@ private:
 	int  m_nInputNum;
 
 	bool  m_bSecond;
+
+	bool m_bFinish;
+	QMoveControl *m_pMoveControl;
 };

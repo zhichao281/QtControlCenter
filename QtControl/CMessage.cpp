@@ -144,11 +144,11 @@ void CMessage::on_slot_timeout()
 	{
 		QString strLabel = QString("%1S").arg(nTime);
 		label_timer->setText(strLabel);
-		QTimer::singleShot(1000, this, SLOT(on_slot_timeout()));
+		//QTimer::singleShot(1000, this, SLOT(on_slot_timeout()));
 	}
 	else
 	{
-		done(0);
+		//done(0);
 	}
 
 }
