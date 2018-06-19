@@ -30,7 +30,8 @@ void QMoveControl::StartWork()
 {	
 	gblPortControl->restart();
 
-    gblPortControl->MovePoint(m_StartPoint.rx(), m_StartPoint.ry());
+	//1.拉回来
+	gblPortControl->GetGoods();   
 	m_bSecond = false;
 	m_bFinish = false;
 }
@@ -38,43 +39,54 @@ void QMoveControl::StartWork()
 
 void QMoveControl::on_slot_MoveFinish()
 {
+	if (m_bFinish==true)
+	{
+		return;
+	}
 	if (m_bSecond == false)
 	{
+		//3.推出去
 		gblPortControl->PushGoods();
 	}
 	else
 	{
+		//7.推出去
 		gblPortControl->PushGoods();
 	}
 }
 
 void QMoveControl::on_slot_PushGoodsFinish()
 {
+	if (m_bFinish == true)
+	{
+		return;
+	}
 	if (m_bSecond == false)
 	{
+		//4.吸住
 		gblPortControl->SuckTray();
 	}
 	else
 	{
+		//8.放开吸盘
 		gblPortControl->DropTray();
 	}
 }
 
 void QMoveControl::on_slot_GetGoodsFinish()
 {
-	if (m_bFinish)
+	if (m_bFinish == true)
 	{
-		//完成；
-		emit sig_finish();
 		return;
-	}	
-
+	}
 	if (m_bSecond == false)
 	{
+		//2.移动到初始点
 		gblPortControl->MovePoint(m_StartPoint.x(), m_StartPoint.y());
 	}
 	else
 	{
+		//6.移动到结束位置
 		gblPortControl->MovePoint(m_EndPoint.x(), m_EndPoint.y());
 	}
 
@@ -83,8 +95,13 @@ void QMoveControl::on_slot_GetGoodsFinish()
 
 void QMoveControl::on_slot_SuckTrayFinish()
 {
+	if (m_bFinish == true)
+	{
+		return;
+	}
 	if (m_bSecond == false)
 	{
+		//5.拉回来
 		gblPortControl->GetGoods();
 		m_bSecond = true;
 	}
@@ -92,17 +109,19 @@ void QMoveControl::on_slot_SuckTrayFinish()
 
 void QMoveControl::on_slot_DropTrayFinish()
 {
+	if (m_bFinish == true)
+	{
+		return;
+	}
+
 	if (m_bSecond == false)
 	{
-		gblPortControl->GetGoods();
 	}
 	else
 	{
-		gblPortControl->GetGoods();
+		//9.完成；
+		emit sig_finish();	
 		m_bFinish = true;
-		//完成；
 	}
-
-
 
 }

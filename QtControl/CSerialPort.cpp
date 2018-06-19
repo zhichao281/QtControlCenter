@@ -147,10 +147,13 @@ void CSerialPort_485::InitSerial()
 
 void CSerialPort_485::close()
 {
-	com->close();
-	delete com;
-	com = 0;
-	timer->stop();
+	if (com->isOpen() == true)
+	{
+		com->close();
+		delete com;
+		com = 0;
+		timer->stop();
+	}
 }
 
 
@@ -164,9 +167,7 @@ void CSerialPort_485::readData()
 	com->flush();
 	if (gblRuntimeData->com485_HexReceive)
 	{
-
 		buffer = myHelper::byteArrayToHexStr(data);
-
 	}
 	else
 	{
@@ -196,7 +197,6 @@ void CSerialPort_485::AddTask(QString strSend)
 	{
 		this->start();
 	}
-
 }
 
 void CSerialPort_485::run()

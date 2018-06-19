@@ -12,8 +12,9 @@ QtGuiClass::QtGuiClass(QWidget *parent)
 	connect(btn_open, SIGNAL(clicked()), this, SLOT(on_slot_open()));
 	connect(btn_close, SIGNAL(clicked()), this, SLOT(on_slot_close()));
 	connect(btn_suck, SIGNAL(clicked()), this, SLOT(on_slot_suck()));
-
 	connect(btn_drop, SIGNAL(clicked()), this, SLOT(on_slot_drop()));
+	connect(btn_push, SIGNAL(clicked()), this, SLOT(on_slot_push()));
+	connect(btn_pull, SIGNAL(clicked()), this, SLOT(on_slot_pull()));
 	
 }
 
@@ -58,5 +59,12 @@ void QtGuiClass::on_slot_suck()
 void QtGuiClass::on_slot_drop()
 {
 	gblPortControl->DropTray();
-
+}
+void QtGuiClass::on_slot_pull()
+{
+	gblPortControl->GetGoods();
+}
+void QtGuiClass::on_slot_push()
+{
+	gblPortControl->PushGoods();
 }

@@ -19,4 +19,7 @@ public slots:
 
 	void on_slot_suck();
 	void on_slot_drop();
+
+	void on_slot_pull();
+	void on_slot_push();
 };
