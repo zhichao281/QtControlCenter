@@ -221,8 +221,7 @@ void QPortControl::slot_ReadData(QString strRecevice)
 
 bool QPortControl::OpenDoor()
 {
-	gbl485SerialPort->close();
-	gbl485SerialPort->InitSerial();
+	restart();
 	gbl485SerialPort->AddTask(WantOpenDoor);
 	return true;
 
@@ -230,15 +229,14 @@ bool QPortControl::OpenDoor()
 
 bool QPortControl::CloseDoor() 
 {
-	gbl485SerialPort->close();
-	gbl485SerialPort->InitSerial();
+	restart();
 	gbl485SerialPort->AddTask(WantDoorClose);
 	return true;
 }
 //吸住托盘
 bool QPortControl::SuckTray()
 {
-	gblRuntimeData->Recevice_485.clear();
+	restart();
 	gbl485SerialPort->AddTask(WantSuckTray);
 	return true;
 }
@@ -246,7 +244,7 @@ bool QPortControl::SuckTray()
 //吸住托盘
 bool QPortControl::DropTray()
 {
-	gblRuntimeData->Recevice_485.clear();
+	restart();
 	gbl485SerialPort->AddTask(WantDropTray);
 	return true;
 }
@@ -254,6 +252,7 @@ bool QPortControl::DropTray()
 //拉取货物
 void QPortControl::GetGoods()
 {//上位机发送拉取货物命令
+	restart();
 	gbl485SerialPort->AddTask(WantGetGoods);
 }
 
@@ -363,6 +362,7 @@ void  QPortControl::MovePoint(int nRow, int nColumn)
 		m_strMoveToY = PointToHex(nColumn, CountY);
 	}
 	
+	restart();
 	gbl485SerialPort->AddTask(m_strMoveToX);
 }
 
@@ -374,6 +374,7 @@ void QPortControl::restart()
 
 void QPortControl::PushGoods()
 {
+	restart();
 	gbl485SerialPort->AddTask(WantPushGoods);
 	return;
 }
