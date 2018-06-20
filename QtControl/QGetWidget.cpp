@@ -208,7 +208,7 @@ void QGetWidget::on_slot_ClosedoorFinish()
 		AppInfo app;
 		bool bres = gblControlSql->Get_App_By_QRnum(m_nInputNum, app);
 		gblMoveControl->SetMove(QPoint(0, 0), QPoint( app.savePoint.rx(), app.savePoint.ry()));
-		gblMoveControl->StartWork();
+		gblMoveControl->StartSecondWork();
 		gblControlSql->Delete_AppInfo(app);
 		done(WIDGET_TYPE::MSGBOX_HOME);
 	}

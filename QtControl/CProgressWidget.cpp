@@ -102,7 +102,7 @@ void CProgressWidget::on_slot_ClosedoorFinish()
 		if (bres)
 		{
 			gblMoveControl->SetMove(QPoint(0, 0), QPoint(app.savePoint.x(), app.savePoint.y()));
-			gblMoveControl->StartWork();
+			gblMoveControl->StartSecondWork();
 		}
 	}
 	else

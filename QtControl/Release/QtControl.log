@@ -3,4 +3,264 @@ C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCT
 C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(944,5): warning MSB8027: 名为 moc_frmcomtool.cpp 的两个或更多文件将生成到同一位置的输出。这会导致错误的生成结果。   调用的文件是 GeneratedFiles\Release\moc_frmcomtool.cpp, .\GeneratedFiles\Release\moc_frmcomtool.cpp。
 C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(944,5): warning MSB8027: 名为 moc_NumKeyBoard.cpp 的两个或更多文件将生成到同一位置的输出。这会导致错误的生成结果。   调用的文件是 GeneratedFiles\Release\moc_NumKeyBoard.cpp, .\GeneratedFiles\Release\moc_NumKeyBoard.cpp。
 C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(944,5): warning MSB8027: 名为 moc_QtControl.cpp 的两个或更多文件将生成到同一位置的输出。这会导致错误的生成结果。   调用的文件是 GeneratedFiles\Release\moc_QtControl.cpp, .\GeneratedFiles\Release\moc_QtControl.cpp。
+  Lock_Tool.cpp
+  QR_Encode.cpp
+  RunTime.cpp
+  SQLBase.cpp
+e:\qtcontrol\qtcontrolcenter\qtcontrol\base\runtime.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 Base\RunTime.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\base\myhelper.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 Base\RunTime.cpp)
+  CMessage.cpp
+e:\qtcontrol\qtcontrolcenter\qtcontrol\log\log_deffine.h(12): warning C4091: “typedef ”: 没有声明变量时忽略“EnumLogLevel”的左侧 (编译源文件 Base\SQLBase.cpp)
+  ConfigWidget.cpp
+e:\qtcontrol\qtcontrolcenter\qtcontrol\include\develop_interface.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 CMessage.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\log\log_deffine.h(12): warning C4091: “typedef ”: 没有声明变量时忽略“EnumLogLevel”的左侧 (编译源文件 CMessage.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\base\myhelper.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 CMessage.cpp)
+  ControlSql.cpp
+e:\qtcontrol\qtcontrolcenter\qtcontrol\frmcomtool.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 ConfigWidget.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\include\develop_interface.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 ConfigWidget.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\log\log_deffine.h(12): warning C4091: “typedef ”: 没有声明变量时忽略“EnumLogLevel”的左侧 (编译源文件 ConfigWidget.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\base\myhelper.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 ConfigWidget.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\log\log_deffine.h(12): warning C4091: “typedef ”: 没有声明变量时忽略“EnumLogLevel”的左侧 (编译源文件 ControlSql.cpp)
+  CProgressWidget.cpp
+e:\qtcontrol\qtcontrolcenter\qtcontrol\base\runtime.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 CMessage.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\cserialport.h(55): warning C4584: “CSerialPort_485”: 基类“QObject”已是“QThread”的基类 (编译源文件 CMessage.cpp)
+  e:\soft\qt\qt5.9.2\5.9.2\msvc2015\include\qtwidgets\qgesturerecognizer.h(51): note: 参见“QObject”的声明 (编译源文件 CMessage.cpp)
+  e:\soft\qt\qt5.9.2\5.9.2\msvc2015\include\qtcore\qthread.h(55): note: 参见“QThread”的声明 (编译源文件 CMessage.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\include\develop_interface.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 ControlSql.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\base\myhelper.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 ControlSql.cpp)
+  CQRWidget.cpp
+e:\qtcontrol\qtcontrolcenter\qtcontrol\base\runtime.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 ConfigWidget.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\include\develop_interface.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 CProgressWidget.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\log\log_deffine.h(12): warning C4091: “typedef ”: 没有声明变量时忽略“EnumLogLevel”的左侧 (编译源文件 CProgressWidget.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\base\myhelper.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 CProgressWidget.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\base\runtime.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 ControlSql.cpp)
+  CSerialPort.cpp
+e:\qtcontrol\qtcontrolcenter\qtcontrol\include\develop_interface.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 CQRWidget.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\log\log_deffine.h(12): warning C4091: “typedef ”: 没有声明变量时忽略“EnumLogLevel”的左侧 (编译源文件 CQRWidget.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\base\myhelper.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 CQRWidget.cpp)
+  frmcomtool.cpp
+e:\qtcontrol\qtcontrolcenter\qtcontrol\frmcomtool.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 frmcomtool.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\include\develop_interface.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 CSerialPort.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\log\log_deffine.h(12): warning C4091: “typedef ”: 没有声明变量时忽略“EnumLogLevel”的左侧 (编译源文件 CSerialPort.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\base\myhelper.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 CSerialPort.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\base\runtime.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 CProgressWidget.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\cserialport.h(55): warning C4584: “CSerialPort_485”: 基类“QObject”已是“QThread”的基类 (编译源文件 CProgressWidget.cpp)
+  e:\soft\qt\qt5.9.2\5.9.2\msvc2015\include\qtwidgets\qgesturerecognizer.h(51): note: 参见“QObject”的声明 (编译源文件 CProgressWidget.cpp)
+  e:\soft\qt\qt5.9.2\5.9.2\msvc2015\include\qtcore\qthread.h(55): note: 参见“QThread”的声明 (编译源文件 CProgressWidget.cpp)
+  moc_KeyBoard.cpp
+e:\qtcontrol\qtcontrolcenter\qtcontrol\base\runtime.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 CQRWidget.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\cserialport.h(55): warning C4584: “CSerialPort_485”: 基类“QObject”已是“QThread”的基类 (编译源文件 CQRWidget.cpp)
+  e:\soft\qt\qt5.9.2\5.9.2\msvc2015\include\qtwidgets\qgesturerecognizer.h(51): note: 参见“QObject”的声明 (编译源文件 CQRWidget.cpp)
+  e:\soft\qt\qt5.9.2\5.9.2\msvc2015\include\qtcore\qthread.h(55): note: 参见“QThread”的声明 (编译源文件 CQRWidget.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\include\develop_interface.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 frmcomtool.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\log\log_deffine.h(12): warning C4091: “typedef ”: 没有声明变量时忽略“EnumLogLevel”的左侧 (编译源文件 frmcomtool.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\base\myhelper.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 frmcomtool.cpp)
+  moc_frmcomtool.cpp
+e:\qtcontrol\qtcontrolcenter\qtcontrol\frmcomtool.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 GeneratedFiles\Release\moc_frmcomtool.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\base\runtime.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 CSerialPort.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\cserialport.h(55): warning C4584: “CSerialPort_485”: 基类“QObject”已是“QThread”的基类 (编译源文件 CSerialPort.cpp)
+  e:\soft\qt\qt5.9.2\5.9.2\msvc2015\include\qtwidgets\qgesturerecognizer.h(51): note: 参见“QObject”的声明 (编译源文件 CSerialPort.cpp)
+  e:\soft\qt\qt5.9.2\5.9.2\msvc2015\include\qtcore\qthread.h(55): note: 参见“QThread”的声明 (编译源文件 CSerialPort.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\base\myhelper.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 CSerialPort.cpp)
+  moc_KeyBoard.cpp
+e:\qtcontrol\qtcontrolcenter\qtcontrol\base\runtime.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 frmcomtool.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\base\myhelper.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 frmcomtool.cpp)
+  moc_NumKeyBoard.cpp
+e:\qtcontrol\qtcontrolcenter\qtcontrol\include\develop_interface.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 GeneratedFiles\Release\moc_frmcomtool.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\log\log_deffine.h(12): warning C4091: “typedef ”: 没有声明变量时忽略“EnumLogLevel”的左侧 (编译源文件 GeneratedFiles\Release\moc_frmcomtool.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\base\myhelper.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 GeneratedFiles\Release\moc_frmcomtool.cpp)
+  moc_QtControl.cpp
+  KeyBoard.cpp
+e:\qtcontrol\qtcontrolcenter\qtcontrol\keyboard.cpp : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+e:\qtcontrol\qtcontrolcenter\qtcontrol\include\develop_interface.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 GeneratedFiles\Release\moc_NumKeyBoard.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\log\log_deffine.h(12): warning C4091: “typedef ”: 没有声明变量时忽略“EnumLogLevel”的左侧 (编译源文件 GeneratedFiles\Release\moc_NumKeyBoard.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\base\myhelper.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 GeneratedFiles\Release\moc_NumKeyBoard.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\base\runtime.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 GeneratedFiles\Release\moc_frmcomtool.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\frmcomtool.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 GeneratedFiles\Release\moc_QtControl.cpp)
+  Logger.cpp
+e:\qtcontrol\qtcontrolcenter\qtcontrol\log\logger.cpp : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+e:\qtcontrol\qtcontrolcenter\qtcontrol\include\develop_interface.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 GeneratedFiles\Release\moc_QtControl.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\log\log_deffine.h(12): warning C4091: “typedef ”: 没有声明变量时忽略“EnumLogLevel”的左侧 (编译源文件 GeneratedFiles\Release\moc_QtControl.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\base\myhelper.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 GeneratedFiles\Release\moc_QtControl.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\log\log_deffine.h(12): warning C4091: “typedef ”: 没有声明变量时忽略“EnumLogLevel”的左侧 (编译源文件 log\Logger.cpp)
+  LogManager.cpp
+e:\qtcontrol\qtcontrolcenter\qtcontrol\log\log_deffine.h(12): warning C4091: “typedef ”: 没有声明变量时忽略“EnumLogLevel”的左侧 (编译源文件 log\LogManager.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\base\runtime.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 GeneratedFiles\Release\moc_NumKeyBoard.cpp)
+  log_deffine.cpp
+e:\qtcontrol\qtcontrolcenter\qtcontrol\log\log_deffine.h(12): warning C4091: “typedef ”: 没有声明变量时忽略“EnumLogLevel”的左侧 (编译源文件 log\log_deffine.cpp)
+  main.cpp
+  NumKeyBoard.cpp
+e:\qtcontrol\qtcontrolcenter\qtcontrol\base\runtime.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 GeneratedFiles\Release\moc_QtControl.cpp)
+  qextserialbase.cpp
+  qextserialenumerator.cpp
+e:\qtcontrol\qtcontrolcenter\qtcontrol\include\develop_interface.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 main.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\log\log_deffine.h(12): warning C4091: “typedef ”: 没有声明变量时忽略“EnumLogLevel”的左侧 (编译源文件 main.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\base\myhelper.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 main.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\include\develop_interface.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 NumKeyBoard.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\log\log_deffine.h(12): warning C4091: “typedef ”: 没有声明变量时忽略“EnumLogLevel”的左侧 (编译源文件 NumKeyBoard.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\base\myhelper.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 NumKeyBoard.cpp)
+  qextserialport.cpp
+e:\qtcontrol\qtcontrolcenter\qtcontrol\base\runtime.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 NumKeyBoard.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\cserialport.h(55): warning C4584: “CSerialPort_485”: 基类“QObject”已是“QThread”的基类 (编译源文件 NumKeyBoard.cpp)
+  e:\soft\qt\qt5.9.2\5.9.2\msvc2015\include\qtwidgets\qgesturerecognizer.h(51): note: 参见“QObject”的声明 (编译源文件 NumKeyBoard.cpp)
+  e:\soft\qt\qt5.9.2\5.9.2\msvc2015\include\qtcore\qthread.h(55): note: 参见“QThread”的声明 (编译源文件 NumKeyBoard.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\base\runtime.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 main.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\cserialport.h(55): warning C4584: “CSerialPort_485”: 基类“QObject”已是“QThread”的基类 (编译源文件 main.cpp)
+  e:\soft\qt\qt5.9.2\5.9.2\msvc2015\include\qtwidgets\qgesturerecognizer.h(51): note: 参见“QObject”的声明 (编译源文件 main.cpp)
+  e:\soft\qt\qt5.9.2\5.9.2\msvc2015\include\qtcore\qthread.h(55): note: 参见“QThread”的声明 (编译源文件 main.cpp)
+  win_qextserialport.cpp
+e:\qtcontrol\qtcontrolcenter\qtcontrol\frmcomtool.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 main.cpp)
+  QGetWidget.cpp
+  QMoveControl.cpp
+  QPortControl.cpp
+e:\qtcontrol\qtcontrolcenter\qtcontrol\include\develop_interface.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 QGetWidget.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\log\log_deffine.h(12): warning C4091: “typedef ”: 没有声明变量时忽略“EnumLogLevel”的左侧 (编译源文件 QGetWidget.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\base\myhelper.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 QGetWidget.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\include\develop_interface.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 QMoveControl.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\log\log_deffine.h(12): warning C4091: “typedef ”: 没有声明变量时忽略“EnumLogLevel”的左侧 (编译源文件 QMoveControl.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\base\myhelper.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 QMoveControl.cpp)
+  QtControl.cpp
+e:\qtcontrol\qtcontrolcenter\qtcontrol\include\develop_interface.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 QPortControl.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\log\log_deffine.h(12): warning C4091: “typedef ”: 没有声明变量时忽略“EnumLogLevel”的左侧 (编译源文件 QPortControl.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\base\myhelper.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 QPortControl.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\frmcomtool.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 QtControl.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\base\runtime.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 QGetWidget.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\cserialport.h(55): warning C4584: “CSerialPort_485”: 基类“QObject”已是“QThread”的基类 (编译源文件 QGetWidget.cpp)
+  e:\soft\qt\qt5.9.2\5.9.2\msvc2015\include\qtwidgets\qgesturerecognizer.h(51): note: 参见“QObject”的声明 (编译源文件 QGetWidget.cpp)
+  e:\soft\qt\qt5.9.2\5.9.2\msvc2015\include\qtcore\qthread.h(55): note: 参见“QThread”的声明 (编译源文件 QGetWidget.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\include\develop_interface.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 QtControl.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\log\log_deffine.h(12): warning C4091: “typedef ”: 没有声明变量时忽略“EnumLogLevel”的左侧 (编译源文件 QtControl.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\base\myhelper.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 QtControl.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\base\runtime.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 QMoveControl.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\cserialport.h(55): warning C4584: “CSerialPort_485”: 基类“QObject”已是“QThread”的基类 (编译源文件 QMoveControl.cpp)
+  e:\soft\qt\qt5.9.2\5.9.2\msvc2015\include\qtwidgets\qgesturerecognizer.h(51): note: 参见“QObject”的声明 (编译源文件 QMoveControl.cpp)
+  e:\soft\qt\qt5.9.2\5.9.2\msvc2015\include\qtcore\qthread.h(55): note: 参见“QThread”的声明 (编译源文件 QMoveControl.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\base\runtime.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 QPortControl.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\cserialport.h(55): warning C4584: “CSerialPort_485”: 基类“QObject”已是“QThread”的基类 (编译源文件 QPortControl.cpp)
+  e:\soft\qt\qt5.9.2\5.9.2\msvc2015\include\qtwidgets\qgesturerecognizer.h(51): note: 参见“QObject”的声明 (编译源文件 QPortControl.cpp)
+  e:\soft\qt\qt5.9.2\5.9.2\msvc2015\include\qtcore\qthread.h(55): note: 参见“QThread”的声明 (编译源文件 QPortControl.cpp)
+  QtGuiClass.cpp
+  Qtxqm.cpp
+  SerialPortSetting.cpp
+e:\qtcontrol\qtcontrolcenter\qtcontrol\base\runtime.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 QtControl.cpp)
+  moc_QtControl.cpp
+e:\qtcontrol\qtcontrolcenter\qtcontrol\cserialport.h(55): warning C4584: “CSerialPort_485”: 基类“QObject”已是“QThread”的基类 (编译源文件 QtControl.cpp)
+  e:\soft\qt\qt5.9.2\5.9.2\msvc2015\include\qtwidgets\qgesturerecognizer.h(51): note: 参见“QObject”的声明 (编译源文件 QtControl.cpp)
+  e:\soft\qt\qt5.9.2\5.9.2\msvc2015\include\qtcore\qthread.h(55): note: 参见“QThread”的声明 (编译源文件 QtControl.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\include\develop_interface.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 Qtxqm.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\log\log_deffine.h(12): warning C4091: “typedef ”: 没有声明变量时忽略“EnumLogLevel”的左侧 (编译源文件 Qtxqm.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\base\myhelper.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 Qtxqm.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\include\develop_interface.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 QtGuiClass.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\log\log_deffine.h(12): warning C4091: “typedef ”: 没有声明变量时忽略“EnumLogLevel”的左侧 (编译源文件 QtGuiClass.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\base\myhelper.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 QtGuiClass.cpp)
+  moc_CMessage.cpp
+e:\qtcontrol\qtcontrolcenter\qtcontrol\frmcomtool.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 .\GeneratedFiles\Release\moc_QtControl.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\include\develop_interface.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 .\GeneratedFiles\Release\moc_QtControl.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\log\log_deffine.h(12): warning C4091: “typedef ”: 没有声明变量时忽略“EnumLogLevel”的左侧 (编译源文件 .\GeneratedFiles\Release\moc_QtControl.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\base\myhelper.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 .\GeneratedFiles\Release\moc_QtControl.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\base\runtime.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 QtGuiClass.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\cserialport.h(55): warning C4584: “CSerialPort_485”: 基类“QObject”已是“QThread”的基类 (编译源文件 QtGuiClass.cpp)
+  e:\soft\qt\qt5.9.2\5.9.2\msvc2015\include\qtwidgets\qgesturerecognizer.h(51): note: 参见“QObject”的声明 (编译源文件 QtGuiClass.cpp)
+  e:\soft\qt\qt5.9.2\5.9.2\msvc2015\include\qtcore\qthread.h(55): note: 参见“QThread”的声明 (编译源文件 QtGuiClass.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\base\runtime.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 Qtxqm.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\qtxqm.cpp(22): warning C4305: “return”: 从“int”到“bool”截断
+e:\qtcontrol\qtcontrolcenter\qtcontrol\include\develop_interface.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 .\GeneratedFiles\Release\moc_CMessage.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\log\log_deffine.h(12): warning C4091: “typedef ”: 没有声明变量时忽略“EnumLogLevel”的左侧 (编译源文件 .\GeneratedFiles\Release\moc_CMessage.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\base\myhelper.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 .\GeneratedFiles\Release\moc_CMessage.cpp)
+  moc_CQRWidget.cpp
+e:\qtcontrol\qtcontrolcenter\qtcontrol\qtxqm.cpp(27): warning C4715: “Qtxqm::Start_Receive”: 不是所有的控件路径都返回值
+  moc_CProgressWidget.cpp
+e:\qtcontrol\qtcontrolcenter\qtcontrol\base\runtime.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 .\GeneratedFiles\Release\moc_QtControl.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\include\develop_interface.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 .\GeneratedFiles\Release\moc_CQRWidget.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\log\log_deffine.h(12): warning C4091: “typedef ”: 没有声明变量时忽略“EnumLogLevel”的左侧 (编译源文件 .\GeneratedFiles\Release\moc_CQRWidget.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\base\myhelper.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 .\GeneratedFiles\Release\moc_CQRWidget.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\base\runtime.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 .\GeneratedFiles\Release\moc_CMessage.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\cserialport.h(55): warning C4584: “CSerialPort_485”: 基类“QObject”已是“QThread”的基类 (编译源文件 .\GeneratedFiles\Release\moc_CMessage.cpp)
+  e:\soft\qt\qt5.9.2\5.9.2\msvc2015\include\qtwidgets\qgesturerecognizer.h(51): note: 参见“QObject”的声明 (编译源文件 .\GeneratedFiles\Release\moc_CMessage.cpp)
+  e:\soft\qt\qt5.9.2\5.9.2\msvc2015\include\qtcore\qthread.h(55): note: 参见“QThread”的声明 (编译源文件 .\GeneratedFiles\Release\moc_CMessage.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\include\develop_interface.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 .\GeneratedFiles\Release\moc_CProgressWidget.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\log\log_deffine.h(12): warning C4091: “typedef ”: 没有声明变量时忽略“EnumLogLevel”的左侧 (编译源文件 .\GeneratedFiles\Release\moc_CProgressWidget.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\base\myhelper.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 .\GeneratedFiles\Release\moc_CProgressWidget.cpp)
+  moc_CSerialPort.cpp
+  moc_SQLBase.cpp
+e:\qtcontrol\qtcontrolcenter\qtcontrol\include\develop_interface.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 .\GeneratedFiles\Release\moc_CSerialPort.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\log\log_deffine.h(12): warning C4091: “typedef ”: 没有声明变量时忽略“EnumLogLevel”的左侧 (编译源文件 .\GeneratedFiles\Release\moc_CSerialPort.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\base\myhelper.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 .\GeneratedFiles\Release\moc_CSerialPort.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\base\runtime.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 .\GeneratedFiles\Release\moc_CQRWidget.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\cserialport.h(55): warning C4584: “CSerialPort_485”: 基类“QObject”已是“QThread”的基类 (编译源文件 .\GeneratedFiles\Release\moc_CQRWidget.cpp)
+  e:\soft\qt\qt5.9.2\5.9.2\msvc2015\include\qtwidgets\qgesturerecognizer.h(51): note: 参见“QObject”的声明 (编译源文件 .\GeneratedFiles\Release\moc_CQRWidget.cpp)
+  e:\soft\qt\qt5.9.2\5.9.2\msvc2015\include\qtcore\qthread.h(55): note: 参见“QThread”的声明 (编译源文件 .\GeneratedFiles\Release\moc_CQRWidget.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\log\log_deffine.h(12): warning C4091: “typedef ”: 没有声明变量时忽略“EnumLogLevel”的左侧 (编译源文件 .\GeneratedFiles\Release\moc_SQLBase.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\base\runtime.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 .\GeneratedFiles\Release\moc_CProgressWidget.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\cserialport.h(55): warning C4584: “CSerialPort_485”: 基类“QObject”已是“QThread”的基类 (编译源文件 .\GeneratedFiles\Release\moc_CProgressWidget.cpp)
+  e:\soft\qt\qt5.9.2\5.9.2\msvc2015\include\qtwidgets\qgesturerecognizer.h(51): note: 参见“QObject”的声明 (编译源文件 .\GeneratedFiles\Release\moc_CProgressWidget.cpp)
+  e:\soft\qt\qt5.9.2\5.9.2\msvc2015\include\qtcore\qthread.h(55): note: 参见“QThread”的声明 (编译源文件 .\GeneratedFiles\Release\moc_CProgressWidget.cpp)
+  moc_ControlSql.cpp
+  moc_ConfigWidget.cpp
+  moc_frmcomtool.cpp
+e:\qtcontrol\qtcontrolcenter\qtcontrol\frmcomtool.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 .\GeneratedFiles\Release\moc_frmcomtool.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\log\log_deffine.h(12): warning C4091: “typedef ”: 没有声明变量时忽略“EnumLogLevel”的左侧 (编译源文件 .\GeneratedFiles\Release\moc_ControlSql.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\include\develop_interface.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 .\GeneratedFiles\Release\moc_ControlSql.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\base\myhelper.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 .\GeneratedFiles\Release\moc_ControlSql.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\frmcomtool.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 .\GeneratedFiles\Release\moc_ConfigWidget.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\include\develop_interface.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 .\GeneratedFiles\Release\moc_ConfigWidget.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\log\log_deffine.h(12): warning C4091: “typedef ”: 没有声明变量时忽略“EnumLogLevel”的左侧 (编译源文件 .\GeneratedFiles\Release\moc_ConfigWidget.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\base\myhelper.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 .\GeneratedFiles\Release\moc_ConfigWidget.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\base\runtime.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 .\GeneratedFiles\Release\moc_CSerialPort.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\cserialport.h(55): warning C4584: “CSerialPort_485”: 基类“QObject”已是“QThread”的基类 (编译源文件 .\GeneratedFiles\Release\moc_CSerialPort.cpp)
+  e:\soft\qt\qt5.9.2\5.9.2\msvc2015\include\qtwidgets\qgesturerecognizer.h(51): note: 参见“QObject”的声明 (编译源文件 .\GeneratedFiles\Release\moc_CSerialPort.cpp)
+  e:\soft\qt\qt5.9.2\5.9.2\msvc2015\include\qtcore\qthread.h(55): note: 参见“QThread”的声明 (编译源文件 .\GeneratedFiles\Release\moc_CSerialPort.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\include\develop_interface.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 .\GeneratedFiles\Release\moc_frmcomtool.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\log\log_deffine.h(12): warning C4091: “typedef ”: 没有声明变量时忽略“EnumLogLevel”的左侧 (编译源文件 .\GeneratedFiles\Release\moc_frmcomtool.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\base\myhelper.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 .\GeneratedFiles\Release\moc_frmcomtool.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\base\runtime.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 .\GeneratedFiles\Release\moc_ControlSql.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\base\runtime.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 .\GeneratedFiles\Release\moc_ConfigWidget.cpp)
+  moc_NumKeyBoard.cpp
+  moc_Qtxqm.cpp
+  moc_QGetWidget.cpp
+e:\qtcontrol\qtcontrolcenter\qtcontrol\base\runtime.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 .\GeneratedFiles\Release\moc_frmcomtool.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\include\develop_interface.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 .\GeneratedFiles\Release\moc_Qtxqm.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\log\log_deffine.h(12): warning C4091: “typedef ”: 没有声明变量时忽略“EnumLogLevel”的左侧 (编译源文件 .\GeneratedFiles\Release\moc_Qtxqm.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\base\myhelper.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 .\GeneratedFiles\Release\moc_Qtxqm.cpp)
+  moc_qextserialbase.cpp
+e:\qtcontrol\qtcontrolcenter\qtcontrol\include\develop_interface.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 .\GeneratedFiles\Release\moc_NumKeyBoard.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\log\log_deffine.h(12): warning C4091: “typedef ”: 没有声明变量时忽略“EnumLogLevel”的左侧 (编译源文件 .\GeneratedFiles\Release\moc_NumKeyBoard.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\base\myhelper.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 .\GeneratedFiles\Release\moc_NumKeyBoard.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\include\develop_interface.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 .\GeneratedFiles\Release\moc_QGetWidget.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\log\log_deffine.h(12): warning C4091: “typedef ”: 没有声明变量时忽略“EnumLogLevel”的左侧 (编译源文件 .\GeneratedFiles\Release\moc_QGetWidget.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\base\myhelper.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 .\GeneratedFiles\Release\moc_QGetWidget.cpp)
+  moc_qextserialport.cpp
+e:\qtcontrol\qtcontrolcenter\qtcontrol\base\runtime.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 .\GeneratedFiles\Release\moc_Qtxqm.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\base\runtime.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 .\GeneratedFiles\Release\moc_NumKeyBoard.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\base\runtime.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 .\GeneratedFiles\Release\moc_QGetWidget.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\cserialport.h(55): warning C4584: “CSerialPort_485”: 基类“QObject”已是“QThread”的基类 (编译源文件 .\GeneratedFiles\Release\moc_QGetWidget.cpp)
+  e:\soft\qt\qt5.9.2\5.9.2\msvc2015\include\qtwidgets\qgesturerecognizer.h(51): note: 参见“QObject”的声明 (编译源文件 .\GeneratedFiles\Release\moc_QGetWidget.cpp)
+  e:\soft\qt\qt5.9.2\5.9.2\msvc2015\include\qtcore\qthread.h(55): note: 参见“QThread”的声明 (编译源文件 .\GeneratedFiles\Release\moc_QGetWidget.cpp)
+  moc_win_qextserialport.cpp
+  moc_QPortControl.cpp
+  moc_QMoveControl.cpp
+  moc_QtGuiClass.cpp
+e:\qtcontrol\qtcontrolcenter\qtcontrol\include\develop_interface.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 .\GeneratedFiles\Release\moc_QMoveControl.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\log\log_deffine.h(12): warning C4091: “typedef ”: 没有声明变量时忽略“EnumLogLevel”的左侧 (编译源文件 .\GeneratedFiles\Release\moc_QMoveControl.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\base\myhelper.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 .\GeneratedFiles\Release\moc_QMoveControl.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\include\develop_interface.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 .\GeneratedFiles\Release\moc_QPortControl.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\log\log_deffine.h(12): warning C4091: “typedef ”: 没有声明变量时忽略“EnumLogLevel”的左侧 (编译源文件 .\GeneratedFiles\Release\moc_QPortControl.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\base\myhelper.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 .\GeneratedFiles\Release\moc_QPortControl.cpp)
+  moc_KeyBoard.cpp
+  qrc_QtControl.cpp
+e:\qtcontrol\qtcontrolcenter\qtcontrol\base\runtime.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 .\GeneratedFiles\Release\moc_QMoveControl.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\cserialport.h(55): warning C4584: “CSerialPort_485”: 基类“QObject”已是“QThread”的基类 (编译源文件 .\GeneratedFiles\Release\moc_QMoveControl.cpp)
+  e:\soft\qt\qt5.9.2\5.9.2\msvc2015\include\qtwidgets\qgesturerecognizer.h(51): note: 参见“QObject”的声明 (编译源文件 .\GeneratedFiles\Release\moc_QMoveControl.cpp)
+  e:\soft\qt\qt5.9.2\5.9.2\msvc2015\include\qtcore\qthread.h(55): note: 参见“QThread”的声明 (编译源文件 .\GeneratedFiles\Release\moc_QMoveControl.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\base\runtime.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 .\GeneratedFiles\Release\moc_QPortControl.cpp)
+e:\qtcontrol\qtcontrolcenter\qtcontrol\cserialport.h(55): warning C4584: “CSerialPort_485”: 基类“QObject”已是“QThread”的基类 (编译源文件 .\GeneratedFiles\Release\moc_QPortControl.cpp)
+  e:\soft\qt\qt5.9.2\5.9.2\msvc2015\include\qtwidgets\qgesturerecognizer.h(51): note: 参见“QObject”的声明 (编译源文件 .\GeneratedFiles\Release\moc_QPortControl.cpp)
+  e:\soft\qt\qt5.9.2\5.9.2\msvc2015\include\qtcore\qthread.h(55): note: 参见“QThread”的声明 (编译源文件 .\GeneratedFiles\Release\moc_QPortControl.cpp)
+Release\moc_KeyBoard.obj : warning LNK4042: 对象被多次指定；已忽略多余的指定
+Release\moc_QtControl.obj : warning LNK4042: 对象被多次指定；已忽略多余的指定
+Release\moc_frmcomtool.obj : warning LNK4042: 对象被多次指定；已忽略多余的指定
+Release\moc_NumKeyBoard.obj : warning LNK4042: 对象被多次指定；已忽略多余的指定
+Release\moc_KeyBoard.obj : warning LNK4042: 对象被多次指定；已忽略多余的指定
+Release\qrc_QtControl.obj : warning LNK4042: 对象被多次指定；已忽略多余的指定
+qtmain.lib(qtmain_win.obj) : warning LNK4099: 未找到 PDB“qtmain.pdb”(使用“qtmain.lib(qtmain_win.obj)”或在“E:\QtControl\QtControlCenter\Win32\Release\qtmain.pdb”中寻找)；正在链接对象，如同没有调试信息一样
   QtControl.vcxproj -> E:\QtControl\QtControlCenter\Win32\Release\QtControl.exe

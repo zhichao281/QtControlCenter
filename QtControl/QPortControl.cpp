@@ -16,6 +16,7 @@ QPortControl::~QPortControl()
 
 void QPortControl::slot_ReadData(QString strRecevice)
 {
+	LOG_INFO("slot_ReadData =[%s]", strRecevice.toStdString().c_str());
 	//上位机收到开门请求
 	if (strRecevice.toUpper() == WantOpenDoor)
 	{

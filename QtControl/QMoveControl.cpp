@@ -36,7 +36,15 @@ void QMoveControl::StartWork()
 	m_bFinish = false;
 }
 
+void QMoveControl::StartSecondWork()
+{
+	gblPortControl->restart();
 
+	//4.Îü×¡
+	gblPortControl->SuckTray();
+	m_bSecond = false;
+	m_bFinish = false;
+}
 void QMoveControl::on_slot_MoveFinish()
 {
 	if (m_bFinish==true)

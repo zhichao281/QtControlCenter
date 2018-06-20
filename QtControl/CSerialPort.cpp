@@ -187,21 +187,35 @@ void CSerialPort_485::readData()
 	{
 		return;
 	}
-
-	//gblRuntimeData->Recevice_485 += buffer;
-	//QString strRead = gblRuntimeData->Recevice_485.section("0D 0A", 0, 0);
-	//if (strRead.length() > 0)
-	//{
-	//	strRead = strRead + "0D 0A";
-	//	gblRuntimeData->Recevice_485 = gblRuntimeData->Recevice_485.section("0D 0A", 1);
-	//	
-	//}
-	//else
-	//{
-
-	//}
-
-	emit sig_ReadData(buffer);
+	if (gblRuntimeData->Recevice_485.length()<1)
+	{
+		gblRuntimeData->Recevice_485 = gblRuntimeData->Recevice_485 +buffer;
+	}
+	else
+	{
+		gblRuntimeData->Recevice_485 = gblRuntimeData->Recevice_485 +" "+ buffer;
+	}
+	if (gblRuntimeData->Recevice_485.indexOf("0D 0A")!=-1)
+	{
+		QString strRead = gblRuntimeData->Recevice_485.section("0D 0A", 0, 0);
+		if (strRead.length() > 0)
+		{
+			strRead = strRead + "0D 0A";
+			gblRuntimeData->Recevice_485 = gblRuntimeData->Recevice_485.section("0D 0A", 1);
+			emit sig_ReadData(strRead);
+		}
+	}
+	if (gblRuntimeData->Recevice_485.indexOf("0D0A") != -1)
+	{
+		QString strRead = gblRuntimeData->Recevice_485.section("0D0A", 0, 0);
+		if (strRead.length() > 0)
+		{
+			strRead = strRead + "0D0A";
+			gblRuntimeData->Recevice_485 = gblRuntimeData->Recevice_485.section("0D0A", 1);
+			emit sig_ReadData(strRead);
+		}
+	}
+	
 	LOG_INFO("readData =[%s]", buffer.toStdString().c_str());
 	buffer.clear();
 }

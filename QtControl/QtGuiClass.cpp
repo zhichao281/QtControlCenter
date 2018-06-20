@@ -28,12 +28,19 @@ void QtGuiClass::on_slot_move()
 	if (radio_get->isChecked())
 	{
 		gblMoveControl->SetMove(QPoint(nRow, nColumn), QPoint(0, 0));
+		gblMoveControl->StartWork();
 	}
-	else
+	else if (radio_save->isChecked())
 	{
 		gblMoveControl->SetMove(QPoint(0, 0), QPoint(nRow, nColumn));
+		gblMoveControl->StartWork();
 	}
-	gblMoveControl->StartWork();
+	else if (radio_null->isChecked())
+	{
+		
+		gblPortControl->MovePoint(nRow, nColumn);
+	}
+	
 }
 void QtGuiClass::on_slot_finish()
 {

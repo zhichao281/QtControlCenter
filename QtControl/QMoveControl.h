@@ -17,7 +17,7 @@ public:
 
 	void StartWork();
 
-
+	void StartSecondWork();
 signals:
 	void  sig_finish();
 public slots:
