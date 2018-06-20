@@ -28,8 +28,6 @@ void QMoveControl::SetMove(QPoint startPoint, QPoint endPoint)
 }
 void QMoveControl::StartWork()
 {	
-	gblPortControl->restart();
-
     gblPortControl->MovePoint(m_StartPoint.rx(), m_StartPoint.ry());
 	m_bSecond = false;
 	m_bFinish = false;

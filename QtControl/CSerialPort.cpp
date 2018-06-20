@@ -106,7 +106,13 @@ CSerialPort_485::CSerialPort_485(QObject *parent)
 	: QObject(parent)
 {
 	gblRuntimeData->ReadConfig();
+
 	timer = new QTimer(this);
+	timer->setInterval(30);
+	//设置定时器每个多少毫秒发送一个timeout()信号  
+	QObject::connect(timer, SIGNAL(timeout()), this, SLOT(readData()));
+	//启动定时器  
+
 	InitSerial();
 	m_bAlive = TRUE;
 }
@@ -136,12 +142,12 @@ void CSerialPort_485::InitSerial()
 
 		com->setFlowControl(FLOW_OFF);
 
-		com->setTimeout(-1);
-		QObject::connect(com, SIGNAL(readyRead()), this, SLOT(readData()));
-		QObject::connect(timer, SIGNAL(timeout()),
-			this, SLOT(readData()));
-		timer->start(10);
-		Sleep(15);
+		com->setTimeout(10);
+		//QObject::connect(com, SIGNAL(readyRead()), this, SLOT(readData()));
+		if (timer->isActive() == false)
+		{
+			timer->start();
+		}
 	}	
 }
 
@@ -152,10 +158,13 @@ void CSerialPort_485::close()
 	com = 0;
 	timer->stop();
 }
-
-
 void CSerialPort_485::readData()
 {
+	if (com == 0 || !com->isOpen())
+	{
+		return;
+	}
+
  	int byteLen = com->bytesAvailable(); //返回串口缓冲区字节  
 	if (byteLen <= 0) return;  //减小内存占用  
 
@@ -176,8 +185,9 @@ void CSerialPort_485::readData()
 	{
 		return;
 	}
+
+	//gblRuntimeData->Recevice_485 = buffer;
 	emit sig_ReadData(buffer);
-	gblRuntimeData->Recevice_485 = buffer;
 	LOG_INFO("readData =[%s]", buffer.toStdString().c_str());
 	buffer.clear();
 }
@@ -210,7 +220,7 @@ void CSerialPort_485::run()
 			QString strSend = m_szSendQueue.dequeue();
 			m_QueyeMutex.unlock();
 			sendData(strSend);
-			this->msleep(10);
+			this->msleep(70);
 			continue;
 		}
 		else
@@ -219,11 +229,11 @@ void CSerialPort_485::run()
 			m_QueyeMutex.unlock();
 		}
 	}
-
 }
 void CSerialPort_485::sendData(QString strSendData)
 {
-	if (com == 0 || !com->isOpen()) {
+	if (com == 0 || !com->isOpen()) 
+	{
 		return;
 	}
 	LOG_INFO("sendData =[%s]", strSendData.toStdString().c_str());

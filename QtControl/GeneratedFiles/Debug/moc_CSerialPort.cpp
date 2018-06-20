@@ -250,7 +250,7 @@ static const uint qt_meta_data_CSerialPort_485[] = {
 
  // slots: name, argc, parameters, tag, flags
        4,    0,   32,    2, 0x0a /* Public */,
-       5,    1,   33,    2, 0x0a /* Public */,
+       5,    1,   33,    2, 0x08 /* Private */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::QString,    3,
@@ -302,6 +302,8 @@ void *CSerialPort_485::qt_metacast(const char *_clname)
     if (!_clname) return nullptr;
     if (!strcmp(_clname, qt_meta_stringdata_CSerialPort_485.stringdata0))
         return static_cast<void*>(this);
+    if (!strcmp(_clname, "QThread"))
+        return static_cast< QThread*>(this);
     return QObject::qt_metacast(_clname);
 }
 
