@@ -129,6 +129,7 @@ void CSerialPort_485::InitSerial()
 	comOk = com->open(QIODevice::ReadWrite);
 	if (comOk)
 	{
+		gblRuntimeData->Recevice_485.clear();
 		//清空缓冲区
 		com->flush();
 		//设置波特率
@@ -143,7 +144,7 @@ void CSerialPort_485::InitSerial()
 		com->setFlowControl(FLOW_OFF);
 
 		com->setTimeout(10);
-		//QObject::connect(com, SIGNAL(readyRead()), this, SLOT(readData()));
+
 		if (timer->isActive() == false)
 		{
 			timer->start();
@@ -186,7 +187,19 @@ void CSerialPort_485::readData()
 		return;
 	}
 
-	//gblRuntimeData->Recevice_485 = buffer;
+	//gblRuntimeData->Recevice_485 += buffer;
+	//QString strRead = gblRuntimeData->Recevice_485.section("0D 0A", 0, 0);
+	//if (strRead.length() > 0)
+	//{
+	//	strRead = strRead + "0D 0A";
+	//	gblRuntimeData->Recevice_485 = gblRuntimeData->Recevice_485.section("0D 0A", 1);
+	//	
+	//}
+	//else
+	//{
+
+	//}
+
 	emit sig_ReadData(buffer);
 	LOG_INFO("readData =[%s]", buffer.toStdString().c_str());
 	buffer.clear();
