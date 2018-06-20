@@ -232,8 +232,8 @@ void CSerialPort_485::run()
 		{
 			QString strSend = m_szSendQueue.dequeue();
 			m_QueyeMutex.unlock();
-			sendData(strSend);
 			this->msleep(70);
+			sendData(strSend);		
 			continue;
 		}
 		else
