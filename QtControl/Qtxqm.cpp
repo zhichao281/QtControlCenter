@@ -19,9 +19,9 @@ bool Qtxqm::Start_Receive()
 		if (m_dev != nullptr)
 		{
 			QTimer::singleShot(0, this, SLOT(on_slot_getResultStr()));
-			return -1;
+			return 1;
 		}
-
+		return -1;
 	}
 
 }
@@ -40,11 +40,10 @@ void Qtxqm::on_slot_getResultStr()
 			ret = vbar_beepControl(m_dev, 1);
 			result_buffer[datalen] = '\0';
 			m_strResult = (char*)result_buffer;
-			qDebug() << QString::fromStdString(m_strResult.c_str());
 			emit sig_SendResult(QString::fromStdString(m_strResult.c_str()));
 		}
 	}
 
 
-	QTimer::singleShot(100, this, SLOT(on_slot_getResultStr()));
+	QTimer::singleShot(5, this, SLOT(on_slot_getResultStr()));
 }
