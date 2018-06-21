@@ -17,7 +17,6 @@ QGetWidget::QGetWidget(QWidget *parent, WIDGET_TYPE types)
 	connect(btn_NumSave, SIGNAL(clicked()), this, SLOT(on_btnNumSave_clicked()));
 	connect(btn_QRSave, SIGNAL(clicked()), this, SLOT(on_btnQRSave_clicked()));
 
-	connect(gblPortControl, SIGNAL(sig_OpendoorFinish()), this, SLOT(on_slot_OpendoorFinish()));
 	connect(gblPortControl, SIGNAL(sig_ClosedoorFinish()), this, SLOT(on_slot_ClosedoorFinish()));
 
 
@@ -70,6 +69,7 @@ void QGetWidget::QRClick(WIDGET_TYPE types)
 	m_pQRWidget->Init(types);
 	m_pQRWidget->showMaximized();
 	int res = m_pQRWidget->exec();
+	m_pQRWidget.reset();
 	if (res == WIDGET_TYPE::MSGBOX_BACK)
 	{
 		this->show();
@@ -81,7 +81,7 @@ void QGetWidget::QRClick(WIDGET_TYPE types)
 	else
 	{
 		int nInputNum = res;
-		m_pQRWidget.reset();
+		
 		MessageBoxShow(nInputNum, types);
 	}
 
@@ -133,7 +133,7 @@ void  QGetWidget::MessageBoxShow(int InputNum, WIDGET_TYPE types)
 		}
 		
 		m_pProgressWidget.reset(new CProgressWidget);
-		bool bres = m_pProgressWidget->setInputNum(gblRuntimeData->InputNum, gblRuntimeData->m_type);
+		bool bres = m_pProgressWidget->setInputNum(gblRuntimeData->InputNum, WIDGET_TYPE::MSGBOX_SAVE);
 		if (bres == false)
 		{
 			done(WIDGET_TYPE::MSGBOX_HOME);
@@ -141,8 +141,10 @@ void  QGetWidget::MessageBoxShow(int InputNum, WIDGET_TYPE types)
 		}
 		m_pProgressWidget->showMaximized();
 		int nResult = m_pProgressWidget->exec();
+		m_pProgressWidget.reset();
 		nRes = CMessage::SaveEnd();
-
+		done(WIDGET_TYPE::MSGBOX_HOME);
+		return;
 	}
 	else
 	{
@@ -158,7 +160,6 @@ void  QGetWidget::MessageBoxShow(int InputNum, WIDGET_TYPE types)
 		}
 		else
 		{		
-			m_pProgressWidget.reset();
 			gblPortControl->CloseDoor();
 			done(WIDGET_TYPE::MSGBOX_HOME);
 			return;
@@ -179,13 +180,6 @@ void  QGetWidget::MessageBoxShow(int InputNum, WIDGET_TYPE types)
 	}
 
 }
-
-
-void QGetWidget::on_slot_OpendoorFinish()
-{
-	
-}
-
 
 
 

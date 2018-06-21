@@ -57,9 +57,6 @@ private slots:
 
 	void on_btnQRSave_clicked();
 
-
-	void on_slot_OpendoorFinish();
-
 	void on_slot_ClosedoorFinish();
 
 

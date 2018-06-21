@@ -84,10 +84,11 @@ void CProgressWidget::on_slot_finish()
 	{
 		done(0);
 	}
-	else
+	else if (m_type == WIDGET_TYPE::MSGBOX_GET)
 	{		
 		if (m_bFinish == false)
 		{
+			LOG_INFO("finish opendoor");
 			gblPortControl->OpenDoor();
 		}
 	

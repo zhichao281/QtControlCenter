@@ -12,6 +12,9 @@ public:
 	QMoveControl(QObject *parent=nullptr);
 	~QMoveControl();
 
+	void Init();
+
+	void Reset();
 
 	void SetMove(QPoint startPoint, QPoint endPoint);
 

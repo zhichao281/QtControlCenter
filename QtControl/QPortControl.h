@@ -74,6 +74,7 @@ public:
 	QString m_strMoveToX;
 	QString m_strMoveToY;
 	ActionControl  m_Action;
+	int  m_nError;
 };
 
 

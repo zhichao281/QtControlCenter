@@ -3,11 +3,7 @@
 QPortControl::QPortControl(QObject *parent)
 	: QObject(parent)
 {
-	
-
-
 	connect(gbl485SerialPort, SIGNAL(sig_ReadData(QString)), this, SLOT(slot_ReadData(QString)));
-
 }
 
 QPortControl::~QPortControl()
@@ -87,13 +83,21 @@ void QPortControl::slot_ReadData(QString strRecevice)
 	{
 		//上位机读取电磁吸盘动作是否执行完成？
 		gbl485SerialPort->AddTask(AskSuckTray);
+		m_nError = 0;
 		return;
 	}
 	//上位机读取电磁吸盘动作是否执行完成
 	if (strRecevice.toUpper() == SuckTrayFail && m_Action == Action_SuckTray)
 	{
-		m_Action = Action_Null;
+		if (m_nError == 10)
+		{
+			m_Action = Action_Null;
+			emit sig_SuckTrayFinish();
+			m_nError = 0;
+			return;
+		}
 		gbl485SerialPort->AddTask(AskSuckTray);	
+		m_nError = m_nError + 1;
 		return;
 	}
 	//完成吸住托盘
@@ -117,12 +121,22 @@ void QPortControl::slot_ReadData(QString strRecevice)
 	{
 		//上位机读取电磁放盘动作是否执行完成？
 		gbl485SerialPort->AddTask(AskDropTray );
+		m_nError = 0;
 		return;
 	}
 	//上位机读取电磁放开盘动作是否执行完成
 	if (strRecevice.toUpper() == DropTrayFail && m_Action == Action_DropTray)
 	{
+		if (m_nError == 10)
+		{
+			m_Action = Action_Null;
+			emit sig_DropTrayFinish();
+			m_nError = 0;
+			return;
+
+		}
 		gbl485SerialPort->AddTask(AskDropTray);
+		m_nError = m_nError + 1;
 		return;
 	}
 	//完成放下托盘
@@ -140,24 +154,27 @@ void QPortControl::slot_ReadData(QString strRecevice)
 		//上位机发送开始执行拉取货物命令
 		m_Action = Action_GetGoods;
 		gbl485SerialPort->AddTask(StartGetGoods);
+		return;
 	}
 	if (strRecevice.toUpper() == StartGetGoods && m_Action == Action_GetGoods)
 	{
 		//上位机读取电磁吸盘动作是否执行完成？
 		gbl485SerialPort->AddTask(AskGetGoods);
+		return;
 	}
 	//上位机读取电磁吸盘动作是否执行完成
 	if (strRecevice.toUpper() == GetGoodsFail && m_Action == Action_GetGoods)
 	{
 		gbl485SerialPort->AddTask(AskGetGoods);
+		return;
 	}
 	//完成拉取货物命令
 	if (strRecevice.toUpper() == GetGoodsSucess && m_Action == Action_GetGoods)
 	{
 		m_Action = Action_Null;
 		emit sig_GetGoodsFinish();
+		return;
 	}
-
 
 	/**********推送到位*****************/
 	//PLC接收到上位机推送货物命令
@@ -182,6 +199,7 @@ void QPortControl::slot_ReadData(QString strRecevice)
 	{
 		m_Action = Action_Null;
 		emit sig_PushGoodsFinish();
+		return;
 	}
 
 	/********运动到行列******************/
@@ -371,6 +389,7 @@ void QPortControl::restart()
 {
 	gbl485SerialPort->close();
 	gbl485SerialPort->InitSerial();
+
 }
 
 void QPortControl::PushGoods()

@@ -1,5 +1,6 @@
 #include "QtGuiClass.h"
 #include "QMoveControl.h"
+
 QtGuiClass::QtGuiClass(QWidget *parent)
 	: QWidget(parent)
 {
@@ -15,7 +16,7 @@ QtGuiClass::QtGuiClass(QWidget *parent)
 	connect(btn_drop, SIGNAL(clicked()), this, SLOT(on_slot_drop()));
 	connect(btn_push, SIGNAL(clicked()), this, SLOT(on_slot_push()));
 	connect(btn_pull, SIGNAL(clicked()), this, SLOT(on_slot_pull()));
-	
+
 }
 
 QtGuiClass::~QtGuiClass()
@@ -37,7 +38,7 @@ void QtGuiClass::on_slot_move()
 	}
 	else if (radio_null->isChecked())
 	{
-		
+		gblMoveControl->Reset();
 		gblPortControl->MovePoint(nRow, nColumn);
 	}
 	
@@ -48,12 +49,14 @@ void QtGuiClass::on_slot_finish()
 }
 void QtGuiClass::on_slot_open()
 {
+	gblMoveControl->Reset();
+	LOG_INFO("finish opendoor");
 	gblPortControl->OpenDoor();
 
 }
 void QtGuiClass::on_slot_close()
 {
-
+	gblMoveControl->Reset();
 	gblPortControl->CloseDoor();
 
 }
@@ -61,17 +64,21 @@ void QtGuiClass::on_slot_close()
 
 void QtGuiClass::on_slot_suck()
 {
+	gblMoveControl->Reset();
 	gblPortControl->SuckTray();
 }
 void QtGuiClass::on_slot_drop()
 {
+	gblMoveControl->Reset();
 	gblPortControl->DropTray();
 }
 void QtGuiClass::on_slot_pull()
 {
+	gblMoveControl->Reset();
 	gblPortControl->GetGoods();
 }
 void QtGuiClass::on_slot_push()
 {
+	gblMoveControl->Reset();
 	gblPortControl->PushGoods();
 }

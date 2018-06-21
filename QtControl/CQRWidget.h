@@ -6,7 +6,7 @@
 #include <QMovie> 
 #include "ui_CQRWidget.h"
 #include "define.h"
-#include "QMoveControl.h"
+
 class CQRWidget : public QDialog,public Ui::CQRWidget
 {
 	Q_OBJECT
@@ -40,5 +40,6 @@ private:
 	QMovie * pMove;
 	WIDGET_TYPE  m_type;
 	int  m_nInputNum;
-	QMoveControl *m_pMoveControl;
+	bool m_bFinish;
+
 };

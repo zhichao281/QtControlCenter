@@ -243,6 +243,8 @@ void NumKeyBoard::onEnter()
 
 void NumKeyBoard::on_slot_finish()
 {
+	LOG_INFO("on_slot_finish,OpenDoor");
+
 	gblPortControl->OpenDoor();
 }
 

@@ -78,9 +78,6 @@ void CMessage::Init(MSGBOX_TYPE types)
 		widget_return->show();
 		widget_hide->show();
 		widget_hide_2->show();
-
-		//取完东西  送回去托盘
-		gblPortControl->SuckTray();
 	}
 	
 }
@@ -137,14 +134,12 @@ void CMessage::on_btnOk_clicked()
 
 void CMessage::on_slot_timeout()
 {
-
-
 	nTime = nTime - 1;
 	if (nTime >1)
 	{
 		QString strLabel = QString("%1S").arg(nTime);
 		label_timer->setText(strLabel);
-		//QTimer::singleShot(1000, this, SLOT(on_slot_timeout()));
+		QTimer::singleShot(1000, this, SLOT(on_slot_timeout()));
 	}
 	else
 	{

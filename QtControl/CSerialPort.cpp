@@ -108,7 +108,7 @@ CSerialPort_485::CSerialPort_485(QObject *parent)
 	gblRuntimeData->ReadConfig();
 
 	timer = new QTimer(this);
-	timer->setInterval(30);
+	timer->setInterval(25);
 	//设置定时器每个多少毫秒发送一个timeout()信号  
 	QObject::connect(timer, SIGNAL(timeout()), this, SLOT(readData()));
 	//启动定时器  
@@ -124,6 +124,7 @@ CSerialPort_485::~CSerialPort_485()
 void CSerialPort_485::InitSerial()
 {
 	QString strComName = gblRuntimeData->com485_PortName;
+	gblRuntimeData->Recevice_485.clear();
 	//com = new QextSerialPort(strComName, QextSerialPort::Polling);
 	com = new QextSerialPort("COM2", QextSerialPort::Polling);
 	comOk = com->open(QIODevice::ReadWrite);
@@ -149,13 +150,15 @@ void CSerialPort_485::InitSerial()
 		{
 			timer->start();
 		}
+		
 	}	
 }
 
 void CSerialPort_485::close()
 {
-	if (com->isOpen() == true)
+	if (com != 0 || com->isOpen() == true)
 	{
+		m_szSendQueue.clear();
 		com->close();
 		delete com;
 		com = 0;
@@ -203,9 +206,11 @@ void CSerialPort_485::readData()
 			strRead = strRead + "0D 0A";
 			gblRuntimeData->Recevice_485 = gblRuntimeData->Recevice_485.section("0D 0A", 1);
 			emit sig_ReadData(strRead);
+			return;
 		}
+
 	}
-	if (gblRuntimeData->Recevice_485.indexOf("0D0A") != -1)
+	else if (gblRuntimeData->Recevice_485.indexOf("0D0A") != -1)
 	{
 		QString strRead = gblRuntimeData->Recevice_485.section("0D0A", 0, 0);
 		if (strRead.length() > 0)
@@ -213,6 +218,7 @@ void CSerialPort_485::readData()
 			strRead = strRead + "0D0A";
 			gblRuntimeData->Recevice_485 = gblRuntimeData->Recevice_485.section("0D0A", 1);
 			emit sig_ReadData(strRead);
+			return;
 		}
 	}
 	
@@ -246,7 +252,7 @@ void CSerialPort_485::run()
 		{
 			QString strSend = m_szSendQueue.dequeue();
 			m_QueyeMutex.unlock();
-			this->msleep(70);
+			this->msleep(50);
 			sendData(strSend);		
 			continue;
 		}

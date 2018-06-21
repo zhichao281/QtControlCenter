@@ -141,6 +141,7 @@ void CQRWidget::on_slot_SendResult(QString strResult)
 					gblControlSql->Add_AppInfo(app);
 					gblMoveControl->SetMove(QPoint(nRow, nColumn), QPoint(0, 0));
 					gblMoveControl->StartWork();
+					m_bFinish = false;
 
 					return;
 				}
@@ -156,8 +157,12 @@ void CQRWidget::on_slot_SendResult(QString strResult)
 
 void CQRWidget::on_slot_finish()
 {
+	if (m_bFinish == false)
+	{
+		LOG_INFO("finish opendoor");
+		gblPortControl->OpenDoor();
+	}
 
-	gblPortControl->OpenDoor();
 }
 
 void CQRWidget::on_slot_OpendoorFinish()
@@ -165,6 +170,7 @@ void CQRWidget::on_slot_OpendoorFinish()
 	if (m_type & MSGBOX_SAVE)
 	{
 		done(m_nInputNum);
+		m_bFinish = true;
 	}
 	if (m_type & MSGBOX_GET)
 	{

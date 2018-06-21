@@ -3,8 +3,15 @@
 QMoveControl::QMoveControl(QObject *parent)
 	: QObject(parent)
 {
-	m_bSecond = false;
+	m_bSecond = false;	
+}
 
+QMoveControl::~QMoveControl()
+{
+}
+void QMoveControl::Init()
+{
+	
 	connect(gblPortControl, SIGNAL(sig_MoveFinish()), this, SLOT(on_slot_MoveFinish()));
 
 	connect(gblPortControl, SIGNAL(sig_PushGoodsFinish()), this, SLOT(on_slot_PushGoodsFinish()));
@@ -14,11 +21,21 @@ QMoveControl::QMoveControl(QObject *parent)
 	connect(gblPortControl, SIGNAL(sig_SuckTrayFinish()), this, SLOT(on_slot_SuckTrayFinish()));
 
 	connect(gblPortControl, SIGNAL(sig_DropTrayFinish()), this, SLOT(on_slot_DropTrayFinish()));
+
 	
 }
-
-QMoveControl::~QMoveControl()
+void QMoveControl::Reset()
 {
+	disconnect(gblPortControl, SIGNAL(sig_MoveFinish()), this, SLOT(on_slot_MoveFinish()));
+
+	disconnect(gblPortControl, SIGNAL(sig_PushGoodsFinish()), this, SLOT(on_slot_PushGoodsFinish()));
+
+	disconnect(gblPortControl, SIGNAL(sig_GetGoodsFinish()), this, SLOT(on_slot_GetGoodsFinish()));
+
+	disconnect(gblPortControl, SIGNAL(sig_SuckTrayFinish()), this, SLOT(on_slot_SuckTrayFinish()));
+
+	disconnect(gblPortControl, SIGNAL(sig_DropTrayFinish()), this, SLOT(on_slot_DropTrayFinish()));
+	
 }
 
 void QMoveControl::SetMove(QPoint startPoint, QPoint endPoint)
@@ -28,18 +45,18 @@ void QMoveControl::SetMove(QPoint startPoint, QPoint endPoint)
 }
 void QMoveControl::StartWork()
 {	
-	gblPortControl->restart();
-
+	Reset();
+	Init();
 	//1.拉回来
-	gblPortControl->GetGoods();   
+	gblPortControl->GetGoods();
 	m_bSecond = false;
 	m_bFinish = false;
 }
 
 void QMoveControl::StartSecondWork()
 {
-	gblPortControl->restart();
-
+	Reset();
+	Init();
 	//4.吸住
 	gblPortControl->SuckTray();
 	m_bSecond = false;
@@ -113,6 +130,9 @@ void QMoveControl::on_slot_SuckTrayFinish()
 		gblPortControl->GetGoods();
 		m_bSecond = true;
 	}
+	//5.拉回来
+	gblPortControl->GetGoods();
+	m_bSecond = true;
 }
 
 void QMoveControl::on_slot_DropTrayFinish()
