@@ -26,6 +26,20 @@ void QtGuiClass::on_slot_move()
 {
 	int nRow = lineEdit_X->text().toInt();
 	int nColumn = lineEdit_Y->text().toInt();
+	if (nColumn>8)
+	{
+		QMessageBox::about(nullptr, "出错啦", "超出最高列数");
+
+		lineEdit_Y->setText("0");
+		return;
+	}
+	if (nRow>100)
+	{
+		QMessageBox::about(nullptr, "出错啦", "超出最高行数");
+
+		lineEdit_X->setText("0");
+		return;
+	}
 	if (radio_get->isChecked())
 	{
 		gblMoveControl->SetMove(QPoint(nRow, nColumn), QPoint(0, 0));

@@ -89,7 +89,7 @@ void QPortControl::slot_ReadData(QString strRecevice)
 	//上位机读取电磁吸盘动作是否执行完成
 	if (strRecevice.toUpper() == SuckTrayFail && m_Action == Action_SuckTray)
 	{
-		if (m_nError == 100)
+		if (m_nError == ERRORNUM)
 		{
 			m_Action = Action_Null;
 			emit sig_SuckTrayFinish();
@@ -127,7 +127,7 @@ void QPortControl::slot_ReadData(QString strRecevice)
 	//上位机读取电磁放开盘动作是否执行完成
 	if (strRecevice.toUpper() == DropTrayFail && m_Action == Action_DropTray)
 	{
-		if (m_nError == 100)
+		if (m_nError == ERRORNUM)
 		{
 			m_Action = Action_Null;
 			emit sig_DropTrayFinish();
