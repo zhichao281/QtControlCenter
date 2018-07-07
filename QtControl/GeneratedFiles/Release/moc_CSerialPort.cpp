@@ -20,72 +20,6 @@
 QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
-struct qt_meta_stringdata_CSerialPort_t {
-    QByteArrayData data[1];
-    char stringdata0[12];
-};
-#define QT_MOC_LITERAL(idx, ofs, len) \
-    Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
-    qptrdiff(offsetof(qt_meta_stringdata_CSerialPort_t, stringdata0) + ofs \
-        - idx * sizeof(QByteArrayData)) \
-    )
-static const qt_meta_stringdata_CSerialPort_t qt_meta_stringdata_CSerialPort = {
-    {
-QT_MOC_LITERAL(0, 0, 11) // "CSerialPort"
-
-    },
-    "CSerialPort"
-};
-#undef QT_MOC_LITERAL
-
-static const uint qt_meta_data_CSerialPort[] = {
-
- // content:
-       7,       // revision
-       0,       // classname
-       0,    0, // classinfo
-       0,    0, // methods
-       0,    0, // properties
-       0,    0, // enums/sets
-       0,    0, // constructors
-       0,       // flags
-       0,       // signalCount
-
-       0        // eod
-};
-
-void CSerialPort::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
-{
-    Q_UNUSED(_o);
-    Q_UNUSED(_id);
-    Q_UNUSED(_c);
-    Q_UNUSED(_a);
-}
-
-const QMetaObject CSerialPort::staticMetaObject = {
-    { &QObject::staticMetaObject, qt_meta_stringdata_CSerialPort.data,
-      qt_meta_data_CSerialPort,  qt_static_metacall, nullptr, nullptr}
-};
-
-
-const QMetaObject *CSerialPort::metaObject() const
-{
-    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
-}
-
-void *CSerialPort::qt_metacast(const char *_clname)
-{
-    if (!_clname) return nullptr;
-    if (!strcmp(_clname, qt_meta_stringdata_CSerialPort.stringdata0))
-        return static_cast<void*>(this);
-    return QObject::qt_metacast(_clname);
-}
-
-int CSerialPort::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
-{
-    _id = QObject::qt_metacall(_c, _id, _a);
-    return _id;
-}
 struct qt_meta_stringdata_CSerialPort_232_t {
     QByteArrayData data[7];
     char stringdata0[61];
@@ -129,7 +63,7 @@ static const uint qt_meta_data_CSerialPort_232[] = {
 
  // slots: name, argc, parameters, tag, flags
        4,    0,   32,    2, 0x0a /* Public */,
-       5,    1,   33,    2, 0x0a /* Public */,
+       5,    1,   33,    2, 0x08 /* Private */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::QString,    3,
@@ -181,6 +115,8 @@ void *CSerialPort_232::qt_metacast(const char *_clname)
     if (!_clname) return nullptr;
     if (!strcmp(_clname, qt_meta_stringdata_CSerialPort_232.stringdata0))
         return static_cast<void*>(this);
+    if (!strcmp(_clname, "QThread"))
+        return static_cast< QThread*>(this);
     return QObject::qt_metacast(_clname);
 }
 

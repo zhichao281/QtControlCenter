@@ -70,6 +70,13 @@
 
 #define  MOVEEND         "0D 0A"
 
+
+
+
+#define  SETWEIGHTZERO   "02 52 5A 52 40 BE 0D"
+#define  ZEROWEIGHT      "02 40 63 20 20 20 30 2E 30 30 66 A7 0D"
+
+
 #define   MAXCOLUMN  8
 #define   MAXROW     20
 

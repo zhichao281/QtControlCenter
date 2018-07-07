@@ -31,9 +31,6 @@
     <Filter Include="log">
       <UniqueIdentifier>{c84c32d1-2efd-40ff-84bf-39af3907dbf8}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Base">
-      <UniqueIdentifier>{4f73ca0b-990e-4be6-87db-b45bfdbf58ea}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Generated Files\Debug">
       <UniqueIdentifier>{3539e878-fcb9-4219-9c66-d174eb2ef83e}</UniqueIdentifier>
     </Filter>
@@ -42,6 +39,9 @@
     </Filter>
     <Filter Include="qextserialport_win">
       <UniqueIdentifier>{d6a07c55-8197-431f-ab83-733bdd83b812}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Base">
+      <UniqueIdentifier>{4f73ca0b-990e-4be6-87db-b45bfdbf58ea}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -154,6 +154,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ConfigWidget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CWeight.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -310,6 +313,9 @@
     </ClInclude>
     <ClInclude Include="qextserialport_win\qextserialenumerator.h">
       <Filter>qextserialport_win</Filter>
+    </ClInclude>
+    <ClInclude Include="CWeight.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

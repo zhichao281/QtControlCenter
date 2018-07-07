@@ -104,6 +104,7 @@ public:
 	QString  Recevice_485;
 	QString  Recevice_232;
 
+	QString   strWeight;
 	int  InputNum;
 	WIDGET_TYPE  m_type;
 

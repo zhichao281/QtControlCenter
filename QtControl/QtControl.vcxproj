@@ -218,6 +218,7 @@
     <ClCompile Include="CProgressWidget.cpp" />
     <ClCompile Include="CQRWidget.cpp" />
     <ClCompile Include="CSerialPort.cpp" />
+    <ClCompile Include="CWeight.cpp" />
     <ClCompile Include="frmcomtool.cpp" />
     <ClCompile Include="GeneratedFiles\Debug\moc_frmcomtool.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
@@ -371,6 +372,7 @@
       <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName)\.;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtSerialPort;$(QTDIR)\include\QtSql</IncludePath>
       <Define Condition="'$(Configuration)|$(Platform)'=='Release|x64'">UNICODE;_UNICODE;WIN32;WIN64;QT_NO_DEBUG;NDEBUG;QT_GUI_LIB;QT_WIDGETS_LIB;QT_CORE_LIB;QT_SERIALPORT_LIB;QT_SQL_LIB</Define>
     </QtMoc>
+    <ClInclude Include="CWeight.h" />
     <ClInclude Include="define.h" />
     <QtMoc Include="frmcomtool.h">
       <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName)\.;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtSerialPort</IncludePath>

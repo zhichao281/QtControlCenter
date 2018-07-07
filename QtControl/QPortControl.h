@@ -29,6 +29,7 @@ public:
 
 public slots:
 	void slot_ReadData(QString strRecevice);
+	void slot_232ReadData(QString strRecevice);
 
 
 signals:
@@ -45,6 +46,9 @@ signals:
 	void sig_PushGoodsFinish();
 
 	void sig_GetGoodsFinish();
+
+	void  sig_overWeight();
+
 public:
 
 	bool  OpenDoor();
@@ -67,6 +71,8 @@ public:
 
 
 	void restart();
+
+	void SetZero();
 public:
 
 	int m_nRow;

@@ -4,7 +4,12 @@ QPortControl::QPortControl(QObject *parent)
 	: QObject(parent)
 {
 	connect(gbl485SerialPort, SIGNAL(sig_ReadData(QString)), this, SLOT(slot_ReadData(QString)));
+
+	connect(gbl232SerialPort, SIGNAL(sig_ReadData(QString)), this, SLOT(slot_232ReadData(QString)));
+
+
 }
+
 
 QPortControl::~QPortControl()
 {
@@ -397,4 +402,45 @@ void QPortControl::PushGoods()
 	restart();
 	gbl485SerialPort->AddTask(WantPushGoods);
 	return;
+}
+void QPortControl::SetZero()
+{
+	gbl232SerialPort->AddTask(SETWEIGHTZERO);
+	return;
+}
+
+void QPortControl::slot_232ReadData(QString strRecevice)
+{
+	LOG_INFO("strRecevice=[%s]", strRecevice.toStdString().c_str());
+	strRecevice.replace(" 02 40 6", "02 40 6");
+	if (strRecevice.toUpper() == ZEROWEIGHT)
+	{
+		gblRuntimeData->strWeight = "0";
+		return;
+	}
+	if (strRecevice.toUpper().indexOf("02 40 62")!= -1)
+	{
+		QString strweight;
+		int strten;
+		if (strRecevice.section(" ", 5, 5).toInt() < 30)
+		{
+			strten = 0;
+		}
+		else
+		{
+			strten = strRecevice.section(" ", 5, 5).toInt() - 30;
+		}
+		if (strten > 2)
+		{	
+			emit sig_overWeight();
+			gblRuntimeData->strWeight = "ГЌжи";
+			return;		
+		}
+		int strone = strRecevice.section(" ", 6, 6).toInt() - 30;
+		QString strpoint = ".";
+		int strpointone = strRecevice.section(" ", 8, 8).toInt() - 30;
+		int strpointten = strRecevice.section(" ", 9, 9).toInt() - 30;
+		double weight = strten * 10 + strone + strpointone * 0.1 + strpointten * 0.01;
+		gblRuntimeData->strWeight = QString::number(weight, 10, 2);
+	}
 }

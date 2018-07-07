@@ -31,7 +31,7 @@ CProgressWidget::~CProgressWidget()
 
 bool CProgressWidget::setInputNum(int nInputNum, WIDGET_TYPE types)
 {
-
+	label_weight->setText(gblRuntimeData->strWeight);
 	m_nInputNum = nInputNum;
 	m_type = types;
 	if (types == WIDGET_TYPE::MSGBOX_SAVE)
