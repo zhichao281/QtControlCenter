@@ -20,14 +20,16 @@ void ControlSql::InitSQL()
 	QStringList strExpression;
 
 	strExpression.append("id integer primary key DEFAULT NULL");
-	strExpression.append("saveRow integer");
-	strExpression.append("saveColumn integer");
+	strExpression.append("saveRow integer DEFAULT 0");
+	strExpression.append("saveColumn integer DEFAULT 0");
 	strExpression.append("saveQRNum integer");
-	strExpression.append("saveHeight integer");
-	strExpression.append("saveWeight integer");
-	strExpression.append("phoneNum integer");
-	strExpression.append("userName text");
-
+	strExpression.append("saveHeight    text DEFAULT '0'");
+	strExpression.append("saveWeight    text DEFAULT '0'");
+	strExpression.append("phoneNum      text DEFAULT ''");
+	strExpression.append("userName      text DEFAULT ''");
+	strExpression.append("saveDateTime  text DEFAULT ''");
+	strExpression.append("getDateTime   text DEFAULT ''");
+	strExpression.append("useState      int DEFAULT 0");
 	CreatTable("AppInfo", strExpression);
 
 }
@@ -86,7 +88,7 @@ void ControlSql::Add_AppInfo(AppInfo &info)
 	_WRITE_LOCK_;
 	QStringList strName, strValues;
 	QStringList strResults;
-	QString strSql = QString("saveQRNum = %1").arg(info.saveQRNum);
+	QString strSql = QString("saveQRNum = %1 where").arg(info.saveQRNum);
 	GetValues(strResults, strSql, 0);
 	if (strResults.size() > 0)
 	{	
@@ -172,11 +174,15 @@ void ControlSql::WriteValues(QSqlRecord & query, AppInfo & info)
 	info.savePoint.setX( query.value("saveRow").toInt());
 	info.savePoint.setY(query.value("saveColumn").toInt());
 	info.saveQRNum = query.value("saveQRNum").toInt();
-	info.saveHeight = query.value("saveHeight").toInt();
+	info.saveHeight = query.value("saveHeight").toString();
 
-	info.saveWeight = query.value("saveWeight").toInt();
-	info.phoneNum = query.value("phoneNum").toInt();
-	info.userName = query.value("userName").toString().toStdString();
+	info.saveWeight = query.value("saveWeight").toString();
+	info.phoneNum = query.value("phoneNum").toString();
+
+	info.userName = query.value("userName").toString();
+	info.saveDateTime = query.value("saveDateTime").toString();
+	info.getDateTime = query.value("getDateTime").toString();
+	info.useState = query.value("useState").toInt();
 }
 
 /* 插入函数. 构造SQL插入语句.*/
@@ -310,6 +316,11 @@ void ControlSql::BindValues(QSqlQuery &query, AppInfo info)
 
 	query.bindValue(":saveWeight", info.saveWeight);
 
-	query.bindValue(":userName", QString::fromStdString(info.userName.c_str()));
+	query.bindValue(":userName", info.userName);
 
+	query.bindValue(":saveDateTime", info.saveDateTime);
+
+	query.bindValue(":getDateTime", info.getDateTime);
+
+	query.bindValue(":useState", info.useState);
 }

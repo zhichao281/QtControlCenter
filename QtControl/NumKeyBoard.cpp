@@ -1,7 +1,5 @@
 #include "NumKeyBoard.h"
-
 #include <QDebug>
-#include "QMoveControl.h"
 
 NumKeyBoard::NumKeyBoard(QWidget *parent) :
 	QDialog(parent)
@@ -10,7 +8,7 @@ NumKeyBoard::NumKeyBoard(QWidget *parent) :
 	setWindowFlags(Qt::FramelessWindowHint | Qt::WindowMinimizeButtonHint );
 	this->setWindowIcon(QIcon(":/Image/Resources/Image/zhihuiwu.ico"));
 	display->setFocus();
-	//button_init();
+	
 
 	waitingForOperand = true;
 	inputMode = iMode_Normal;
@@ -36,14 +34,7 @@ NumKeyBoard::NumKeyBoard(QWidget *parent) :
 	connect(btn_back, SIGNAL(clicked()), this, SLOT(on_btnBack_clicked()));
 	connect(btn_home, SIGNAL(clicked()), this, SLOT(on_btnHome_clicked()));
 
-	connect(gblPortControl, SIGNAL(sig_OpendoorFinish()), this, SLOT(on_slot_OpendoorFinish()));
-
-	connect(gblPortControl, SIGNAL(sig_ClosedoorFinish()), this, SLOT(on_slot_ClosedoorFinish()));
-
-	connect(gblMoveControl, SIGNAL(sig_finish()), this, SLOT(on_slot_finish())); 
-
 	display->setText("------");
-	m_bSecond = false;
 }
 
 NumKeyBoard::~NumKeyBoard()
@@ -151,7 +142,6 @@ void NumKeyBoard::setDispText(const QString &text)
 
 void NumKeyBoard::onEnter()
 {
-
 	waitingForOperand = true;
 	text = display->text();
 	int i = text.indexOf("-");
@@ -229,9 +219,7 @@ void NumKeyBoard::onEnter()
 					app.savePoint.setX(nRow);
 					app.savePoint.setY(nColumn);
 					gblControlSql->Add_AppInfo(app);						
-					gblMoveControl->SetMove(QPoint(nRow, nColumn), QPoint(0, 0));
-					gblMoveControl->StartWork();
-					m_bSecond = false;
+					done(gblRuntimeData->InputNum);
 					return ;
 				}
 			}
@@ -239,33 +227,11 @@ void NumKeyBoard::onEnter()
 	}
 }
 
-
-
-void NumKeyBoard::on_slot_finish()
-{
-	LOG_INFO("on_slot_finish,OpenDoor");
-
-	gblPortControl->OpenDoor();
-}
-
-void NumKeyBoard::on_slot_OpendoorFinish()
-{
-	if (m_type & MSGBOX_GET)
-	{
-		done(text.toInt());
-	}
-	if (m_type & MSGBOX_SAVE)
-	{
-		done(text.toInt());
-	}
-}
-void NumKeyBoard::on_slot_ClosedoorFinish()
-{
-}
 void NumKeyBoard::onBackspace()
 {
 	display->backspace();
 }
+
 /*Ö§³ÖÊó±êÍÏ×§¼üÅÌ*/
 void NumKeyBoard::mouseMoveEvent(QMouseEvent *event)
 {

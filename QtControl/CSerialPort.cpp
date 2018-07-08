@@ -504,13 +504,13 @@ void CHeightPort_485::run()
 {
 	while (m_bAlive)
 	{
+		this->msleep(50);
 		m_QueyeMutex.lock();
 		int nSize = m_szSendQueue.size();
 		if (nSize > 0)
 		{
 			QString strSend = m_szSendQueue.dequeue();
-			m_QueyeMutex.unlock();
-			this->msleep(50);
+			m_QueyeMutex.unlock();			
 			sendData(strSend);
 			continue;
 		}

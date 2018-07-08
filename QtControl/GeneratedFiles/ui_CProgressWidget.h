@@ -53,9 +53,11 @@ public:
     QHBoxLayout *horizontalLayout_3;
     QLabel *label_3;
     QLabel *label_weight;
+    QLabel *label_2;
     QHBoxLayout *horizontalLayout_4;
     QLabel *label_4;
     QLabel *label_height;
+    QLabel *label;
     QSpacerItem *verticalSpacer_4;
     QSpacerItem *horizontalSpacer_2;
     QSpacerItem *verticalSpacer_2;
@@ -265,9 +267,17 @@ public:
         label_weight->setLayoutDirection(Qt::RightToLeft);
         label_weight->setStyleSheet(QString::fromUtf8("color: rgb(122, 118, 117);\n"
 "font: 30pt \"\351\273\221\344\275\223\";"));
-        label_weight->setAlignment(Qt::AlignCenter);
+        label_weight->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
 
         horizontalLayout_3->addWidget(label_weight);
+
+        label_2 = new QLabel(widget_3);
+        label_2->setObjectName(QStringLiteral("label_2"));
+        label_2->setStyleSheet(QString::fromUtf8("color: rgb(122, 118, 117);\n"
+"font: 30pt \"\351\273\221\344\275\223\";"));
+        label_2->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
+
+        horizontalLayout_3->addWidget(label_2);
 
 
         verticalLayout_5->addLayout(horizontalLayout_3);
@@ -289,9 +299,17 @@ public:
         label_height->setFont(font3);
         label_height->setStyleSheet(QString::fromUtf8("color: rgb(122, 118, 117);\n"
 "font: 30pt \"\351\273\221\344\275\223\";"));
-        label_height->setAlignment(Qt::AlignCenter);
+        label_height->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
 
         horizontalLayout_4->addWidget(label_height);
+
+        label = new QLabel(widget_3);
+        label->setObjectName(QStringLiteral("label"));
+        label->setStyleSheet(QString::fromUtf8("color: rgb(122, 118, 117);\n"
+"font: 30pt \"\351\273\221\344\275\223\";"));
+        label->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
+
+        horizontalLayout_4->addWidget(label);
 
 
         verticalLayout_5->addLayout(horizontalLayout_4);
@@ -334,9 +352,11 @@ public:
         btn_home->setText(QString());
         label_gif->setText(QString());
         label_3->setText(QApplication::translate("CProgressWidget", "\350\264\247\347\211\251\351\207\215\351\207\217\357\274\232", Q_NULLPTR));
-        label_weight->setText(QApplication::translate("CProgressWidget", "12.5kg", Q_NULLPTR));
+        label_weight->setText(QApplication::translate("CProgressWidget", "0", Q_NULLPTR));
+        label_2->setText(QApplication::translate("CProgressWidget", "kg", Q_NULLPTR));
         label_4->setText(QApplication::translate("CProgressWidget", "\350\264\247\347\211\251\351\253\230\345\272\246\357\274\232", Q_NULLPTR));
-        label_height->setText(QApplication::translate("CProgressWidget", "400mm", Q_NULLPTR));
+        label_height->setText(QApplication::translate("CProgressWidget", "0", Q_NULLPTR));
+        label->setText(QApplication::translate("CProgressWidget", "mm", Q_NULLPTR));
     } // retranslateUi
 
 };

@@ -47,11 +47,6 @@ private slots:
 
 	void on_btnHome_clicked();
 
-	void on_slot_OpendoorFinish();
-
-	void on_slot_ClosedoorFinish();
-
-	void on_slot_finish();
 public:
 	QString text;
 
@@ -65,9 +60,5 @@ private:
 	WIDGET_TYPE  m_type;
 
 	int  m_nInputNum;
-
-	bool  m_bSecond;
-
-	bool  m_bRun;
 
 };

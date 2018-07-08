@@ -156,6 +156,12 @@
     <ClCompile Include="CMainWidget.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="WaitWorkProgresss.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StartWorkProgress.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="KeyBoard.h">
@@ -213,6 +219,12 @@
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="CMainWidget.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="WaitWorkProgresss.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="StartWorkProgress.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>

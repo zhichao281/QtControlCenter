@@ -266,6 +266,8 @@
     <ClCompile Include="QAdminWidget.cpp" />
     <ClCompile Include="Qtxqm.cpp" />
     <ClCompile Include="SerialPortSetting.cpp" />
+    <ClCompile Include="StartWorkProgress.cpp" />
+    <ClCompile Include="WaitWorkProgresss.cpp" />
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="CMainWidget.h" />
@@ -293,6 +295,8 @@
     <ClInclude Include="Base\myhelper.h" />
     <ClInclude Include="Base\QR_Encode.h" />
     <ClInclude Include="Base\RunTime.h" />
+    <QtMoc Include="StartWorkProgress.h" />
+    <QtMoc Include="WaitWorkProgresss.h" />
     <QtMoc Include="CMessage.h">
       <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName)\.;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtSerialPort</IncludePath>
       <Define Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">VBAR_BUILD_AS_DLL;UNICODE;_UNICODE;WIN32;WIN64;QT_GUI_LIB;QT_WIDGETS_LIB;QT_CORE_LIB;QT_SERIALPORT_LIB</Define>

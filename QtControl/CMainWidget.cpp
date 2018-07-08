@@ -32,6 +32,7 @@ CMainWidget::CMainWidget(QWidget *parent)
 void CMainWidget::on_slot_Get()
 {
 	this->hide();
+	gblPortControl->SetZero();
 	m_pGetWidget.reset(new QGetWidget(nullptr, WIDGET_TYPE::MSGBOX_GET));
 	m_pGetWidget->showMaximized();
 	int res= m_pGetWidget->exec();
@@ -45,6 +46,7 @@ void CMainWidget::on_slot_Get()
 void CMainWidget::on_slot_Save()
 {
 	this->hide();
+	gblPortControl->SetZero();
 	m_pGetWidget.reset(new QGetWidget(nullptr, WIDGET_TYPE::MSGBOX_SAVE));
 	m_pGetWidget->showMaximized();
 	int res = m_pGetWidget->exec();

@@ -9,7 +9,8 @@
 #include "CQRWidget.h"
 #include "CMessage.h"
 #include "CProgressWidget.h"
-
+#include "WaitWorkProgresss.h"
+#include "StartWorkProgress.h"
 
 class QGetWidget : public QDialog, private Ui::QGetWidget
 {
@@ -44,6 +45,12 @@ public:
 	void QRClick(WIDGET_TYPE types);
 
 	void  MessageBoxShow(int nInputNum, WIDGET_TYPE types);
+
+
+	void  WaitWorking(int nInputNum, WIDGET_TYPE types);
+
+
+	void  StartWorking(int nInputNum, WIDGET_TYPE types);
 private slots:
 	void on_btnBack_clicked();
 
@@ -57,14 +64,17 @@ private slots:
 
 	void on_btnQRSave_clicked();
 
-	void on_slot_ClosedoorFinish();
-
 
 private:
 	std::shared_ptr<NumKeyBoard>		 m_pNumKeyWidget;
 	std::shared_ptr<CQRWidget>			 m_pQRWidget;
 	std::shared_ptr<CProgressWidget>     m_pProgressWidget;
+
+	std::shared_ptr<WaitWorkProgresss>     m_pWaitWorkProgresss;
 	
+	std::shared_ptr<StartWorkProgress>     m_pStartWorkProgress;
+
+
 	WIDGET_TYPE  m_type;
 
 	int  m_nInputNum;

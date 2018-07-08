@@ -17,27 +17,16 @@ public:
 	CProgressWidget(QWidget *parent = Q_NULLPTR);
 	~CProgressWidget();
 
+	virtual void setValue(QString strWeight, QString strHeight);
 
-	void setValue(QString strWeight, QString strHeight);
+	virtual  bool setInputNum(int nInputNum, WIDGET_TYPE types);
 
-	bool setInputNum(int nInputNum, WIDGET_TYPE types);
-
-public slots :
-
-	void on_slot_OpendoorFinish();
-
-	void on_slot_ClosedoorFinish();
-
-	void on_slot_finish();
-private:
+public:
 	QMovie * pMove;
 
 	WIDGET_TYPE  m_type;
 
 	int  m_nInputNum;
+	
 
-	bool  m_bSecond;
-
-	bool m_bFinish;
-	QMoveControl *m_pMoveControl;
 };

@@ -5,6 +5,8 @@
 #include <QWidget>
 #include "ui_QtGuiClass.h"
 #include <QTimer>
+#include "QMoveControl.h"
+#include <memory>
 class QAdminWidget : public QWidget,public Ui::QtGuiClass
 {
 	Q_OBJECT
@@ -44,5 +46,5 @@ public slots:
 public:
 	QTimer * timer;  //用于声明定时器  
 
-
-};
+	std::shared_ptr<QMoveControl>  m_pMoveControl;
+ };

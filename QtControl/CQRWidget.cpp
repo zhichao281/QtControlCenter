@@ -21,12 +21,6 @@ CQRWidget::CQRWidget(QWidget *parent)
 
 	connect(gblTxqm, SIGNAL(sig_SendResult(QString)), this, SLOT(on_slot_SendResult(QString)));
 	
-	connect(gblPortControl, SIGNAL(sig_OpendoorFinish()), this, SLOT(on_slot_OpendoorFinish()));
-
-	connect(gblPortControl, SIGNAL(sig_ClosedoorFinish()), this, SLOT(on_slot_ClosedoorFinish()));
-
-	connect(gblMoveControl, SIGNAL(sig_finish()), this, SLOT(on_slot_finish()));
-
 }
 
 CQRWidget::~CQRWidget()
@@ -139,44 +133,12 @@ void CQRWidget::on_slot_SendResult(QString strResult)
 					app.savePoint.setX(nRow);
 					app.savePoint.setY(nColumn);
 					gblControlSql->Add_AppInfo(app);
-					gblMoveControl->SetMove(QPoint(nRow, nColumn), QPoint(0, 0));
-					gblMoveControl->StartWork();
-					m_bFinish = false;
-
+					done(gblRuntimeData->InputNum);
 					return;
 				}
 			}
 		}
-	}
-	
-
-	
+	}	
 }
 
 
-
-void CQRWidget::on_slot_finish()
-{
-	if (m_bFinish == false)
-	{
-		LOG_INFO("finish opendoor");
-		gblPortControl->OpenDoor();
-	}
-
-}
-
-void CQRWidget::on_slot_OpendoorFinish()
-{
-	if (m_type & MSGBOX_SAVE)
-	{
-		done(m_nInputNum);
-		m_bFinish = true;
-	}
-	if (m_type & MSGBOX_GET)
-	{
-	}
-	
-}
-void CQRWidget::on_slot_ClosedoorFinish()
-{
-}

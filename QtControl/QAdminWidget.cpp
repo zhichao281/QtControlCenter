@@ -7,8 +7,8 @@ QAdminWidget::QAdminWidget(QWidget *parent)
 	this->setupUi(this);
 	connect(btn_move, SIGNAL(clicked()), this, SLOT(on_slot_move()));
 	
-
-	connect(gblMoveControl, SIGNAL(sig_finish()), this, SLOT(on_slot_finish()));
+	m_pMoveControl.reset(new QMoveControl);
+	connect(m_pMoveControl.get(), SIGNAL(sig_finish()), this, SLOT(on_slot_finish()));
 	
 	connect(gblPortControl, SIGNAL(sig_ReadSetting(int,QString)), this, SLOT(solt_ReadSetting(int ,QString)));
 
@@ -63,17 +63,17 @@ void QAdminWidget::on_slot_move()
 	}
 	if (radio_get->isChecked())
 	{
-		gblMoveControl->SetMove(QPoint(nRow, nColumn), QPoint(0, 0));
-		gblMoveControl->StartWork();
+		m_pMoveControl->SetMove(QPoint(nRow, nColumn), QPoint(0, 0));
+		m_pMoveControl->StartWork();
 	}
 	else if (radio_save->isChecked())
 	{
-		gblMoveControl->SetMove(QPoint(0, 0), QPoint(nRow, nColumn));
-		gblMoveControl->StartWork();
+		m_pMoveControl->SetMove(QPoint(0, 0), QPoint(nRow, nColumn));
+		m_pMoveControl->StartWork();
 	}
 	else if (radio_null->isChecked())
 	{
-		gblMoveControl->Reset();
+		m_pMoveControl->Reset();
 		gblPortControl->MovePoint(nRow, nColumn);
 	}
 	
@@ -84,14 +84,14 @@ void QAdminWidget::on_slot_finish()
 }
 void QAdminWidget::on_slot_open()
 {
-	gblMoveControl->Reset();
+	m_pMoveControl->Reset();
 	LOG_INFO("finish opendoor");
 	gblPortControl->OpenDoor();
 
 }
 void QAdminWidget::on_slot_close()
 {
-	gblMoveControl->Reset();
+	m_pMoveControl->Reset();
 	gblPortControl->CloseDoor();
 
 }
@@ -99,22 +99,22 @@ void QAdminWidget::on_slot_close()
 
 void QAdminWidget::on_slot_suck()
 {
-	gblMoveControl->Reset();
+	m_pMoveControl->Reset();
 	gblPortControl->SuckTray();
 }
 void QAdminWidget::on_slot_drop()
 {
-	gblMoveControl->Reset();
+	m_pMoveControl->Reset();
 	gblPortControl->DropTray();
 }
 void QAdminWidget::on_slot_pull()
 {
-	gblMoveControl->Reset();
+	m_pMoveControl->Reset();
 	gblPortControl->GetGoods();
 }
 void QAdminWidget::on_slot_push()
 {
-	gblMoveControl->Reset();
+	m_pMoveControl->Reset();
 	gblPortControl->PushGoods();
 }
 

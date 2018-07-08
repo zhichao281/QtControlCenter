@@ -37,14 +37,14 @@
 #define DropTrayFail      "3A 30 32 30 33 30 32 30 30 30 31 46 38 0D 0A"
 #define DropTraySucess    "3A 30 32 30 33 30 32 30 30 30 30 46 39 0D 0A"
 
-//拉取货物
+//推送到位
 #define  WantPushGoods     "3A 30 32 30 36 31 32 30 35 30 30 30 31 45 30 0D 0A"
 #define  StartPushGoods    "3A 30 32 30 36 31 32 30 36 30 30 30 31 44 46 0D 0A"
 #define  AskPushGoods      "3A 30 32 30 33 31 32 30 36 30 30 30 31 45 32 0D0A"
 #define  PushGoodsFail     "3A 30 32 30 33 30 32 30 30 30 31 46 38 0D 0A"
 #define  PushGoodsSucess   "3A 30 32 30 33 30 32 30 30 30 30 46 39 0D 0A"
 
-//推送到位
+// 拉取货物
 #define  WantGetGoods      "3A 30 32 30 36 31 32 30 35 30 30 30 30 45 31 0D 0A"
 #define  StartGetGoods     "3A 30 32 30 36 31 32 30 36 30 30 30 31 44 46 0D 0A"
 #define  AskGetGoods       "3A 30 32 30 33 31 32 30 36 30 30 30 31 45 32 0D0A"
@@ -94,18 +94,25 @@ public:
 		savePoint.setX(0);
 		savePoint.setY(0);
 		saveQRNum = 0;
-		saveHeight = 0;
-		saveWeight = 0;
-		phoneNum = 0;
+		saveHeight = "0";
+		saveWeight = "0";
+		phoneNum = "0";
 		userName = "";
+		saveDateTime = "";
+		getDateTime = "";
+		useState = 0;
 	};
 public:
-	QPoint savePoint;  //保存的位置
-	int    saveQRNum;	//保存的二维码数据	
-	int    saveHeight;//保存的高度
-	int    saveWeight;//保存的重量
-	long   phoneNum;
-	std::string userName;
+	QPoint		savePoint;  //保存的位置
+	int			saveQRNum;	//保存的二维码数据	
+	QString     saveHeight;//保存的高度
+	QString     saveWeight;//保存的重量
+	QString     phoneNum;
+	QString     userName;
+	QString     saveDateTime;               
+	QString     getDateTime;
+	int         useState;
+
 
 	//int    isdetele;
 };

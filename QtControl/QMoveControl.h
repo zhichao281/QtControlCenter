@@ -42,4 +42,3 @@ private:
 	bool  m_bSecond;
 	bool   m_bFinish;
 };
-#define gblMoveControl HSingletonTemplatePtr<QMoveControl>::get() 

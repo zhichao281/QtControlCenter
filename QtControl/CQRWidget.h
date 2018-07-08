@@ -30,16 +30,10 @@ private slots:
 
 	void on_slot_SendResult(QString strResult);
 	
-	void on_slot_OpendoorFinish();
-
-	void on_slot_ClosedoorFinish();
-
-	void on_slot_finish();
 
 private:
 	QMovie * pMove;
 	WIDGET_TYPE  m_type;
 	int  m_nInputNum;
-	bool m_bFinish;
 
 };

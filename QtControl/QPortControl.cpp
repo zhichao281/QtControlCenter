@@ -20,11 +20,7 @@ void QPortControl::slot_ReadData(QString strRecevice)
 	LOG_INFO("slot_ReadData =[%s]", strRecevice.toStdString().c_str());
 
 
-	if (strRecevice.indexOf("3A 30 32 30 33 30 32")!=-1)
-	{
-		emit sig_ReadSetting(m_Action,strRecevice);
-		return;
-	}
+
 
 	//上位机收到开门请求
 	if (strRecevice.toUpper() == WantOpenDoor)
@@ -173,12 +169,14 @@ void QPortControl::slot_ReadData(QString strRecevice)
 	{
 		//上位机读取电磁吸盘动作是否执行完成？
 		gbl485SerialPort->AddTask(AskGetGoods);
+		GetHeight();
 		return;
 	}
 	//上位机读取电磁吸盘动作是否执行完成
 	if (strRecevice.toUpper() == GetGoodsFail && m_Action == Action_GetGoods)
 	{
 		gbl485SerialPort->AddTask(AskGetGoods);
+		GetHeight();
 		return;
 	}
 	//完成拉取货物命令
@@ -196,16 +194,19 @@ void QPortControl::slot_ReadData(QString strRecevice)
 		//收到并执行推送货物
 		m_Action = Action_PushGoods;
 		gbl485SerialPort->AddTask(StartPushGoods);
+		return;
 	}
 	if (strRecevice.toUpper() == StartPushGoods && m_Action == Action_PushGoods)
 	{
 		//推送到位没有？？
 		gbl485SerialPort->AddTask(AskPushGoods);
+		return;
 	}
 	//推送到位没有？
 	if (strRecevice.toUpper() == PushGoodsFail && m_Action == Action_PushGoods)
 	{
 		gbl485SerialPort->AddTask(AskPushGoods);
+		return;
 	}
 	//已经推送到位
 	if (strRecevice.toUpper() == PushGoodsSucess && m_Action == Action_PushGoods)
@@ -222,32 +223,44 @@ void QPortControl::slot_ReadData(QString strRecevice)
 		//发送列数信息
 		m_Action = Action_Move;
 		gbl485SerialPort->AddTask(m_strMoveToY);
+		return;
 	}
 	//PLC收到列数信息
 	if (strRecevice.toUpper() == m_strMoveToY && m_Action == Action_Move)
 	{
 		//开始运动到相应的行、列
 		gbl485SerialPort->AddTask(StartMove);
+		return;
 	}
 	//PLC收到列数信息
 	if (strRecevice.toUpper() == StartMove && m_Action == Action_Move)
 	{
 		//开始运动到相应的行、列
 		gbl485SerialPort->AddTask(AskMove);
+		return;
 	}
 
 	//上位机询问是否达到相应的行、列位置？
 	if (strRecevice.toUpper() == MoveFail && m_Action == Action_Move)
 	{
 		gbl485SerialPort->AddTask(AskMove);
+		return;
 	}
 	//已达到指定行、列位置
 	if (strRecevice.toUpper() == MoveSucess && m_Action == Action_Move)
 	{
 		m_Action = Action_Null;
 		emit sig_MoveFinish();
+		return;
 	}
 
+
+
+	if (strRecevice.indexOf("3A 30 32 30 33 30 32") != -1)
+	{
+		emit sig_ReadSetting(m_Action, strRecevice);
+		return;
+	}
 }
 
 bool QPortControl::OpenDoor()
@@ -448,7 +461,11 @@ void QPortControl::slot_232ReadData(QString strRecevice)
 		int strpointone = strRecevice.section(" ", 8, 8).toInt() - 30;
 		int strpointten = strRecevice.section(" ", 9, 9).toInt() - 30;
 		double weight = strten * 10 + strone + strpointone * 0.1 + strpointten * 0.01;
-		gblRuntimeData->strWeight = QString::number(weight, 10, 2);
+		if (weight - gblRuntimeData->strWeight.toDouble() > 0)
+		{
+			gblRuntimeData->strWeight = QString::number(weight, 10, 2);
+		}
+		
 	}
 }
 
@@ -463,7 +480,11 @@ void QPortControl::slot_heightReadData(QString strRecevice)
 		{
 			height2 = 30;
 		}
-		gblRuntimeData->strHeight = QString::number(height2);
+		if (height2 - gblRuntimeData->strHeight.toInt()>0)
+		{
+			gblRuntimeData->strHeight = QString::number(height2);
+		}
+		
 	}
 
 }
@@ -471,11 +492,14 @@ void QPortControl::slot_heightReadData(QString strRecevice)
 void QPortControl::setReadState(bool bRead)
 {
 	gbl232SerialPort->setReadState(bRead);
+	gblRuntimeData->strWeight="0";
 }
 
 void QPortControl::GetHeight()
 {
 	gbl485HeightPort->AddTask(GEIHEIGHT);
+
+
 }
 
 QString ValueToHex(QString strSend,int nValue)
@@ -580,6 +604,7 @@ void QPortControl::zero_read()
 	gbl485SerialPort->AddTask("3A 30 32 30 33 31 46 41 30 30 30 30 31 33 42 0D 0A");
 	m_Action = Action_Read_Zero;
 }
+
 void QPortControl::setZero()
 {
 
