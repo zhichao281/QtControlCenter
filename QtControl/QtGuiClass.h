@@ -39,6 +39,8 @@ public slots:
 	void on_slot_zero_read();
 	void on_slot_btn_setting();
 
+
+	void  solt_ReadSetting(int, QString);
 public:
 	QTimer * timer;  //用于声明定时器  
 

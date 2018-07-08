@@ -28,6 +28,7 @@ CRunTime::~CRunTime()
 */
 void CRunTime::Clear()
 {
+	strHeight = "0";
 	strWeight = "0";
 	PortName = "COM1";
 	BaudRate = 9600;

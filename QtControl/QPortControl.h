@@ -16,8 +16,13 @@ enum ActionControl
 	Action_CloseDoor = 40,
 	Action_GetGoods = 50,
 	Action_PushGoods = 60,
-	Action_Move = 70
+	Action_Move = 70,
 
+	Action_Read_Move=80,
+	Action_Read_Rotate = 90,
+	Action_Read_Tray = 100,
+	Action_Read_Door =110,
+	Action_Read_Zero =120
 };
 class QPortControl : public QObject
 {
@@ -31,7 +36,7 @@ public slots:
 	void slot_ReadData(QString strRecevice);
 	void slot_232ReadData(QString strRecevice);
 
-
+	void slot_heightReadData(QString strRecevice);
 signals:
 	void sig_OpendoorFinish();
 
@@ -48,6 +53,8 @@ signals:
 	void sig_GetGoodsFinish();
 
 	void  sig_overWeight();
+
+	void  sig_ReadSetting(int ,QString );
 
 public:
 
@@ -73,6 +80,34 @@ public:
 	void restart();
 
 	void SetZero();
+
+	void  setReadState(bool bRead);
+
+	void GetHeight();
+
+	
+	void setZero();
+
+	void move_setting(int nValue);
+
+	void move_read();
+
+	void rotate_setting(int nValue);
+
+	void rotate_read();
+
+	void tray_setting(int nValue);
+
+	void tray_read();
+
+	void door_setting(int nValue);
+
+	void door_read();
+
+	void zero_setting(int nValue);
+
+	void zero_read();
+
 public:
 
 	int m_nRow;

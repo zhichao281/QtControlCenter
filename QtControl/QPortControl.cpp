@@ -7,9 +7,9 @@ QPortControl::QPortControl(QObject *parent)
 
 	connect(gbl232SerialPort, SIGNAL(sig_ReadData(QString)), this, SLOT(slot_232ReadData(QString)));
 
+	connect(gbl485HeightPort, SIGNAL(sig_ReadData(QString)), this, SLOT(slot_heightReadData(QString)));
 
 }
-
 
 QPortControl::~QPortControl()
 {
@@ -18,6 +18,14 @@ QPortControl::~QPortControl()
 void QPortControl::slot_ReadData(QString strRecevice)
 {
 	LOG_INFO("slot_ReadData =[%s]", strRecevice.toStdString().c_str());
+
+
+	if (strRecevice.indexOf("3A 30 32 30 33 30 32")!=-1)
+	{
+		emit sig_ReadSetting(m_Action,strRecevice);
+		return;
+	}
+
 	//上位机收到开门请求
 	if (strRecevice.toUpper() == WantOpenDoor)
 	{
@@ -242,7 +250,6 @@ void QPortControl::slot_ReadData(QString strRecevice)
 
 }
 
-
 bool QPortControl::OpenDoor()
 {
 	restart();
@@ -279,7 +286,6 @@ void QPortControl::GetGoods()
 	restart();
 	gbl485SerialPort->AddTask(WantGetGoods);
 }
-
 
 int Hextoi(QString s, char len)
 {
@@ -403,6 +409,7 @@ void QPortControl::PushGoods()
 	gbl485SerialPort->AddTask(WantPushGoods);
 	return;
 }
+
 void QPortControl::SetZero()
 {
 	gbl232SerialPort->AddTask(SETWEIGHTZERO);
@@ -443,4 +450,137 @@ void QPortControl::slot_232ReadData(QString strRecevice)
 		double weight = strten * 10 + strone + strpointone * 0.1 + strpointten * 0.01;
 		gblRuntimeData->strWeight = QString::number(weight, 10, 2);
 	}
+}
+
+void QPortControl::slot_heightReadData(QString strRecevice)
+{
+	LOG_INFO("heightReadData=[%s]", strRecevice.toStdString().c_str());
+
+	if (strRecevice.toUpper().indexOf("01 03 04") != -1)
+	{
+		int height2 = strRecevice.section(" ", 6, 6).toInt(0, 16)*20+40;
+		if (height2 == 40)
+		{
+			height2 = 30;
+		}
+		gblRuntimeData->strHeight = QString::number(height2);
+	}
+
+}
+
+void QPortControl::setReadState(bool bRead)
+{
+	gbl232SerialPort->setReadState(bRead);
+}
+
+void QPortControl::GetHeight()
+{
+	gbl485HeightPort->AddTask(GEIHEIGHT);
+}
+
+QString ValueToHex(QString strSend,int nValue)
+{
+	QString strValue = QString("%1").arg(nValue, 4, 16, QLatin1Char('0'));
+	strSend = strSend + " " + strValue.mid(0,2).toUpper() + " " + strValue.mid(2, 2).toUpper();
+	QStringList lst;
+	lst = strSend.split(' ');
+	int num = 0;
+	bool ok;
+	unsigned char sum;
+	for (int i = 0; i < lst.size(); i++)
+	{
+		QString str1 = lst[i];
+		num += Hextoi(str1, 2);
+	}
+	num = ~num;
+	num += 1;
+	QString	strLRC = QString("%1").arg(num, 2, 16, QLatin1Char('0'));
+	strSend = strSend + " " + strLRC.right(2).toUpper();
+	
+	QString strNew = "3A ";
+	for (int i = 0; i < strSend.length(); i++)
+	{
+		strNew += hextoAss(strSend.at(i));
+	}
+	strNew = strNew + MOVEEND;
+	
+	return strNew;
+}
+
+
+void QPortControl::move_setting(int nValue)
+{
+	QString strSend = "02 06 17 D0";
+	strSend = ValueToHex(strSend, nValue);
+	gbl485SerialPort->AddTask(strSend);
+
+}
+
+void QPortControl::move_read()
+{
+	gbl485SerialPort->AddTask("3A 30 32 30 33 31 37 44 30 30 30 30 31 31 33 0D 0A");
+	m_Action = Action_Read_Move;
+}
+
+void QPortControl::rotate_setting(int nValue)
+{
+	QString strSend = "02 06 17 DA";
+	strSend = ValueToHex(strSend, nValue);
+
+
+	gbl485SerialPort->AddTask(strSend);
+
+}
+
+void QPortControl::rotate_read()
+{
+	gbl485SerialPort->AddTask("3A 30 32 30 33 31 37 44 41 30 30 30 31 30 39 0D 0A");
+	m_Action = Action_Read_Rotate;
+}
+
+void QPortControl::tray_setting(int nValue)
+{
+
+	QString strSend = "02 06 17 E4";
+	strSend = ValueToHex(strSend, nValue);
+	gbl485SerialPort->AddTask(strSend);
+
+}
+
+void QPortControl::tray_read()
+{
+	gbl485SerialPort->AddTask("3A 30 32 30 33 31 37 45 34 30 30 30 31 46 46 0D 0A");
+	m_Action = Action_Read_Tray;
+}
+
+void QPortControl::door_setting(int nValue)
+{
+	QString strSend = "02 06 17 EE";
+	strSend = ValueToHex(strSend, nValue);
+	gbl485SerialPort->AddTask(strSend);
+}
+
+void QPortControl::door_read()
+{
+	gbl485SerialPort->AddTask("3A 30 32 30 33 31 37 45 45 30 30 30 31 46 35 0D 0A");
+	m_Action = Action_Read_Door;
+}
+
+void QPortControl::zero_setting(int nValue)
+{
+
+	QString strSend = "02 06 1F A0";
+	strSend = ValueToHex(strSend, nValue);
+	gbl485SerialPort->AddTask(strSend);
+
+}
+
+void QPortControl::zero_read()
+{
+	gbl485SerialPort->AddTask("3A 30 32 30 33 31 46 41 30 30 30 30 31 33 42 0D 0A");
+	m_Action = Action_Read_Zero;
+}
+void QPortControl::setZero()
+{
+
 }
