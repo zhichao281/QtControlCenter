@@ -36,7 +36,7 @@ QAdminWidget::QAdminWidget(QWidget *parent)
 	connect(zero_read, SIGNAL(clicked()), this, SLOT(on_slot_zero_read()));
 	connect(btn_setting, SIGNAL(clicked()), this, SLOT(on_slot_btn_setting()));
 	timer = new QTimer(this);
-	timer->setInterval(25);
+	timer->setInterval(100);
 	QObject::connect(timer, SIGNAL(timeout()), this, SLOT(on_slot_btn_weight()));
 }
 

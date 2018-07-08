@@ -85,7 +85,7 @@
 #define   ADDROW       5
 #define   MAXNULLTRAY  5
 
-#define   ERRORNUM      30
+#define   ERRORNUM      5
 class AppInfo
 {
 public:

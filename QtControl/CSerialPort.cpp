@@ -112,6 +112,10 @@ void CSerialPort_232::readData()
 		return;
 	}
 	
+	emit sig_ReadData(buffer);
+	buffer.clear();
+	return;
+
 	if (gblRuntimeData->Recevice_232.length() < 1)
 	{
 		gblRuntimeData->Recevice_232 = gblRuntimeData->Recevice_232 + buffer;
@@ -504,7 +508,7 @@ void CHeightPort_485::run()
 {
 	while (m_bAlive)
 	{
-		this->msleep(50);
+		
 		m_QueyeMutex.lock();
 		int nSize = m_szSendQueue.size();
 		if (nSize > 0)
@@ -528,6 +532,7 @@ void CHeightPort_485::sendData(QString strSendData)
 	{
 		return;
 	}
+	this->msleep(10);
 	LOG_INFO("sendData =[%s]", strSendData.toStdString().c_str());
 	QByteArray buffer;
 

@@ -86,7 +86,7 @@ public:
 	void GetHeight();
 
 	
-	void setZero();
+
 
 	void move_setting(int nValue);
 

@@ -169,6 +169,7 @@ void QPortControl::slot_ReadData(QString strRecevice)
 	{
 		//上位机读取电磁吸盘动作是否执行完成？
 		gbl485SerialPort->AddTask(AskGetGoods);
+		Sleep(10);
 		GetHeight();
 		return;
 	}
@@ -176,6 +177,7 @@ void QPortControl::slot_ReadData(QString strRecevice)
 	if (strRecevice.toUpper() == GetGoodsFail && m_Action == Action_GetGoods)
 	{
 		gbl485SerialPort->AddTask(AskGetGoods);
+		Sleep(10);
 		GetHeight();
 		return;
 	}
@@ -253,8 +255,6 @@ void QPortControl::slot_ReadData(QString strRecevice)
 		emit sig_MoveFinish();
 		return;
 	}
-
-
 
 	if (strRecevice.indexOf("3A 30 32 30 33 30 32") != -1)
 	{
@@ -431,8 +431,9 @@ void QPortControl::SetZero()
 
 void QPortControl::slot_232ReadData(QString strRecevice)
 {
-	LOG_INFO("strRecevice=[%s]", strRecevice.toStdString().c_str());
 	strRecevice.replace(" 02 40 6", "02 40 6");
+	LOG_INFO("strRecevice=[%s]", strRecevice.toStdString().c_str());
+
 	if (strRecevice.toUpper() == ZEROWEIGHT)
 	{
 		gblRuntimeData->strWeight = "0";
@@ -461,11 +462,20 @@ void QPortControl::slot_232ReadData(QString strRecevice)
 		int strpointone = strRecevice.section(" ", 8, 8).toInt() - 30;
 		int strpointten = strRecevice.section(" ", 9, 9).toInt() - 30;
 		double weight = strten * 10 + strone + strpointone * 0.1 + strpointten * 0.01;
-		if (weight - gblRuntimeData->strWeight.toDouble() > 0)
+		/*	if (weight - gblRuntimeData->strWeight.toDouble() > 0)
+			{
+
+			}*/
+		if (weight-1.86>0)
+		{
+			gblRuntimeData->strWeight = QString::number((weight-1.86), 10, 2);
+		}
+		else
 		{
 			gblRuntimeData->strWeight = QString::number(weight, 10, 2);
 		}
 		
+		LOG_INFO("weight =[%f], strWeight=[%s]", weight, gblRuntimeData->strWeight.toStdString().c_str());
 	}
 }
 
@@ -492,7 +502,7 @@ void QPortControl::slot_heightReadData(QString strRecevice)
 void QPortControl::setReadState(bool bRead)
 {
 	gbl232SerialPort->setReadState(bRead);
-	gblRuntimeData->strWeight="0";
+	//gblRuntimeData->strWeight="0";
 }
 
 void QPortControl::GetHeight()
@@ -605,7 +615,3 @@ void QPortControl::zero_read()
 	m_Action = Action_Read_Zero;
 }
 
-void QPortControl::setZero()
-{
-
-}
