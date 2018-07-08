@@ -1,6 +1,6 @@
 #include "ConfigWidget.h"
 
-#include "QtGuiClass.h"
+#include "QAdminWidget.h"
 ConfigWidget::ConfigWidget(QWidget *parent)
 	: QWidget(parent)
 {
@@ -17,7 +17,7 @@ void ConfigWidget::on_slot_Ok()
 {
 	if (radio_admin->isChecked() == true)
 	{
-		QtGuiClass *AdminWidget=new QtGuiClass;
+		QAdminWidget *AdminWidget=new QAdminWidget;
 		AdminWidget->show();
 		this->hide();
 	}
@@ -25,7 +25,7 @@ void ConfigWidget::on_slot_Ok()
 	{
 		if (uesrWidget == nullptr)
 		{
-			uesrWidget = new QtControl;
+			uesrWidget = new CMainWidget;
 		}	
 		uesrWidget->showMaximized();
 		this->hide();

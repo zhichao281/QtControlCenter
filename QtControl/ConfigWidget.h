@@ -2,7 +2,7 @@
 
 #include <QWidget>
 #include "ui_ConfigWidget.h"
-#include "QtControl.h"
+#include "CMainWidget.h"
 class ConfigWidget : public QWidget,public Ui::ConfigWidget
 {
 	Q_OBJECT
@@ -16,6 +16,6 @@ public slots :
 
 
 public:
-	QtControl * uesrWidget;
+	CMainWidget * uesrWidget;
 
 };

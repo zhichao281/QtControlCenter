@@ -12,12 +12,12 @@
 
 class QGetWidget;
 
-class QtControl : public QWidget,public Ui::QtControlClass
+class CMainWidget : public QWidget,public Ui::QtControlClass
 {
 	Q_OBJECT
 
 public:
-	QtControl(QWidget *parent = Q_NULLPTR);
+	CMainWidget(QWidget *parent = Q_NULLPTR);
 
 
 private slots:
@@ -32,7 +32,7 @@ private slots:
 public:
 
 	KeyBoard* keyBoardDlg;
-	QWidget* parentWidget;
+
 
 	std::shared_ptr<frmComTool>    m_pfrmWidget;
 

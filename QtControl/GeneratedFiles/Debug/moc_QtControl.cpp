@@ -6,7 +6,7 @@
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
-#include "../../QtControl.h"
+#include "../../CMainWidget.h"
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
@@ -73,10 +73,10 @@ static const uint qt_meta_data_QtControl[] = {
        0        // eod
 };
 
-void QtControl::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+void CMainWidget::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
-        QtControl *_t = static_cast<QtControl *>(_o);
+        CMainWidget *_t = static_cast<CMainWidget *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
         case 0: _t->displayInputContent((*reinterpret_cast< QString(*)>(_a[1]))); break;
@@ -88,18 +88,18 @@ void QtControl::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, v
     }
 }
 
-const QMetaObject QtControl::staticMetaObject = {
+const QMetaObject CMainWidget::staticMetaObject = {
     { &QWidget::staticMetaObject, qt_meta_stringdata_QtControl.data,
       qt_meta_data_QtControl,  qt_static_metacall, nullptr, nullptr}
 };
 
 
-const QMetaObject *QtControl::metaObject() const
+const QMetaObject *CMainWidget::metaObject() const
 {
     return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
 }
 
-void *QtControl::qt_metacast(const char *_clname)
+void *CMainWidget::qt_metacast(const char *_clname)
 {
     if (!_clname) return nullptr;
     if (!strcmp(_clname, qt_meta_stringdata_QtControl.stringdata0))
@@ -109,7 +109,7 @@ void *QtControl::qt_metacast(const char *_clname)
     return QWidget::qt_metacast(_clname);
 }
 
-int QtControl::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+int CMainWidget::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
     _id = QWidget::qt_metacall(_c, _id, _a);
     if (_id < 0)

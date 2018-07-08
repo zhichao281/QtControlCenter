@@ -1,7 +1,7 @@
-#include "QtGuiClass.h"
+#include "QAdminWidget.h"
 #include "QMoveControl.h"
 
-QtGuiClass::QtGuiClass(QWidget *parent)
+QAdminWidget::QAdminWidget(QWidget *parent)
 	: QWidget(parent)
 {
 	this->setupUi(this);
@@ -40,10 +40,10 @@ QtGuiClass::QtGuiClass(QWidget *parent)
 	QObject::connect(timer, SIGNAL(timeout()), this, SLOT(on_slot_btn_weight()));
 }
 
-QtGuiClass::~QtGuiClass()
+QAdminWidget::~QAdminWidget()
 {
 }
-void QtGuiClass::on_slot_move()
+void QAdminWidget::on_slot_move()
 {
 	int nRow = lineEdit_X->text().toInt();
 	int nColumn = lineEdit_Y->text().toInt();
@@ -78,18 +78,18 @@ void QtGuiClass::on_slot_move()
 	}
 	
 }
-void QtGuiClass::on_slot_finish()
+void QAdminWidget::on_slot_finish()
 {
 
 }
-void QtGuiClass::on_slot_open()
+void QAdminWidget::on_slot_open()
 {
 	gblMoveControl->Reset();
 	LOG_INFO("finish opendoor");
 	gblPortControl->OpenDoor();
 
 }
-void QtGuiClass::on_slot_close()
+void QAdminWidget::on_slot_close()
 {
 	gblMoveControl->Reset();
 	gblPortControl->CloseDoor();
@@ -97,28 +97,28 @@ void QtGuiClass::on_slot_close()
 }
 
 
-void QtGuiClass::on_slot_suck()
+void QAdminWidget::on_slot_suck()
 {
 	gblMoveControl->Reset();
 	gblPortControl->SuckTray();
 }
-void QtGuiClass::on_slot_drop()
+void QAdminWidget::on_slot_drop()
 {
 	gblMoveControl->Reset();
 	gblPortControl->DropTray();
 }
-void QtGuiClass::on_slot_pull()
+void QAdminWidget::on_slot_pull()
 {
 	gblMoveControl->Reset();
 	gblPortControl->GetGoods();
 }
-void QtGuiClass::on_slot_push()
+void QAdminWidget::on_slot_push()
 {
 	gblMoveControl->Reset();
 	gblPortControl->PushGoods();
 }
 
-void QtGuiClass::on_slot_btn_height()
+void QAdminWidget::on_slot_btn_height()
 {
 	gblPortControl->GetHeight();
 	QTimer::singleShot(100, this, [=]()
@@ -127,7 +127,7 @@ void QtGuiClass::on_slot_btn_height()
 
 	});
 }
-void QtGuiClass::on_slot_btn_weight()
+void QAdminWidget::on_slot_btn_weight()
 {
 	gblPortControl->setReadState(true);
 	eidt_weight->setText(gblRuntimeData->strWeight);
@@ -136,60 +136,60 @@ void QtGuiClass::on_slot_btn_weight()
 		timer->start();
 	}
 }
-void QtGuiClass::on_slot_btn_setZero()
+void QAdminWidget::on_slot_btn_setZero()
 {
 	gblPortControl->SetZero();
 	eidt_weight->setText(gblRuntimeData->strWeight);
 }
-void QtGuiClass::on_slot_move_setting()
+void QAdminWidget::on_slot_move_setting()
 {
 	gblPortControl->move_setting(move_edit->text().toInt());
 }
-void QtGuiClass::on_slot_move_read()
+void QAdminWidget::on_slot_move_read()
 {
 	gblPortControl->move_read();
 	
 }
-void QtGuiClass::on_slot_rotate_setting()
+void QAdminWidget::on_slot_rotate_setting()
 {
 	gblPortControl->rotate_setting(rotate_edit->text().toInt());
 }
-void QtGuiClass::on_slot_rotate_read()
+void QAdminWidget::on_slot_rotate_read()
 {
 	gblPortControl->rotate_read();
 }
-void QtGuiClass::on_slot_tray_setting()
+void QAdminWidget::on_slot_tray_setting()
 {
 	gblPortControl->tray_setting(tray_edit->text().toInt());
 }
-void QtGuiClass::on_slot_tray_read()
+void QAdminWidget::on_slot_tray_read()
 {
 	gblPortControl->tray_read();
 }
-void QtGuiClass::on_slot_door_setting()
+void QAdminWidget::on_slot_door_setting()
 {
 	gblPortControl->door_setting(door_edit->text().toInt());
 }
-void QtGuiClass::on_slot_door_read()
+void QAdminWidget::on_slot_door_read()
 {
 	gblPortControl->door_read();
 }
-void QtGuiClass::on_slot_zero_setting()
+void QAdminWidget::on_slot_zero_setting()
 {
 	gblPortControl->zero_setting(zero_edit->text().toInt());
 }
 
-void QtGuiClass::on_slot_zero_read()
+void QAdminWidget::on_slot_zero_read()
 {
 	gblPortControl->zero_read();
 }
 
-void QtGuiClass::on_slot_btn_setting()
+void QAdminWidget::on_slot_btn_setting()
 {
 
 }
 
-void  QtGuiClass::solt_ReadSetting(int nAction , QString strRecevice)
+void  QAdminWidget::solt_ReadSetting(int nAction , QString strRecevice)
 {
 	//int n1 = strRecevice.section(" ", 8, 9);
 	QString str1 = strRecevice.section(" ", 7, 7).toInt(0, 16);

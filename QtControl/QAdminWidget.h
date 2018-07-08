@@ -5,13 +5,13 @@
 #include <QWidget>
 #include "ui_QtGuiClass.h"
 #include <QTimer>
-class QtGuiClass : public QWidget,public Ui::QtGuiClass
+class QAdminWidget : public QWidget,public Ui::QtGuiClass
 {
 	Q_OBJECT
 
 public:
-	QtGuiClass(QWidget *parent = Q_NULLPTR);
-	~QtGuiClass();
+	QAdminWidget(QWidget *parent = Q_NULLPTR);
+	~QAdminWidget();
 
 public slots:
 	void on_slot_move();

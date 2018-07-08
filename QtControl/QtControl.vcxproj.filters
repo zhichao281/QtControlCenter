@@ -48,9 +48,6 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="QtControl.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="SerialPortSetting.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -150,20 +147,17 @@
     <ClCompile Include="QMoveControl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="QtGuiClass.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="ConfigWidget.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CWeight.cpp">
+    <ClCompile Include="QAdminWidget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CMainWidget.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="QtControl.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
     <QtMoc Include="KeyBoard.h">
       <Filter>Header Files</Filter>
     </QtMoc>
@@ -212,10 +206,13 @@
     <QtMoc Include="QMoveControl.h">
       <Filter>Header Files</Filter>
     </QtMoc>
-    <QtMoc Include="QtGuiClass.h">
+    <QtMoc Include="ConfigWidget.h">
       <Filter>Header Files</Filter>
     </QtMoc>
-    <QtMoc Include="ConfigWidget.h">
+    <QtMoc Include="QAdminWidget.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="CMainWidget.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>
@@ -313,9 +310,6 @@
     </ClInclude>
     <ClInclude Include="qextserialport_win\qextserialenumerator.h">
       <Filter>qextserialport_win</Filter>
-    </ClInclude>
-    <ClInclude Include="CWeight.h">
-      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -1,4 +1,4 @@
-#include "QtControl.h"
+#include "CMainWidget.h"
 #include <QSerialPortInfo>
 #include <QDebug>
 #include <QSerialPort>
@@ -6,15 +6,15 @@
 #include "define.h"
 #include "Qtxqm.h"
 #include "QGetWidget.h"
-QtControl::QtControl(QWidget *parent)
+CMainWidget::CMainWidget(QWidget *parent)
 	: QWidget(parent)
 {
 
 	this->setupUi(this);
 	setWindowFlags(Qt::FramelessWindowHint | Qt::WindowMinimizeButtonHint );
 	this->setWindowIcon(QIcon(":/Image/Resources/Image/zhihuiwu.ico"));
-	//this->setFixedSize(1024, 768);
-	parentWidget = parent;
+
+
 	connect(btn_get, SIGNAL(clicked()), this, SLOT(on_slot_Get()));
 	connect(btn_save, SIGNAL(clicked()), this, SLOT(on_slot_Save()));
 	
@@ -29,7 +29,7 @@ QtControl::QtControl(QWidget *parent)
 }
 
 
-void QtControl::on_slot_Get()
+void CMainWidget::on_slot_Get()
 {
 	this->hide();
 	m_pGetWidget.reset(new QGetWidget(nullptr, WIDGET_TYPE::MSGBOX_GET));
@@ -42,7 +42,7 @@ void QtControl::on_slot_Get()
 	}
 ;
 }
-void QtControl::on_slot_Save()
+void CMainWidget::on_slot_Save()
 {
 	this->hide();
 	m_pGetWidget.reset(new QGetWidget(nullptr, WIDGET_TYPE::MSGBOX_SAVE));
@@ -55,13 +55,13 @@ void QtControl::on_slot_Save()
 	}
 
 }
-void QtControl::on_slot_setting()
+void CMainWidget::on_slot_setting()
 {
 	m_pfrmWidget.reset(new frmComTool);
 	m_pfrmWidget->showMaximized();
 	this->hide();
 }
-void QtControl::displayInputContent(QString text)
+void CMainWidget::displayInputContent(QString text)
 {
 	qDebug() << "TextEdit::displayInputContent";
 
